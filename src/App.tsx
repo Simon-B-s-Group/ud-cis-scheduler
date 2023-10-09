@@ -14,6 +14,7 @@ function App(): JSX.Element {
             <p>Simon Brugel was here</p>
             <p>Cameron Wine was here</p>
             <p>Conor Jurewicz was here</p>
+            <p>Leo Chen was here</p>
         </div>
     );
 }
