@@ -13,5 +13,5 @@ export interface DegreePlan {
     /**
      * The semesters for this degree plan, which contain courses.
      */
-    semesters: [Semester];
+    semesters: Semester[];
 }
