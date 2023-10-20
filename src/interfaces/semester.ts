@@ -23,5 +23,5 @@ export interface Semester {
     /**
      * A list of the courses being taken this semester
      */
-    courses: [Course];
+    courses: Course[];
 }
