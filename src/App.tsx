@@ -1,9 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+import IntroPopup from "./components/IntroPopup";
 
 function App(): JSX.Element {
+    const [showIntro, setShowIntro] = useState<boolean>(true);
+    const handleClose = () => setShowIntro(false);
+
     return (
         <div className="App">
+            <IntroPopup show={showIntro} handleClose={handleClose} />
+
             <header className="App-header">
                 UD CIS Scheduler - F23 CISC 275
             </header>
