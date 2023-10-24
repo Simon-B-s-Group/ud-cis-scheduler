@@ -1,5 +1,6 @@
 import React from "react";
 import "./App.css";
+import { ListDegreePlans } from "./components/ListDegreePlans";
 
 function App(): JSX.Element {
     return (
@@ -15,6 +16,7 @@ function App(): JSX.Element {
             <p>Cameron Wine was here</p>
             <p>Conor Jurewicz was here</p>
             <p>Leo Chen was here</p>
+            <ListDegreePlans></ListDegreePlans>
         </div>
     );
 }
