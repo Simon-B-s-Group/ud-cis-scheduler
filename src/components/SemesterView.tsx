@@ -2,7 +2,6 @@
 import "react";
 import { Semester } from "../interfaces/semester";
 import { PlannedCourses } from "./PlannedCourses";
-import { Course } from "../interfaces/course";
 
 export function SemesterView({ season, year, courses }: Semester): JSX.Element {
     return (
