@@ -31,8 +31,8 @@ function App(): JSX.Element {
                         credits: 4
                     },
                     {
-                        code: "",
-                        name: "Breadth Requirement (1/5)",
+                        code: "HIST106",
+                        name: "U.S. History Since 1865",
                         credits: 3
                     }
                 ]
@@ -57,13 +57,13 @@ function App(): JSX.Element {
                         credits: 4
                     },
                     {
-                        code: "",
-                        name: "Breadth Requirement (2/5)",
+                        code: "CGSC170",
+                        name: "Introduction to Cognitive Science",
                         credits: 3
                     },
                     {
-                        code: "",
-                        name: "Breadth Requirement (3/5)",
+                        code: "LING101",
+                        name: "Introduction to Linguistics",
                         credits: 3
                     }
                 ]
@@ -88,14 +88,45 @@ function App(): JSX.Element {
                         credits: 3
                     },
                     {
-                        code: "",
-                        name: "Science Requirement (1/2)",
+                        code: "GEOL107",
+                        name: "Geology of Dynamic Earth",
                         credits: 4
                     },
                     {
-                        code: "",
-                        name: "Breadth Requirement (4/5)",
+                        code: "LING202",
+                        name: "Science of Language",
                         credits: 3
+                    }
+                ]
+            },
+            {
+                season: "Spring",
+                year: 2025,
+                courses: [
+                    {
+                        code: "CISC275",
+                        name: "Introduction to Software Engineering",
+                        credits: 3
+                    },
+                    {
+                        code: "CISC355",
+                        name: "Computers, Ethics, and Society",
+                        credits: 3
+                    },
+                    {
+                        code: "MATH205",
+                        name: "Statistical Methods",
+                        credits: 3
+                    },
+                    {
+                        code: "GEOL105",
+                        name: "Geological Hazards and their Human Impacts",
+                        credits: 3
+                    },
+                    {
+                        code: "GEOL115",
+                        name: "Geological Hazards Laboratory",
+                        credits: 1
                     }
                 ]
             }
