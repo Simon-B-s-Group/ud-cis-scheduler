@@ -2,7 +2,6 @@ import React from "react";
 import { DegreePlan } from "../interfaces/degreePlan";
 
 export function DegreePlanPage({ degreePlan }: { degreePlan: DegreePlan }) {
-    return <>Words</>;
     // return (
     //     <>
     //         <h1>{degreePlan.name}</h1>
