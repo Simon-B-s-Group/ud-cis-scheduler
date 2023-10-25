@@ -14,7 +14,8 @@ function App(): JSX.Element {
     const handleClose = () => setShowIntro(false);
 
     const [currentPlan, setCurrentPlan] = useState<DegreePlan | null>(null);
-    const [degreePlans, setDegreePlans] = useState<DegreePlan[]>([
+    const [degreePlans] = useState<DegreePlan[]>([
+        // TODO: add a setter
         {
             name: "Sample Degree Plan",
             semesters: [
