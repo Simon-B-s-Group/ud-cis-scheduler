@@ -1,20 +1,27 @@
 import React from "react";
 import { DegreePlan } from "../interfaces/degreePlan";
+import { SemesterView } from "./SemesterView";
+import { Semester } from "../interfaces/semester";
 
 export function DegreePlanPage({ degreePlan }: { degreePlan: DegreePlan }) {
-    // return (
-    //     <>
-    //         <h1>{degreePlan.name}</h1>
-    //         {degreePlan.semesters.map((sem: Semester): JSX.Element => {
-    //             return (
-    //                 <>
-    //                     <h3>
-    //                         {sem.season} {sem.year}
-    //                         <PlannedCourses sem==></PlannedCourses>
-    //                     </h3>
-    //                 </>
-    //             );
-    //         })}
-    //     </>
-    // );
+    return (
+        <div key={degreePlan.name}>
+            <b>
+                <u>
+                    <h5>{degreePlan.name}</h5>
+                </u>
+            </b>
+            {degreePlan.semesters.map((semester: Semester): JSX.Element => {
+                return (
+                    <>
+                        <SemesterView
+                            season={semester.season}
+                            year={semester.year}
+                            courses={semester.courses}
+                        ></SemesterView>
+                    </>
+                );
+            })}
+        </div>
+    );
 }
