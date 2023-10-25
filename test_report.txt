@@ -6,14 +6,18 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (40 ms)
+  ✕ renders the course name somewhere (160 ms)
 
   ● renders the course name somewhere
 
     TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
 
     Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
+    [36m<body[39m
+      [33mclass[39m=[32m"modal-open"[39m
+      [33mdata-rr-ui-modal-open[39m=[32m""[39m
+      [33mstyle[39m=[32m"padding-right: 1024px;"[39m
+    [36m>[39m
       [36m<div>[39m
         [36m<div[39m
           [33mclass[39m=[32m"App"[39m
@@ -21,27 +25,80 @@ FAIL src/App.test.tsx
           [36m<header[39m
             [33mclass[39m=[32m"App-header"[39m
           [36m>[39m
-            [0mUD CIS Scheduler - F23 CISC 275[0m
+            [0mUD CIS Scheduler (Simon Brugel - Cameron Wine - Leo Chen - Conor Jurewicz)[0m
           [36m</header>[39m
-          [36m<p>[39m
-            [0mEdit [0m
-            [36m<code>[39m
-              [0msrc/App.tsx[0m
-            [36m</code>[39m
-            [0m and save. This page will automatically reload.[0m
-          [36m</p>[39m
-          [36m<p>[39m
-            [0mSimon Brugel was here[0m
-          [36m</p>[39m
-          [36m<p>[39m
-            [0mCameron Wine was here[0m
-          [36m</p>[39m
-          [36m<p>[39m
-            [0mConor Jurewicz was here[0m
-          [36m</p>[39m
-          [36m<p>[39m
-            [0mLeo Chen was here[0m
-          [36m</p>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-secondary btn btn-primary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mAbout[0m
+          [36m</button>[39m
+          [36m<h3>[39m
+            [0mDegree Plans[0m
+          [36m</h3>[39m
+          [36m<div>[39m
+            [36m<h4>[39m
+              [0mSample Degree Plan[0m
+            [36m</h4>[39m
+            [36m<p>[39m
+              [0m4[0m
+              [0m semesters[0m
+            [36m</p>[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mView Plan[0m
+            [36m</button>[39m
+          [36m</div>[39m
+        [36m</div>[39m
+      [36m</div>[39m
+      [36m<div[39m
+        [33mclass[39m=[32m"fade modal-backdrop show"[39m
+      [36m/>[39m
+      [36m<div[39m
+        [33maria-modal[39m=[32m"true"[39m
+        [33mclass[39m=[32m"fade modal show"[39m
+        [33mrole[39m=[32m"dialog"[39m
+        [33mstyle[39m=[32m"display: block; padding-right: 0px;"[39m
+        [33mtabindex[39m=[32m"-1"[39m
+      [36m>[39m
+        [36m<div[39m
+          [33mclass[39m=[32m"modal-dialog"[39m
+        [36m>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"modal-content"[39m
+          [36m>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"modal-header"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"modal-title h4"[39m
+              [36m>[39m
+                [0mWelcome to the UD CIS Scheduler![0m
+              [36m</div>[39m
+              [36m<button[39m
+                [33maria-label[39m=[32m"Close"[39m
+                [33mclass[39m=[32m"btn-close"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m/>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"modal-body"[39m
+            [36m>[39m
+              [0mThis application allows you to create your own University of Delaware Computer Science degree plan, visualizing satisfied degree requirements and credits taken. To start, you can view or edit the default degree plan by adding, editing, or deleting semesters and courses taken. You can also create a new degree plan from scratch. Have fun![0m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"modal-footer"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-secondary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mClose[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -67,11 +124,14 @@ FAIL src/App.test.tsx
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |   33.33 |      100 |   33.33 |   33.33 |                   
- src                 |     100 |      100 |     100 |     100 |                   
-  App.tsx            |     100 |      100 |     100 |     100 |                   
- src/components      |       0 |      100 |       0 |       0 |                   
-  DegreePlanPage.tsx |       0 |      100 |       0 |       0 | 6-10              
+All files            |   46.66 |       50 |   27.27 |      50 |                   
+ src                 |      60 |       50 |   33.33 |   66.66 |                   
+  App.tsx            |      60 |       50 |   33.33 |   66.66 | 157,172-183       
+ src/components      |      20 |      100 |      20 |      20 |                   
+  DegreePlanPage.tsx |       0 |      100 |       0 |       0 | 7-15              
+  IntroPopup.tsx     |     100 |      100 |     100 |     100 |                   
+  PlannedCourses.tsx |       0 |      100 |       0 |       0 | 5                 
+  SemesterView.tsx   |       0 |      100 |       0 |       0 | 6                 
  src/interfaces      |       0 |        0 |       0 |       0 |                   
   course.ts          |       0 |        0 |       0 |       0 |                   
   degreePlan.ts      |       0 |        0 |       0 |       0 |                   
@@ -80,5 +140,5 @@ All files            |   33.33 |      100 |   33.33 |   33.33 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        1.715 s
+Time:        3.017 s
 Ran all test suites.
