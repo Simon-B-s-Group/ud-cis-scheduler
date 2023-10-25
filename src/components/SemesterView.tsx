@@ -7,6 +7,8 @@ export function SemesterView({ season, year, courses }: Semester): JSX.Element {
         <div>
             {season} {year} {" Courses:"}
             <table>
+                <th>Course</th>
+                <th>Credits</th>
                 <tr>{courses.map(PlannedCourses)}</tr>
             </table>
         </div>
