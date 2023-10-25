@@ -5,9 +5,9 @@ import React, { useState } from "react";
 import "./App.css";
 
 import { IntroPopup } from "./components/IntroPopup";
-import { ListDegreePlans } from "./components/ListDegreePlans";
 import { DegreePlan } from "./interfaces/degreePlan";
 import { Button } from "react-bootstrap";
+import { DegreePlanPage } from "./components/DegreePlanPage";
 
 function App(): JSX.Element {
     const [showIntro, setShowIntro] = useState<boolean>(true);
@@ -146,10 +146,8 @@ function App(): JSX.Element {
         }
     ]);
 
-    return !currentPlan ? (
+    return (
         <div className="App">
-            <IntroPopup show={showIntro} handleClose={handleClose} />
-
             <header className="App-header">
                 UD CIS Scheduler (Simon Brugel - Cameron Wine - Leo Chen - Conor
                 Jurewicz)
@@ -158,12 +156,38 @@ function App(): JSX.Element {
                 onClick={() => setShowIntro(true)}
                 className="btn btn-secondary"
             >
-                Show Intro Popup
+                About
             </Button>
-            <ListDegreePlans degreePlans={degreePlans}></ListDegreePlans>
+            {!currentPlan ? (
+                <>
+                    <IntroPopup show={showIntro} handleClose={handleClose} />
+                    <h3>Degree Plans</h3>
+                    {degreePlans.map((degreePlan: DegreePlan): JSX.Element => {
+                        return (
+                            <div key={degreePlan.name}>
+                                <h4>{degreePlan.name}</h4>
+                                <p>{degreePlan.semesters.length} semesters</p>
+                                <Button
+                                    onClick={() => setCurrentPlan(degreePlan)}
+                                >
+                                    View Plan
+                                </Button>
+                            </div>
+                        );
+                    })}
+                </>
+            ) : (
+                <>
+                    <Button
+                        onClick={() => setCurrentPlan(null)}
+                        className="btn btn-danger"
+                    >
+                        Go Back
+                    </Button>
+                    <DegreePlanPage degreePlan={currentPlan} />
+                </>
+            )}
         </div>
-    ) : (
-        <p>test</p>
     );
 }
 
