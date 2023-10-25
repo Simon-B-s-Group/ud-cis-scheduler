@@ -1,13 +1,13 @@
 import React from "react";
 import { Modal, Button } from "react-bootstrap";
 
-const IntroPopup = ({
+export function IntroPopup({
     show,
     handleClose
 }: {
     show: boolean;
     handleClose: () => void;
-}) => {
+}) {
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
@@ -28,6 +28,4 @@ const IntroPopup = ({
             </Modal.Footer>
         </Modal>
     );
-};
-
-export default IntroPopup;
+}
