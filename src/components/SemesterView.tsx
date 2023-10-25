@@ -6,7 +6,9 @@ export function SemesterView({ season, year, courses }: Semester): JSX.Element {
     return (
         <div>
             {season} {year} {" Courses:"}
-            {courses.map(PlannedCourses)}
+            <table>
+                <tr>{courses.map(PlannedCourses)}</tr>
+            </table>
         </div>
     );
 }
