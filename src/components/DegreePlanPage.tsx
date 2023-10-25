@@ -1,22 +1,27 @@
 import React from "react";
 import { DegreePlan } from "../interfaces/degreePlan";
+import { SemesterView } from "./SemesterView";
 import { Semester } from "../interfaces/semester";
 
 export function DegreePlanPage({ degreePlan }: { degreePlan: DegreePlan }) {
     return (
-        <>
-            <h1>{degreePlan.name}</h1>
-            {degreePlan.semesters.map((sem: Semester): JSX.Element => {
+        <div key={degreePlan.name}>
+            <b>
+                <u>
+                    <h5>{degreePlan.name}</h5>
+                </u>
+            </b>
+            {degreePlan.semesters.map((semester: Semester): JSX.Element => {
                 return (
                     <>
-                        <h3>
-                            COMPONENT FOR {sem.season} {sem.year} Semester GOES
-                            HERE!!!! Will need to call Semester component here
-                            after Leo makes it
-                        </h3>
+                        <SemesterView
+                            season={semester.season}
+                            year={semester.year}
+                            courses={semester.courses}
+                        ></SemesterView>
                     </>
                 );
             })}
-        </>
+        </div>
     );
 }
