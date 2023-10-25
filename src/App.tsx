@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+
+import IntroPopup from "./components/IntroPopup";
 import { ListDegreePlans } from "./components/ListDegreePlans";
 
 function App(): JSX.Element {
+    const [showIntro, setShowIntro] = useState<boolean>(true);
+    const handleClose = () => setShowIntro(false);
+    
     const samplePlan: DegreePlan = {
         name: "Sample Degree Plan",
         semesters: [
@@ -132,8 +137,11 @@ function App(): JSX.Element {
             }
         ]
     };
+
     return (
         <div className="App">
+            <IntroPopup show={showIntro} handleClose={handleClose} />
+
             <header className="App-header">
                 UD CIS Scheduler - F23 CISC 275
             </header>
