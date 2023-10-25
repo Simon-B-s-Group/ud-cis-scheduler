@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import { DegreePlan } from "./interfaces/degreePlan";
+import { ListDegreePlans } from "./components/ListDegreePlans";
 
 function App(): JSX.Element {
     const samplePlan: DegreePlan = {
@@ -145,6 +145,7 @@ function App(): JSX.Element {
             <p>Cameron Wine was here</p>
             <p>Conor Jurewicz was here</p>
             <p>Leo Chen was here</p>
+            <ListDegreePlans></ListDegreePlans>
         </div>
     );
 }
