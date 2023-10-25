@@ -3,8 +3,8 @@ import { Course } from "../interfaces/course";
 
 export function PlannedCourses(course: Course): JSX.Element {
     return (
-        <ul>
+        <li>
             {course.code}: {course.name} ({course.credits} credits)
-        </ul>
+        </li>
     );
 }
