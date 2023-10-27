@@ -2,6 +2,7 @@ import React from "react";
 import { DegreePlan } from "../interfaces/degreePlan";
 import { SemesterView } from "./SemesterView";
 import { Semester } from "../interfaces/semester";
+import { Course } from "../interfaces/course";
 
 export function DegreePlanPage({ degreePlan }: { degreePlan: DegreePlan }) {
     return (
@@ -22,6 +23,17 @@ export function DegreePlanPage({ degreePlan }: { degreePlan: DegreePlan }) {
                     </>
                 );
             })}
+            Total Credits Overall: {""}
+            {degreePlan.semesters.reduce(
+                (currentTotal: number, currentSemester: Semester) =>
+                    currentTotal +
+                    currentSemester.courses.reduce(
+                        (credits: number, course: Course) =>
+                            credits + course.credits,
+                        0
+                    ),
+                0
+            )}
         </div>
     );
 }
