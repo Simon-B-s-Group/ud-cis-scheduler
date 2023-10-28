@@ -25,7 +25,9 @@ FAIL src/App.test.tsx
           [36m<header[39m
             [33mclass[39m=[32m"App-header"[39m
           [36m>[39m
-            [0mUD CIS Scheduler (Simon Brugel - Cameron Wine - Leo Chen - Conor Jurewicz)[0m
+            [0mUD CIS Scheduler [0m
+            [36m<br />[39m
+            [0mSimon Brugel - Cameron Wine - Leo Chen - Conor Jurewicz[0m
           [36m</header>[39m
           [36m<button[39m
             [33mclass[39m=[32m"btn btn-secondary btn btn-primary"[39m
@@ -131,7 +133,7 @@ All files            |      35 |       25 |   21.42 |   36.84 |
   DegreePlanPage.tsx |       0 |        0 |       0 |       0 | 8-28              
   IntroPopup.tsx     |     100 |      100 |     100 |     100 |                   
   PlannedCourses.tsx |       0 |      100 |       0 |       0 | 5                 
-  SemesterView.tsx   |       0 |      100 |       0 |       0 | 7-18              
+  SemesterView.tsx   |       0 |      100 |       0 |       0 | 8-19              
  src/interfaces      |       0 |        0 |       0 |       0 |                   
   course.ts          |       0 |        0 |       0 |       0 |                   
   degreePlan.ts      |       0 |        0 |       0 |       0 |                   
@@ -140,5 +142,5 @@ All files            |      35 |       25 |   21.42 |   36.84 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.318 s
+Time:        2.082 s
 Ran all test suites.
