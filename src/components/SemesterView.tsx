@@ -9,16 +9,20 @@ export function SemesterView({ season, year, courses }: Semester): JSX.Element {
         <div>
             {season} {year} {" Courses:"}
             <table className="center">
-                <th>Course</th>
-                <th>Credits</th>
-                <tr>{courses.map(PlannedCourses)}</tr>
                 <tr>
-                    Total Credits for Semester:{" "}
-                    {courses.reduce(
-                        (currentTotal: number, currentCourse: Course) =>
-                            currentTotal + currentCourse.credits,
-                        0
-                    )}
+                    <th>Course</th>
+                    <th>Credits</th>
+                </tr>
+                {courses.map(PlannedCourses)}
+                <tr>
+                    <td>Total Credits for Semester: </td>
+                    <td>
+                        {courses.reduce(
+                            (currentTotal: number, currentCourse: Course) =>
+                                currentTotal + currentCourse.credits,
+                            0
+                        )}
+                    </td>
                 </tr>
                 <br></br>
             </table>
