@@ -20,6 +20,7 @@ export function SemesterView({ season, year, courses }: Semester): JSX.Element {
                         0
                     )}
                 </tr>
+                <br></br>
             </table>
         </div>
     );
