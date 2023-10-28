@@ -150,8 +150,8 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                UD CIS Scheduler (Simon Brugel - Cameron Wine - Leo Chen - Conor
-                Jurewicz)
+                UD CIS Scheduler <br></br>Simon Brugel - Cameron Wine - Leo Chen
+                - Conor Jurewicz
             </header>
             <Button
                 onClick={() => setShowIntro(true)}

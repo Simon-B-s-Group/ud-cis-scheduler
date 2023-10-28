@@ -1,0 +1,13 @@
+.center {
+    margin-left: 75vh;
+    width: 43vh;
+}
+
+th {
+    border: 2px solid rgb(190, 190, 190);
+    padding: 10px;
+}
+tr {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px;
+}
