@@ -29,6 +29,16 @@ export function DegreePlanPage({
         season: Season | null,
         year: number | null
     ): void => {
+        if (
+            thisPlan.semesters.find(
+                (sem: Semester): boolean =>
+                    sem.season === season && sem.year === year
+            )
+        ) {
+            alert(`${season} ${year} semester already exists!`);
+            return;
+        }
+
         setShowNewSemPopup(false);
         if (!season || !year) return;
 
