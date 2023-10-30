@@ -4,7 +4,7 @@
 import React, { useState } from "react";
 import "./App.css";
 
-import { IntroPopup } from "./components/IntroPopup";
+import { IntroPopup } from "./components/modals/IntroPopup";
 import { DegreePlan } from "./interfaces/degreePlan";
 import { Button } from "react-bootstrap";
 import { DegreePlanPage } from "./components/DegreePlanPage";
@@ -150,11 +150,9 @@ function App(): JSX.Element {
      * This updates the degree plan with newPlan's name with newPlan.
      * i.e. If I have a plan named "Plan 1", and I have it loaded in the editor, if I change one of its courses,
      * then once I return to the home page, that degree plan will automatically be updated with the changes I made.
-     * @param newPlan The new plan to use for the plan with the same name.
-     * @param exit If true, this exits the editor and returns home. Otherwise it just stays on the same page.
+     * @param newPlan The new plan to use. Replaces the existing plan that shares its name.
      */
-    const updateDegreePlans = (newPlan: DegreePlan, exit: boolean) => {
-        console.log("hello");
+    const updateDegreePlan = (newPlan: DegreePlan): void => {
         const nameToUpdate = newPlan.name;
 
         const newPlans = degreePlans.map((plan: DegreePlan): DegreePlan => {
@@ -164,10 +162,8 @@ function App(): JSX.Element {
                 ? { ...newPlan, semesters: [...newPlan.semesters] }
                 : { ...plan };
         });
-        console.log(newPlans);
         setDegreePlans([...newPlans]);
-        console.log(degreePlans);
-        if (exit) setCurrentPlan(null);
+        setCurrentPlan(null);
     };
 
     return (
@@ -204,7 +200,7 @@ function App(): JSX.Element {
                 <>
                     <DegreePlanPage
                         degreePlan={currentPlan}
-                        savePlan={updateDegreePlans}
+                        savePlan={updateDegreePlan}
                     />
                 </>
             )}
