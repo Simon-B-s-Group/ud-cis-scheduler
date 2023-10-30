@@ -2,18 +2,37 @@
 // THIS WAS APPROVED BY AROMANDO - UNSOLVABLE ESLINT AND PRETTIER CONFLICTS
 
 import React from "react";
-import { Semester } from "../interfaces/semester";
+import { Season, Semester } from "../interfaces/semester";
 import { PlannedCourses } from "./PlannedCourses";
 import { Course } from "../interfaces/course";
 import "../Table.css";
+import { Button } from "react-bootstrap";
 
-export function SemesterView({ season, year, courses }: Semester): JSX.Element {
+export function SemesterView({
+    sem,
+    deleteThisSem
+}: {
+    sem: Semester;
+    deleteThisSem: (season: Season, year: number) => void;
+}): JSX.Element {
     return (
         <div>
-            <strong>
-                {season} {year} {" Courses:"}
-            </strong>
-            {courses.length === 0 ? (
+            <span>
+                <strong>
+                    {sem.season} {sem.year} {" Courses:"}
+                </strong>
+            </span>
+            <br></br>
+            <Button variant="primary" onClick={() => console.log("hello")}>
+                Edit Semester
+            </Button>
+            <Button
+                variant="danger"
+                onClick={() => deleteThisSem(sem.season, sem.year)}
+            >
+                Delete Semester
+            </Button>
+            {sem.courses.length === 0 ? (
                 <p>
                     <em>No courses yet...</em>
                 </p>
@@ -21,10 +40,10 @@ export function SemesterView({ season, year, courses }: Semester): JSX.Element {
                 <table className="center">
                     <th>Course</th>
                     <th>Credits</th>
-                    <tr>{courses.map(PlannedCourses)}</tr>
+                    <tr>{sem.courses.map(PlannedCourses)}</tr>
                     <tr>
                         Total Credits for Semester:{" "}
-                        {courses.reduce(
+                        {sem.courses.reduce(
                             (currentTotal: number, currentCourse: Course) =>
                                 currentTotal + currentCourse.credits,
                             0

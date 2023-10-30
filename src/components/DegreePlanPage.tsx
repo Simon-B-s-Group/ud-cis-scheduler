@@ -13,6 +13,7 @@ export function DegreePlanPage({
     degreePlan: DegreePlan;
     savePlan: (newPlan: DegreePlan) => void;
 }) {
+    const [thisPlan, setThisPlan] = useState<DegreePlan>({ ...degreePlan }); // this is the plan being edited with this degree plan page
     const [showNewSemPopup, setShowNewSemPopup] = useState<boolean>(false);
 
     /**
@@ -24,6 +25,8 @@ export function DegreePlanPage({
      * used if the user closes the modal by clicking outside of it instead of pressing OK.
      * @param season Season for the new semester
      * @param year Year for the new semester
+     *
+     * NOTE: We can use those two parameters since each semester has to be unique.
      */
     const handleNewSumSubmit = (
         season: Season | null,
@@ -55,7 +58,23 @@ export function DegreePlanPage({
         });
     };
 
-    const [thisPlan, setThisPlan] = useState<DegreePlan>({ ...degreePlan });
+    /**
+     * When a "Delete Semester" button is pressed, this deletes the semester associated with that button.
+     * @param season The season of the semester to delete
+     * @param year The year of the semester to delete
+     */
+    const handleSemDelete = (season: Season, year: number): void => {
+        setThisPlan({
+            ...thisPlan,
+            semesters: [
+                ...thisPlan.semesters.filter(
+                    (sem: Semester): boolean =>
+                        sem.season !== season || sem.year !== year
+                )
+            ]
+        });
+    };
+
     const totalCredits = degreePlan.semesters.reduce(
         (currentTotal: number, currentSemester: Semester) =>
             currentTotal +
@@ -96,9 +115,8 @@ export function DegreePlanPage({
                     return (
                         <>
                             <SemesterView
-                                season={semester.season}
-                                year={semester.year}
-                                courses={semester.courses}
+                                sem={semester}
+                                deleteThisSem={handleSemDelete}
                             ></SemesterView>
                         </>
                     );
