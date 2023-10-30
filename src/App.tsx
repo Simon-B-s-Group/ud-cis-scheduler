@@ -14,8 +14,7 @@ function App(): JSX.Element {
     const handleClose = () => setShowIntro(false);
 
     const [currentPlan, setCurrentPlan] = useState<DegreePlan | null>(null);
-    const [degreePlans] = useState<DegreePlan[]>([
-        // TODO: add a setter
+    const [degreePlans, setDegreePlans] = useState<DegreePlan[]>([
         {
             name: "Sample Degree Plan",
             semesters: [
@@ -147,6 +146,30 @@ function App(): JSX.Element {
         }
     ]);
 
+    /**
+     * This updates the degree plan with newPlan's name with newPlan.
+     * i.e. If I have a plan named "Plan 1", and I have it loaded in the editor, if I change one of its courses,
+     * then once I return to the home page, that degree plan will automatically be updated with the changes I made.
+     * @param newPlan The new plan to use for the plan with the same name.
+     * @param exit If true, this exits the editor and returns home. Otherwise it just stays on the same page.
+     */
+    const updateDegreePlans = (newPlan: DegreePlan, exit: boolean) => {
+        console.log("hello");
+        const nameToUpdate = newPlan.name;
+
+        const newPlans = degreePlans.map((plan: DegreePlan): DegreePlan => {
+            console.log(plan.name === nameToUpdate);
+            console.log(newPlan);
+            return plan.name === nameToUpdate
+                ? { ...newPlan, semesters: [...newPlan.semesters] }
+                : { ...plan };
+        });
+        console.log(newPlans);
+        setDegreePlans([...newPlans]);
+        console.log(degreePlans);
+        if (exit) setCurrentPlan(null);
+    };
+
     return (
         <div className="App">
             <header className="App-header">
@@ -179,13 +202,10 @@ function App(): JSX.Element {
                 </>
             ) : (
                 <>
-                    <Button
-                        onClick={() => setCurrentPlan(null)}
-                        className="btn btn-danger"
-                    >
-                        Go Back
-                    </Button>
-                    <DegreePlanPage degreePlan={currentPlan} />
+                    <DegreePlanPage
+                        degreePlan={currentPlan}
+                        savePlan={updateDegreePlans}
+                    />
                 </>
             )}
         </div>
