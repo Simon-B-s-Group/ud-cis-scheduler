@@ -220,7 +220,9 @@ function App(): JSX.Element {
                 <>
                     <SingleSemesterPage
                         sem={currentSemester}
+                        degreePlan={currentPlan}
                         setCurrentSemester={setCurrentSemester}
+                        updatePlan={updateDegreePlan}
                     />
                 </>
             )}
