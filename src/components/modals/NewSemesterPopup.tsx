@@ -1,5 +1,4 @@
 /* eslint-disable no-extra-parens */
-// (yes, this dumb thing has reached even this file!)
 // THIS WAS APPROVED BY AROMANDO - UNSOLVABLE ESLINT AND PRETTIER CONFLICTS
 
 import React, { useState } from "react";

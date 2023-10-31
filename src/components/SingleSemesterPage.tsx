@@ -1,3 +1,6 @@
+/* eslint-disable no-extra-parens */
+// THIS WAS APPROVED BY AROMANDO - UNSOLVABLE ESLINT AND PRETTIER CONFLICTS
+
 import React, { useState } from "react";
 import { SemesterView } from "./SemesterView";
 import { Semester } from "../interfaces/semester";
@@ -32,7 +35,8 @@ export function SingleSemesterPage({
     updatePlan: (newPlan: DegreePlan, exit: boolean) => void;
 }) {
     // the list of course options in the dropdown, aka the courses that can be added to a semester
-    const [courseOptions, setCourseOptions] = useState<CourseOption[]>([
+    // TODO: add a setter soon
+    const [courseOptions] = useState<CourseOption[]>([
         {
             course: {
                 code: "CISC108",
