@@ -8,12 +8,15 @@ import { IntroPopup } from "./components/modals/IntroPopup";
 import { DegreePlan } from "./interfaces/degreePlan";
 import { Button } from "react-bootstrap";
 import { DegreePlanPage } from "./components/DegreePlanPage";
+import { Semester } from "./interfaces/semester";
+import { SingleSemesterPage } from "./components/SingleSemesterPage";
 
 function App(): JSX.Element {
+    // if true, the Intro popup will display
     const [showIntro, setShowIntro] = useState<boolean>(true);
     const handleClose = () => setShowIntro(false);
 
-    const [currentPlan, setCurrentPlan] = useState<DegreePlan | null>(null);
+    // this is the list of all degree plans available
     const [degreePlans, setDegreePlans] = useState<DegreePlan[]>([
         {
             name: "Sample Degree Plan",
@@ -146,24 +149,33 @@ function App(): JSX.Element {
         }
     ]);
 
+    // this is the current plan being edited, if any
+    const [currentPlan, setCurrentPlan] = useState<DegreePlan | null>(null);
+
+    // this is the current semester being edited, if any
+    const [currentSemester, setCurrentSemester] = useState<Semester | null>(
+        null
+    );
+
     /**
      * This updates the degree plan with newPlan's name with newPlan.
      * i.e. If I have a plan named "Plan 1", and I have it loaded in the editor, if I change one of its courses,
      * then once I return to the home page, that degree plan will automatically be updated with the changes I made.
      * @param newPlan The new plan to use. Replaces the existing plan that shares its name.
+     * @param exit If true, this saves and returns to the main menu. Otherwise, this just saves and stays on the degree plan page.
      */
-    const updateDegreePlan = (newPlan: DegreePlan): void => {
+    const updateDegreePlan = (newPlan: DegreePlan, exit: boolean): void => {
         const nameToUpdate = newPlan.name;
 
         const newPlans = degreePlans.map((plan: DegreePlan): DegreePlan => {
-            console.log(plan.name === nameToUpdate);
-            console.log(newPlan);
             return plan.name === nameToUpdate
                 ? { ...newPlan, semesters: [...newPlan.semesters] }
                 : { ...plan };
         });
         setDegreePlans([...newPlans]);
-        setCurrentPlan(null);
+
+        if (exit) setCurrentPlan(null);
+        else setCurrentPlan(newPlan);
     };
 
     return (
@@ -196,11 +208,19 @@ function App(): JSX.Element {
                         );
                     })}
                 </>
-            ) : (
+            ) : !currentSemester ? (
                 <>
                     <DegreePlanPage
                         degreePlan={currentPlan}
+                        setCurrentSemester={setCurrentSemester}
                         savePlan={updateDegreePlan}
+                    />
+                </>
+            ) : (
+                <>
+                    <SingleSemesterPage
+                        sem={currentSemester}
+                        setCurrentSemester={setCurrentSemester}
                     />
                 </>
             )}

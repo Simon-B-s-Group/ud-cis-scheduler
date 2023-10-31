@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { DegreePlan } from "../interfaces/degreePlan";
 import { SemesterView } from "./SemesterView";
 import { Season, Semester } from "../interfaces/semester";
@@ -6,15 +6,38 @@ import { Course } from "../interfaces/course";
 import { Button } from "react-bootstrap";
 import { NewSemesterPopup } from "./modals/NewSemesterPopup";
 
+/**
+ * A page showing a whole Degree Plan, specifically its name and semesters
+ *
+ * @param degreePlan The degree plan this page is showing
+ *
+ * @param savePlan This is a function which saves the plan to the state.
+ * (SEE: updateDegreePlan in App.tsx; that's what gets passed into here)
+ *
+ * @param setCurrentSemester This is a function which sets the current semester to a Semester object or null.
+ * (SEE: setCurrentSemester in App.tsx; that's what gets passed into here)
+ * If currentSemester is not null, it will show a SingleSemesterPage with that semester. Otherwise, it will show the parent DegreePlan's page.
+ */
 export function DegreePlanPage({
     degreePlan,
-    savePlan
+    savePlan,
+    setCurrentSemester
 }: {
     degreePlan: DegreePlan;
-    savePlan: (newPlan: DegreePlan) => void;
+    savePlan: (newPlan: DegreePlan, exit: boolean) => void;
+    setCurrentSemester: (newSem: Semester | null) => void;
 }) {
-    const [thisPlan, setThisPlan] = useState<DegreePlan>({ ...degreePlan }); // this is the plan being edited with this degree plan page
+    // this is the plan being edited with this degree plan page
+    const [thisPlan, setThisPlan] = useState<DegreePlan>({ ...degreePlan });
     const [showNewSemPopup, setShowNewSemPopup] = useState<boolean>(false);
+
+    /**
+     * Something I know from internship stuff
+     * Every time thisPlan changes, we save its changes. (React state updates are asynchronous, so we need this)
+     */
+    useEffect(() => {
+        savePlan(thisPlan, false);
+    }, [thisPlan]);
 
     /**
      * To be used in tandem with the NewSemesterPopup modal. Once a submission is made
@@ -26,7 +49,7 @@ export function DegreePlanPage({
      * @param season Season for the new semester
      * @param year Year for the new semester
      *
-     * NOTE: We can use those two parameters since each semester has to be unique.
+     * NOTE: We can use those two parameters since each semester must have a unique season and year.
      */
     const handleNewSumSubmit = (
         season: Season | null,
@@ -90,7 +113,7 @@ export function DegreePlanPage({
     return (
         <>
             <Button
-                onClick={() => savePlan(thisPlan)}
+                onClick={() => savePlan(thisPlan, true)}
                 className="btn btn-danger"
             >
                 Go Back
@@ -116,6 +139,8 @@ export function DegreePlanPage({
                         <>
                             <SemesterView
                                 sem={semester}
+                                editMode={false}
+                                setCurrentSemester={setCurrentSemester}
                                 deleteThisSem={handleSemDelete}
                             ></SemesterView>
                         </>
