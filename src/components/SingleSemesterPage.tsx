@@ -167,11 +167,13 @@ export function SingleSemesterPage({
             </b>
             <SemesterView
                 sem={sem}
+                degreePlan={degreePlan}
                 editMode={true}
                 setCurrentSemester={setCurrentSemester}
                 deleteThisSem={() => {
                     throw ""; // we don't have a Delete button in edit mode
                 }}
+                updatePlan={updatePlan}
             />
             <b>
                 <u>

@@ -131,7 +131,7 @@ function App(): JSX.Element {
                         {
                             code: "MATH205",
                             name: "Statistical Methods",
-                            credits: 3
+                            credits: 4
                         },
                         {
                             code: "GEOL105",

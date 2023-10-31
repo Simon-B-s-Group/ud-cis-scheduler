@@ -139,9 +139,11 @@ export function DegreePlanPage({
                         <>
                             <SemesterView
                                 sem={semester}
+                                degreePlan={thisPlan}
                                 editMode={false}
                                 setCurrentSemester={setCurrentSemester}
                                 deleteThisSem={handleSemDelete}
+                                updatePlan={savePlan}
                             ></SemesterView>
                         </>
                     );

@@ -7,11 +7,14 @@ import { PlannedCourses } from "./PlannedCourses";
 import { Course } from "../interfaces/course";
 import "../Table.css";
 import { Button } from "react-bootstrap";
+import { DegreePlan } from "../interfaces/degreePlan";
 
 /**
  * This represents a table showing a semester and its courses/credit totals.
  *
- * @param sem The semester to be used for this component.
+ * @param sem The semester to be used for this component
+ *
+ * @param degreePlan The degree plan this semester is a part of
  *
  * @param editMode
  * If true, this will hide the Edit/Delete buttons for use in the SingleSemesterPage component.
@@ -23,18 +26,56 @@ import { Button } from "react-bootstrap";
  *
  * @param deleteThisSem This is a function which will permanently delete this semester from its parent DegreePlan.
  * (SEE: handleSemDelete in DegreePlanPage.tsx; that's what gets passed into here)
+ *
+ * @param updatePlan This function updates the plan containing this semester.
+ * (SEE: updateDegreePlan in App.tsx; that's what gets passed into here)
  */
 export function SemesterView({
     sem,
+    degreePlan,
     editMode,
     setCurrentSemester,
-    deleteThisSem
+    deleteThisSem,
+    updatePlan
 }: {
     sem: Semester;
+    degreePlan: DegreePlan;
     editMode: boolean;
     setCurrentSemester: (newSem: Semester | null) => void;
     deleteThisSem: (season: Season, year: number) => void;
+    updatePlan: (newPlan: DegreePlan, exit: boolean) => void;
 }): JSX.Element {
+    /**
+     * This removes the given course from this semester and saves the whole plan.
+     * @param course The course to remove
+     */
+    const deleteCourse = (course: Course) => {
+        // the new courses list, with the selected one gone
+        const updatedCourses = sem.courses.filter(
+            (c: Course): boolean => c !== course
+        );
+
+        // the updated semester data without this course; done so it updates live
+        const updatedSemester: Semester = { ...sem, courses: updatedCourses };
+        setCurrentSemester(updatedSemester);
+
+        // the new list of semesters, including this modified one - gets saved to the degree plan
+        const updatedSemesters: Semester[] = degreePlan.semesters.map(
+            (semester: Semester): Semester => {
+                return sem.season === semester.season &&
+                    sem.year === semester.year
+                    ? updatedSemester
+                    : semester;
+            }
+        );
+        // the new plan with updated semesters
+        const updatedPlan: DegreePlan = {
+            ...degreePlan,
+            semesters: updatedSemesters
+        };
+        updatePlan(updatedPlan, false);
+    };
+
     return (
         <div>
             <span>
@@ -67,7 +108,17 @@ export function SemesterView({
                 <table className="center">
                     <th>Course</th>
                     <th>Credits</th>
-                    <tr>{sem.courses.map(PlannedCourses)}</tr>
+                    {editMode ? <th></th> : null}
+                    {sem.courses.map(
+                        (course: Course): JSX.Element => (
+                            <PlannedCourses
+                                key={course.code}
+                                course={course}
+                                editMode={editMode}
+                                deleteCourse={deleteCourse}
+                            />
+                        )
+                    )}
                     <tr>
                         Total Credits for Semester:{" "}
                         {sem.courses.reduce(

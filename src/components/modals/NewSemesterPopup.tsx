@@ -16,12 +16,14 @@ export function NewSemesterPopup({
     const [season, setSeason] = useState<Season>("Fall");
     const [year, setYear] = useState<number>(new Date().getFullYear());
 
+    // updates the currently selected season
     const updateSeason = (
         event: React.ChangeEvent<HTMLSelectElement>
     ): void => {
         setSeason(event.target.value as Season); // Sesaon is basically just a restricted string
     };
 
+    // updates the currently selected year
     const updateYear = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setYear(Number.parseInt(event.target.value));
     };
