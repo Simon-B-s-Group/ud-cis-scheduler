@@ -6,7 +6,7 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (105 ms)
+  ✕ renders the course name somewhere (120 ms)
 
   ● renders the course name somewhere
 
@@ -123,24 +123,28 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
----------------------|---------|----------|---------|---------|-------------------
-File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
----------------------|---------|----------|---------|---------|-------------------
-All files            |      35 |       25 |   21.42 |   36.84 |                   
- src                 |      60 |       50 |   33.33 |   66.66 |                   
-  App.tsx            |      60 |       50 |   33.33 |   66.66 | 157,172-183       
- src/components      |      10 |        0 |    12.5 |      10 |                   
-  DegreePlanPage.tsx |       0 |        0 |       0 |       0 | 8-28              
-  IntroPopup.tsx     |     100 |      100 |     100 |     100 |                   
-  PlannedCourses.tsx |       0 |      100 |       0 |       0 | 5                 
-  SemesterView.tsx   |       0 |      100 |       0 |       0 | 8-19              
- src/interfaces      |       0 |        0 |       0 |       0 |                   
-  course.ts          |       0 |        0 |       0 |       0 |                   
-  degreePlan.ts      |       0 |        0 |       0 |       0 |                   
-  semester.ts        |       0 |        0 |       0 |       0 |                   
----------------------|---------|----------|---------|---------|-------------------
+-------------------------|---------|----------|---------|---------|-------------------
+File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+-------------------------|---------|----------|---------|---------|-------------------
+All files                |   10.22 |     2.63 |    6.81 |   10.58 |                   
+ src                     |   44.44 |     12.5 |   28.57 |      50 |                   
+  App.tsx                |   44.44 |     12.5 |   28.57 |      50 | 168-178,188,203   
+ src/components          |       0 |        0 |       0 |       0 |                   
+  DegreePlanPage.tsx     |       0 |        0 |       0 |       0 | 31-138            
+  PlannedCourses.tsx     |       0 |        0 |       0 |       0 | 23-34             
+  SemesterView.tsx       |       0 |        0 |       0 |       0 | 52-126            
+  SingleSemesterPage.tsx |       0 |        0 |       0 |       0 | 39-210            
+ src/components/modals   |    9.09 |      100 |   14.28 |    9.09 |                   
+  IntroPopup.tsx         |     100 |      100 |     100 |     100 |                   
+  NewSemesterPopup.tsx   |       0 |      100 |       0 |       0 | 15-59             
+ src/interfaces          |       0 |        0 |       0 |       0 |                   
+  course.ts              |       0 |        0 |       0 |       0 |                   
+  courseoption.ts        |       0 |        0 |       0 |       0 |                   
+  degreePlan.ts          |       0 |        0 |       0 |       0 |                   
+  semester.ts            |       0 |        0 |       0 |       0 |                   
+-------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.082 s
+Time:        2.49 s
 Ran all test suites.
