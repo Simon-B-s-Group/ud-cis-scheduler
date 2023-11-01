@@ -6,7 +6,7 @@ Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (120 ms)
+  ✕ renders the course name somewhere (109 ms)
 
   ● renders the course name somewhere
 
@@ -126,14 +126,14 @@ FAIL src/App.test.tsx
 -------------------------|---------|----------|---------|---------|-------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------|---------|----------|---------|---------|-------------------
-All files                |   10.22 |     2.63 |    6.81 |   10.58 |                   
+All files                |    8.65 |     2.38 |       6 |    8.91 |                   
  src                     |   44.44 |     12.5 |   28.57 |      50 |                   
   App.tsx                |   44.44 |     12.5 |   28.57 |      50 | 168-178,188,203   
  src/components          |       0 |        0 |       0 |       0 |                   
   DegreePlanPage.tsx     |       0 |        0 |       0 |       0 | 31-138            
   PlannedCourses.tsx     |       0 |        0 |       0 |       0 | 23-34             
   SemesterView.tsx       |       0 |        0 |       0 |       0 | 52-126            
-  SingleSemesterPage.tsx |       0 |        0 |       0 |       0 | 39-210            
+  SingleSemesterPage.tsx |       0 |        0 |       0 |       0 | 39-293            
  src/components/modals   |    9.09 |      100 |   14.28 |    9.09 |                   
   IntroPopup.tsx         |     100 |      100 |     100 |     100 |                   
   NewSemesterPopup.tsx   |       0 |      100 |       0 |       0 | 15-59             
@@ -146,5 +146,5 @@ All files                |   10.22 |     2.63 |    6.81 |   10.58 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.49 s
+Time:        2.672 s
 Ran all test suites.
