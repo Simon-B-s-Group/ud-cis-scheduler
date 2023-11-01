@@ -129,6 +129,37 @@ export function SingleSemesterPage({
         setCurrentSelectedCourse(event.target.value);
     };
 
+    // the course data of the currently inputted custom course (on the bottom form)
+    const [currentCustomCourse, setCurrentCustomCourse] = useState<Course>({
+        code: "CISC366",
+        name: "Independent Study",
+        credits: 3
+    });
+    const updateCustomCode = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setCurrentCustomCourse({
+            ...currentCustomCourse,
+            code: event.target.value
+        });
+    };
+    const updateCustomName = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setCurrentCustomCourse({
+            ...currentCustomCourse,
+            name: event.target.value
+        });
+    };
+    const updateCustomCredits = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setCurrentCustomCourse({
+            ...currentCustomCourse,
+            credits: Number.parseInt(event.target.value)
+        });
+    };
+
     /**
      * Adds a new course to the semester and updates the plan containing it accordingly.
      * @param course The course that is currently selected in the newCourse form
@@ -181,7 +212,7 @@ export function SingleSemesterPage({
             />
             <b>
                 <u>
-                    <h6>Add a New Course</h6>
+                    <h6>Add Course to Semester</h6>
                 </u>
             </b>
             <Form.Group controlId="newCourse">
@@ -207,8 +238,59 @@ export function SingleSemesterPage({
                         );
                         if (foundCourse) {
                             // theoretically this should never be null
-                            addCourseToSemester(foundCourse.course);
+                            const courseInSemester = sem.courses.find(
+                                (course: Course): boolean =>
+                                    course.code === currentSelectedCourse
+                            );
+
+                            if (courseInSemester)
+                                alert(
+                                    `${currentSelectedCourse} is already in this semester!`
+                                );
+                            else addCourseToSemester(foundCourse.course);
                         }
+                    }}
+                >
+                    OK
+                </Button>
+            </Form.Group>
+            <b>
+                <u>
+                    <h6>Add Custom Course</h6>
+                </u>
+            </b>
+            <Form.Group controlId="newCourse">
+                <Form.Label>Course Code</Form.Label>
+                <Form.Control
+                    type="text"
+                    value={currentCustomCourse.code}
+                    onChange={updateCustomCode}
+                />
+                <Form.Label>Course Name</Form.Label>
+                <Form.Control
+                    type="text"
+                    value={currentCustomCourse.name}
+                    onChange={updateCustomName}
+                />
+                <Form.Label>Course Credits</Form.Label>
+                <Form.Control
+                    type="number"
+                    value={currentCustomCourse.credits}
+                    onChange={updateCustomCredits}
+                />
+                <Button
+                    variant="success"
+                    onClick={() => {
+                        const courseInSemester = sem.courses.find(
+                            (course: Course): boolean =>
+                                course.code === currentCustomCourse.code
+                        );
+
+                        if (courseInSemester)
+                            alert(
+                                `${currentCustomCourse.code} is already in this semester!`
+                            );
+                        else addCourseToSemester(currentCustomCourse);
                     }}
                 >
                     OK
