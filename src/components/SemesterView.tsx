@@ -120,12 +120,20 @@ export function SemesterView({
                         )
                     )}
                     <tr>
-                        Total Credits for Semester:{" "}
-                        {sem.courses.reduce(
-                            (currentTotal: number, currentCourse: Course) =>
-                                currentTotal + currentCourse.credits,
-                            0
-                        )}
+                        <td>
+                            <b>Total Credits for Semester: </b>
+                        </td>
+                        <td>
+                            <b>
+                                {sem.courses.reduce(
+                                    (
+                                        currentTotal: number,
+                                        currentCourse: Course
+                                    ) => currentTotal + currentCourse.credits,
+                                    0
+                                )}
+                            </b>
+                        </td>
                     </tr>
                     <br></br>
                 </table>
