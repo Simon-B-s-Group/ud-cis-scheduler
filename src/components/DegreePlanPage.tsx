@@ -148,10 +148,12 @@ export function DegreePlanPage({
                         </>
                     );
                 })}
-                Total Credits Overall: {""}
-                <div>
-                    <span style={textColor}>{totalCredits + " / 124"}</span>
-                </div>
+                <span style={{ fontWeight: "bold " }}>
+                    Total Credits Overall: {""}
+                    <div>
+                        <span style={textColor}>{totalCredits + " / 124"}</span>
+                    </div>
+                </span>
             </div>
         </>
     );
