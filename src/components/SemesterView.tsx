@@ -119,7 +119,7 @@ export function SemesterView({
                             />
                         )
                     )}
-                    <tr>
+                    <tr style={{ fontWeight: "bold" }}>
                         Total Credits for Semester:{" "}
                         {sem.courses.reduce(
                             (currentTotal: number, currentCourse: Course) =>
