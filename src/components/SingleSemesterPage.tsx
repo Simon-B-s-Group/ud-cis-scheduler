@@ -207,7 +207,16 @@ export function SingleSemesterPage({
                         );
                         if (foundCourse) {
                             // theoretically this should never be null
-                            addCourseToSemester(foundCourse.course);
+                            const courseInSemester = sem.courses.find(
+                                (course: Course): boolean =>
+                                    course.code === currentSelectedCourse
+                            );
+
+                            if (courseInSemester)
+                                alert(
+                                    `${currentSelectedCourse} is already in this semester!`
+                                );
+                            else addCourseToSemester(foundCourse.course);
                         }
                     }}
                 >
