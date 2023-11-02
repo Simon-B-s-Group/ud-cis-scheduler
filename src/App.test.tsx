@@ -60,7 +60,7 @@ describe("UD CIS Scheduler tests", () => {
         expect(screen.getByText(/Spring 2025 Courses/i)).toBeInTheDocument();
     });
 
-    test("Deleting the F23 semester, we should be left with three semesters, S24, F24, S25", () => {
+    test("Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left.", () => {
         const closeButton = screen.getByText("Close");
         userEvent.click(closeButton);
 
@@ -70,11 +70,19 @@ describe("UD CIS Scheduler tests", () => {
         const deleteButton = screen.getAllByText("Delete Semester")[0]; // get all delete buttons on the screen, then set this button const to the first one
         userEvent.click(deleteButton);
 
-        // checks if "Fall 2023 Courses" is NOT in the document
-        expect(screen.queryByText(/Fall 2023 Courses/i)).toBeNull();
         expect(screen.getByText(/Spring 2024 Courses/i)).toBeInTheDocument();
         expect(screen.getByText(/Fall 2024 Courses/i)).toBeInTheDocument();
         expect(screen.getByText(/Spring 2025 Courses/i)).toBeInTheDocument();
+        // checks if "Fall 2023 Courses" is NOT in the document
+        expect(screen.queryByText(/Fall 2023 Courses/i)).toBeNull();
+
+        const backButton = screen.getByText("Go Back");
+        userEvent.click(backButton);
+
+        const titleText = screen.getByText(/Sample Degree Plan/i);
+        expect(titleText).toBeInTheDocument();
+        const semText = screen.getByText(/3 semesters/i);
+        expect(semText).toBeInTheDocument();
     });
 
     test("When we create a new semester with new season/year values, it should add with no classes.", async () => {
@@ -89,9 +97,16 @@ describe("UD CIS Scheduler tests", () => {
         const seasonSelect = screen.getByRole("combobox");
         userEvent.selectOptions(seasonSelect, "Summer");
         const yearSelect = screen.getByRole("spinbutton");
+        userEvent.clear(yearSelect);
         userEvent.type(yearSelect, "2021");
         const submitButton = screen.getByText("OK");
         userEvent.click(submitButton);
+
+        await waitFor(() => {
+            expect(seasonSelect).not.toBeInTheDocument();
+        });
+
+        expect(screen.queryByText(/Summer 2021 Courses/i)).toBeInTheDocument();
     });
 
     test("If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything.", async () => {
@@ -122,23 +137,19 @@ describe("UD CIS Scheduler tests", () => {
         expect(seasonSelect).not.toBeInTheDocument();
     });
 
-    test("When we create a new semester with already-existing season/year values, the user should get an error message", () => {
+    test("Can't add a semester that already exists", () => {
         // TODO
     });
 
-    test("The Sample Plan F23 semester should have: CISC108, EGGG101, ENGL110, HIST106, MATH241. It should have 15 credits", () => {
+    test("You can delete a course from a semester", () => {
         // TODO
     });
 
-    test("Within a new semester we can add a new class from the dropdown. If we add one already in the list, the user should have an error message", () => {
+    test("You can add a course from the default dropdown to a semester", () => {
         // TODO
     });
 
-    test("Within a new semester we can add a custom class", () => {
-        // TODO
-    });
-
-    test("Within an existing semester we can delete a class", () => {
+    test("You can add a custom course to a semester, and leave the semester edit page", () => {
         // TODO
     });
 });
