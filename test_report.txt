@@ -5,146 +5,257 @@
 Browserslist: caniuse-lite is outdated. Please run:
   npx browserslist@latest --update-db
   Why you should do it regularly: https://github.com/browserslist/browserslist#browsers-data-updating
-FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (88 ms)
+  console.error
+    Warning: Each child in a list should have a unique "key" prop.
+    
+    Check the render method of `DegreePlanPage`. See https://reactjs.org/link/warning-keys for more information.
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at div
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
 
-  ● renders the course name somewhere
+      129 |                 handleSubmit={handleNewSumSubmit}
+      130 |             />
+    > 131 |             <div key={thisPlan.name}>
+          |             ^
+      132 |                 <b>
+      133 |                     <u>
+      134 |                         <h5>{thisPlan.name}</h5>
 
-    TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+      at printWarning (node_modules/react/cjs/react-jsx-dev-runtime.development.js:117:30)
+      at error (node_modules/react/cjs/react-jsx-dev-runtime.development.js:93:5)
+      at validateExplicitKey (node_modules/react/cjs/react-jsx-dev-runtime.development.js:986:5)
+      at validateChildKeys (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1013:11)
+      at jsxWithValidation (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1174:15)
+      at DegreePlanPage (src/components/DegreePlanPage.tsx:131:13)
+      at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
 
-    Ignored nodes: comments, <script />, <style />
-    [36m<body[39m
-      [33mclass[39m=[32m"modal-open"[39m
-      [33mdata-rr-ui-modal-open[39m=[32m""[39m
-      [33mstyle[39m=[32m"padding-right: 1024px;"[39m
-    [36m>[39m
-      [36m<div>[39m
-        [36m<div[39m
-          [33mclass[39m=[32m"App"[39m
-        [36m>[39m
-          [36m<header[39m
-            [33mclass[39m=[32m"App-header"[39m
-          [36m>[39m
-            [0mUD CIS Scheduler [0m
-            [36m<br />[39m
-            [0mSimon Brugel - Cameron Wine - Leo Chen - Conor Jurewicz[0m
-          [36m</header>[39m
-          [36m<button[39m
-            [33mclass[39m=[32m"btn btn-secondary btn btn-primary"[39m
-            [33mtype[39m=[32m"button"[39m
-          [36m>[39m
-            [0mAbout[0m
-          [36m</button>[39m
-          [36m<h3>[39m
-            [0mDegree Plans[0m
-          [36m</h3>[39m
-          [36m<div>[39m
-            [36m<h4>[39m
-              [0mSample Degree Plan[0m
-            [36m</h4>[39m
-            [36m<p>[39m
-              [0m4[0m
-              [0m semesters[0m
-            [36m</p>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"btn btn-primary"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mView Plan[0m
-            [36m</button>[39m
-          [36m</div>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-      [36m<div[39m
-        [33mclass[39m=[32m"fade modal-backdrop show"[39m
-      [36m/>[39m
-      [36m<div[39m
-        [33maria-modal[39m=[32m"true"[39m
-        [33mclass[39m=[32m"fade modal show"[39m
-        [33mrole[39m=[32m"dialog"[39m
-        [33mstyle[39m=[32m"display: block; padding-right: 0px;"[39m
-        [33mtabindex[39m=[32m"-1"[39m
-      [36m>[39m
-        [36m<div[39m
-          [33mclass[39m=[32m"modal-dialog"[39m
-        [36m>[39m
-          [36m<div[39m
-            [33mclass[39m=[32m"modal-content"[39m
-          [36m>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"modal-header"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"modal-title h4"[39m
-              [36m>[39m
-                [0mWelcome to the UD CIS Scheduler![0m
-              [36m</div>[39m
-              [36m<button[39m
-                [33maria-label[39m=[32m"Close"[39m
-                [33mclass[39m=[32m"btn-close"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m/>[39m
-            [36m</div>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"modal-body"[39m
-            [36m>[39m
-              [0mThis application allows you to create your own University of Delaware Computer Science degree plan, visualizing satisfied degree requirements and credits taken. To start, you can view or edit the default degree plan by adding, editing, or deleting semesters and courses taken. You can also create a new degree plan from scratch. Have fun![0m
-            [36m</div>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"modal-footer"[39m
-            [36m>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-secondary"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0mClose[0m
-              [36m</button>[39m
-            [36m</div>[39m
-          [36m</div>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-    [36m</body>[39m
+  console.error
+    Warning: validateDOMNesting(...): <th> cannot appear as a child of <table>.
+        at th
+        at table
+        at div
+        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
+        at div
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at div
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
 
-       5 | test("renders the course name somewhere", () => {
-       6 |     render(<App />);
-    >  7 |     const linkElement = screen.getByText(/CISC275/i);
-         |                                ^
-       8 |     expect(linkElement).toBeInTheDocument();
-       9 | });
-      10 |
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
 
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
-      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
-      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/App.test.tsx:7:32)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+  console.error
+    Warning: validateDOMNesting(...): <tr> cannot appear as a child of <table>. Add a <tbody>, <thead> or <tfoot> to your code to match the DOM tree generated by the browser.
+        at tr
+        at PlannedCourses (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/PlannedCourses.tsx:15:5)
+        at table
+        at div
+        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
+        at div
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at div
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+
+  console.error
+    Warning: validateDOMNesting(...): Text nodes cannot appear as a child of <tr>.
+        at tr
+        at table
+        at div
+        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
+        at div
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at div
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createTextInstance (node_modules/react-dom/cjs/react-dom.development.js:10223:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19514:40)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+
+  console.error
+    Warning: validateDOMNesting(...): <br> cannot appear as a child of <table>.
+        at br
+        at table
+        at div
+        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
+        at div
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at div
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateDOMNesting (node_modules/react-dom/cjs/react-dom.development.js:10081:7)
+      at createInstance (node_modules/react-dom/cjs/react-dom.development.js:10181:5)
+      at completeWork (node_modules/react-dom/cjs/react-dom.development.js:19464:28)
+      at completeUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22812:16)
+      at performUnitOfWork (node_modules/react-dom/cjs/react-dom.development.js:22787:5)
+
+  console.error
+    Warning: Received NaN for the `value` attribute. If this is expected, cast the value to a string.
+        at input
+        at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-bootstrap/cjs/FormControl.js:27:3
+        at div
+        at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-bootstrap/cjs/FormGroup.js:19:3
+        at div
+        at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-bootstrap/cjs/createWithBsPrefix.js:31:5
+        at div
+        at div
+        at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-bootstrap/cjs/ModalDialog.js:21:3
+        at div
+        at Transition (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-transition-group/cjs/Transition.js:133:30)
+        at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-bootstrap/cjs/TransitionWrapper.js:24:3
+        at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-bootstrap/cjs/Fade.js:38:3
+        at DialogTransition
+        at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/@restart/ui/cjs/Modal.js:75:5
+        at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-bootstrap/cjs/Modal.js:85:3
+        at NewSemesterPopup (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/modals/NewSemesterPopup.tsx:9:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at div
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
+
+      at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
+      at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
+      at validateProperty$1 (node_modules/react-dom/cjs/react-dom.development.js:3492:7)
+      at warnUnknownProperties (node_modules/react-dom/cjs/react-dom.development.js:3559:21)
+      at validateProperties$2 (node_modules/react-dom/cjs/react-dom.development.js:3583:3)
+      at validatePropertiesInDevelopment (node_modules/react-dom/cjs/react-dom.development.js:8765:5)
+      at diffProperties (node_modules/react-dom/cjs/react-dom.development.js:9172:5)
+
+  console.error
+    Error: Not implemented: window.alert
+        at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+        at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
+        at handleSubmit (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:64:13)
+        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/modals/NewSemesterPopup.tsx:59:36)
+        at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+        at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+        at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
+        at invokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+        at HTMLUnknownElementImpl._dispatch (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+        at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17) undefined
+
+      62 |             )
+      63 |         ) {
+    > 64 |             alert(`${season} ${year} semester already exists!`);
+         |             ^
+      65 |             return;
+      66 |         }
+      67 |
+
+      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
+      at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
+      at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
+      at handleSubmit (src/components/DegreePlanPage.tsx:64:13)
+      at onClick (src/components/modals/NewSemesterPopup.tsx:59:36)
+      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+
+  console.error
+    Error: Not implemented: window.alert
+        at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+        at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
+        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:244:33)
+        at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+        at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+        at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
+        at invokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+        at HTMLUnknownElementImpl._dispatch (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+        at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+        at HTMLUnknownElement.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34) undefined
+
+      242 |
+      243 |                             if (courseInSemester)
+    > 244 |                                 alert(
+          |                                 ^
+      245 |                                     `${currentSelectedCourse} is already in this semester!`
+      246 |                                 );
+      247 |                             else addCourseToSemester(foundCourse.course);
+
+      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
+      at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
+      at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
+      at onClick (src/components/SingleSemesterPage.tsx:244:33)
+      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+
+  console.error
+    Error: Not implemented: window.alert
+        at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
+        at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
+        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:287:29)
+        at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+        at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+        at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
+        at invokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
+        at HTMLUnknownElementImpl._dispatch (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
+        at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
+        at HTMLUnknownElement.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34) undefined
+
+      285 |
+      286 |                         if (courseInSemester)
+    > 287 |                             alert(
+          |                             ^
+      288 |                                 `${currentCustomCourse.code} is already in this semester!`
+      289 |                             );
+      290 |                         else addCourseToSemester(currentCustomCourse);
+
+      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
+      at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
+      at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
+      at onClick (src/components/SingleSemesterPage.tsx:287:29)
+      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
+      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
+
+PASS src/App.test.tsx (5.409 s)
+  UD CIS Scheduler tests
+    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (362 ms)
+    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (57 ms)
+    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (291 ms)
+    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (198 ms)
+    ✓ When we create a new semester with new season/year values, it should add with no classes. (425 ms)
+    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (215 ms)
+    ✓ Can't add a semester that already exists (307 ms)
+    ✓ You can delete a course from a semester (188 ms)
+    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (203 ms)
+    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (422 ms)
 
 -------------------------|---------|----------|---------|---------|-------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------|---------|----------|---------|---------|-------------------
-All files                |    8.65 |     2.38 |       6 |    8.91 |                   
- src                     |   44.44 |     12.5 |   28.57 |      50 |                   
-  App.tsx                |   44.44 |     12.5 |   28.57 |      50 | 168-178,188,203   
- src/components          |       0 |        0 |       0 |       0 |                   
-  DegreePlanPage.tsx     |       0 |        0 |       0 |       0 | 31-138            
-  PlannedCourses.tsx     |       0 |        0 |       0 |       0 | 23-34             
-  SemesterView.tsx       |       0 |        0 |       0 |       0 | 52-126            
-  SingleSemesterPage.tsx |       0 |        0 |       0 |       0 | 39-293            
- src/components/modals   |    9.09 |      100 |   14.28 |    9.09 |                   
+All files                |     100 |    92.85 |     100 |     100 |                   
+ src                     |     100 |     87.5 |     100 |     100 |                   
+  App.tsx                |     100 |     87.5 |     100 |     100 | 171               
+ src/components          |     100 |    94.11 |     100 |     100 |                   
+  DegreePlanPage.tsx     |     100 |    91.66 |     100 |     100 | 111               
+  PlannedCourses.tsx     |     100 |      100 |     100 |     100 |                   
+  SemesterView.tsx       |     100 |      100 |     100 |     100 |                   
+  SingleSemesterPage.tsx |     100 |       90 |     100 |     100 | 236               
+ src/components/modals   |     100 |      100 |     100 |     100 |                   
   IntroPopup.tsx         |     100 |      100 |     100 |     100 |                   
-  NewSemesterPopup.tsx   |       0 |      100 |       0 |       0 | 15-59             
+  NewSemesterPopup.tsx   |     100 |      100 |     100 |     100 |                   
  src/interfaces          |       0 |        0 |       0 |       0 |                   
   course.ts              |       0 |        0 |       0 |       0 |                   
   courseoption.ts        |       0 |        0 |       0 |       0 |                   
   degreePlan.ts          |       0 |        0 |       0 |       0 |                   
   semester.ts            |       0 |        0 |       0 |       0 |                   
 -------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 1 total
-Tests:       1 failed, 1 total
+Test Suites: 1 passed, 1 total
+Tests:       10 passed, 10 total
 Snapshots:   0 total
-Time:        2.648 s
+Time:        6.325 s
 Ran all test suites.
