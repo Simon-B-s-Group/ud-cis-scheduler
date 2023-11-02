@@ -26,6 +26,7 @@ import { DegreePlan } from "../interfaces/degreePlan";
  *
  * @param deleteThisSem This is a function which will permanently delete this semester from its parent DegreePlan.
  * (SEE: handleSemDelete in DegreePlanPage.tsx; that's what gets passed into here)
+ * NOTE: THIS IS AN OPTIONAL PARAMETER. ONLY TO BE USED IF THIS IS DISPLAYED IN NON-EDIT MODE (DegreePlanPage)
  *
  * @param updatePlan This function updates the plan containing this semester.
  * (SEE: updateDegreePlan in App.tsx; that's what gets passed into here)
@@ -42,7 +43,7 @@ export function SemesterView({
     degreePlan: DegreePlan;
     editMode: boolean;
     setCurrentSemester: (newSem: Semester | null) => void;
-    deleteThisSem: (season: Season, year: number) => void;
+    deleteThisSem?: (season: Season, year: number) => void; // the '?' indicates it is an optional parameter. We ONLY need this to be given in non-edit mode.
     updatePlan: (newPlan: DegreePlan, exit: boolean) => void;
 }): JSX.Element {
     /**
@@ -94,7 +95,7 @@ export function SemesterView({
                     </Button>
                     <Button
                         variant="danger"
-                        onClick={() => deleteThisSem(sem.season, sem.year)}
+                        onClick={() => deleteThisSem?.(sem.season, sem.year)}
                     >
                         Delete Semester
                     </Button>
