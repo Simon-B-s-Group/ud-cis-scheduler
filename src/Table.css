@@ -1,6 +1,8 @@
 .center {
-    margin-left: 75vh;
-    width: 43vh;
+    /* margin-left: 75vh;
+    width: 43vh; */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 th {
@@ -8,6 +10,10 @@ th {
     padding: 10px;
 }
 tr {
+    border: 1px solid rgb(190, 190, 190);
+    padding: 10px;
+}
+td {
     border: 1px solid rgb(190, 190, 190);
     padding: 10px;
 }
