@@ -3,6 +3,11 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import App from "./App";
 import userEvent from "@testing-library/user-event";
 
+/*
+NOTE:
+Line 209 in SingleSemesterPage.tsx is unreachable because in edit mode, SemesterView's delete semester button is not visible.
+*/
+
 describe("UD CIS Scheduler tests", () => {
     // this is like launching the app
     beforeEach(() => render(<App />));
@@ -138,18 +143,104 @@ describe("UD CIS Scheduler tests", () => {
     });
 
     test("Can't add a semester that already exists", () => {
-        // TODO
+        const closeButton = screen.getByText("Close");
+        userEvent.click(closeButton);
+
+        const viewButton = screen.getByText("View Plan");
+        userEvent.click(viewButton);
+
+        const newSemesterButton = screen.getByText("New Semester");
+        userEvent.click(newSemesterButton);
+        const seasonSelect = screen.getByRole("combobox");
+        userEvent.selectOptions(seasonSelect, "Fall");
+        const yearSelect = screen.getByRole("spinbutton");
+        userEvent.clear(yearSelect);
+        userEvent.type(yearSelect, "2023");
+        const submitButton = screen.getByText("OK");
+        userEvent.click(submitButton);
+
+        // expect the modal to still be on screen
+        expect(seasonSelect).toBeInTheDocument();
     });
 
     test("You can delete a course from a semester", () => {
-        // TODO
+        const closeButton = screen.getByText("Close");
+        userEvent.click(closeButton);
+
+        const viewButton = screen.getByText("View Plan");
+        userEvent.click(viewButton);
+
+        const editButton = screen.getAllByText("Edit Semester")[0]; // get all Edit buttons on the screen, then set this button const to the first one
+        // so we will click on the edit page for Fall 2023
+        userEvent.click(editButton);
+
+        const deleteEGGG101 = screen.getAllByText("Delete Course")[1]; // delete button for the second course of the semester, EGGG101
+        userEvent.click(deleteEGGG101);
+
+        expect(
+            screen.queryByText(/EGGG101: Introduction to Engineering/i)
+        ).toBeNull();
     });
 
-    test("You can add a course from the default dropdown to a semester", () => {
-        // TODO
+    test("You can add a course from the default dropdown to a semester. You also cannot add the same course twice", () => {
+        const closeButton = screen.getByText("Close");
+        userEvent.click(closeButton);
+
+        const viewButton = screen.getByText("View Plan");
+        userEvent.click(viewButton);
+
+        const editButton = screen.getAllByText("Edit Semester")[0]; // get all Edit buttons on the screen, then set this button const to the first one
+        // so we will click on the edit page for Fall 2023
+        userEvent.click(editButton);
+
+        const courseSelect = screen.getByRole("combobox");
+        userEvent.selectOptions(courseSelect, "CISC372");
+        const okButton = screen.getAllByText("OK")[0]; // the first OK button submits a pre-defined course
+        userEvent.click(okButton);
+
+        expect(
+            screen.queryByText(/CISC372: Parallel Computing/i)
+        ).toBeInTheDocument();
+
+        userEvent.click(okButton); // pressing it again, should not add it a second time
+        expect(
+            screen.getAllByText(/CISC372: Parallel Computing/i).length
+        ).toEqual(1);
     });
 
-    test("You can add a custom course to a semester, and leave the semester edit page", () => {
-        // TODO
+    test("You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice", () => {
+        const closeButton = screen.getByText("Close");
+        userEvent.click(closeButton);
+
+        const viewButton = screen.getByText("View Plan");
+        userEvent.click(viewButton);
+
+        const editButton = screen.getAllByText("Edit Semester")[0]; // get all Edit buttons on the screen, then set this button const to the first one
+        // so we will click on the edit page for Fall 2023
+        userEvent.click(editButton);
+
+        const codeEdit = screen.getAllByRole("textbox")[0]; // first textbox = code edit
+        const nameEdit = screen.getAllByRole("textbox")[1]; // second textbox = name edit
+        const creditsEdit = screen.getByRole("spinbutton");
+        userEvent.clear(codeEdit);
+        userEvent.clear(nameEdit);
+        userEvent.clear(creditsEdit);
+        userEvent.type(codeEdit, "CISC487");
+        userEvent.type(nameEdit, "Research");
+        userEvent.type(creditsEdit, "4");
+
+        const okButton = screen.getAllByText("OK")[1]; // the first OK button submits a pre-defined course
+        userEvent.click(okButton);
+
+        expect(screen.queryByText(/CISC487: Research/i)).toBeInTheDocument();
+        expect(screen.getAllByText(/CISC487: Research/i).length).toEqual(1);
+
+        userEvent.click(okButton); // submit it again; should not add another course, should just be 1 item for the course.
+        expect(screen.getAllByText(/CISC487: Research/i).length).toEqual(1);
+
+        const backButton = screen.getByText("Go Back");
+        userEvent.click(backButton);
+
+        expect(screen.queryByText(/CISC487: Research/i)).toBeInTheDocument(); // should still be listed as a course
     });
 });
