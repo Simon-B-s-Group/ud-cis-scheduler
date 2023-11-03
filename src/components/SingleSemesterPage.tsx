@@ -8,6 +8,7 @@ import { Button, Form } from "react-bootstrap";
 import { CourseOption } from "../interfaces/courseoption";
 import { Course } from "../interfaces/course";
 import { DegreePlan } from "../interfaces/degreePlan";
+import { courseOptions } from "./../data/defaultCourses";
 
 /**
  * A page that allows one to edit a single semester.
@@ -34,90 +35,6 @@ export function SingleSemesterPage({
     setCurrentSemester: (newSem: Semester | null) => void;
     updatePlan: (newPlan: DegreePlan, exit: boolean) => void;
 }) {
-    // the list of course options in the dropdown, aka the courses that can be added to a semester
-    const [courseOptions] = useState<CourseOption[]>([
-        {
-            course: {
-                code: "CISC108",
-                name: "Introduction to Computer Science I",
-                credits: 3
-            },
-            prereqs: ""
-        },
-        {
-            course: {
-                code: "CISC181",
-                name: "Introduction to Computer Science II",
-                credits: 3
-            },
-            prereqs: "CISC106 or CISC108"
-        },
-        {
-            course: {
-                code: "CISC210",
-                name: "Introduction to Systems Programming",
-                credits: 3
-            },
-            prereqs: "CISC106 or CISC108"
-        },
-        {
-            course: {
-                code: "CISC220",
-                name: "Data Structures",
-                credits: 3
-            },
-            prereqs: "CISC210"
-        },
-        {
-            course: {
-                code: "CISC260",
-                name: "Machine Organization and Assembly Language",
-                credits: 3
-            },
-            prereqs: "CISC210"
-        },
-        {
-            course: {
-                code: "CISC275",
-                name: "Introduction to Software Engineering",
-                credits: 3
-            },
-            prereqs: "CISC181, CISC220"
-        },
-        {
-            course: {
-                code: "CISC303",
-                name: "Automata Theory",
-                credits: 3
-            },
-            prereqs: "CISC220, MATH210"
-        },
-        {
-            course: {
-                code: "CISC320",
-                name: "Algorithms",
-                credits: 3
-            },
-            prereqs: "CISC220, MATH210"
-        },
-        {
-            course: {
-                code: "CISC361",
-                name: "Operating Systems",
-                credits: 3
-            },
-            prereqs: "CISC220, CISC260"
-        },
-        {
-            course: {
-                code: "CISC372",
-                name: "Parallel Computing",
-                credits: 3
-            },
-            prereqs: "CISC220, CISC260"
-        }
-    ]);
-
     // the code of the currently selected course to add
     const [currentSelectedCourse, setCurrentSelectedCourse] = useState<string>(
         courseOptions[0].course.code
