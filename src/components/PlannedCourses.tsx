@@ -30,7 +30,7 @@ export function PlannedCourses({
             {editMode ? (
                 <td>
                     <Button
-                        className="btn btn-danger"
+                        className="negative"
                         onClick={() => deleteCourse(course)}
                     >
                         Delete Course

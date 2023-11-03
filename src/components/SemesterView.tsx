@@ -90,12 +90,14 @@ export function SemesterView({
                     <Button
                         variant="primary"
                         onClick={() => setCurrentSemester(sem)}
+                        className="positive"
                     >
                         Edit Semester
                     </Button>
                     <Button
                         variant="danger"
                         onClick={() => deleteThisSem?.(sem.season, sem.year)}
+                        className="negative"
                     >
                         Delete Semester
                     </Button>

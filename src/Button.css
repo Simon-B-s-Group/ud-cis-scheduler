@@ -1,0 +1,68 @@
+.gen {
+    padding: 10px 20px;
+    border: 2px solid #212121b9;
+    background-color: #fff;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    transition: background-color 1s, color 2s, border-color 2s, border 0.33s,
+        font-weight 0.5s;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.gen:hover {
+    background-color: #ffffff;
+    color: #000;
+    border-color: #000000;
+    font-weight: bolder;
+}
+/* Class for any button that removes something, or goes back */
+.negative {
+    padding: 10px 20px;
+    border: 2px solid #e01010b9;
+    background-color: #fff;
+    color: #e01010b9;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    transition: background-color 1s, color 2s, border-color 2s, border 0.33s,
+        font-weight 0.5s;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.negative:hover {
+    background-color: #fff;
+    color: #ff0000;
+    border-color: #ff0000;
+    font-weight: bolder;
+}
+
+.positive {
+    padding: 10px 20px;
+    border: 2px solid #1b6bc6b9;
+    background-color: #fff;
+    color: #1b6bc6b9;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    transition: background-color 1s, color 2s, border-color 2s, border 0.33s,
+        font-weight 0.5s;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.positive:hover {
+    background-color: #fff;
+    color: #0033ff;
+    border-color: #0033ff;
+    font-weight: bolder;
+}
