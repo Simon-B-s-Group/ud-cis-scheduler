@@ -9,24 +9,24 @@ Browserslist: caniuse-lite is outdated. Please run:
     Warning: Each child in a list should have a unique "key" prop.
     
     Check the render method of `DegreePlanPage`. See https://reactjs.org/link/warning-keys for more information.
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:23:5)
         at div
-        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:17:39)
 
-      129 |                 handleSubmit={handleNewSumSubmit}
-      130 |             />
-    > 131 |             <div key={thisPlan.name}>
+      130 |                 handleSubmit={handleNewSumSubmit}
+      131 |             />
+    > 132 |             <div key={thisPlan.name}>
           |             ^
-      132 |                 <b>
-      133 |                     <u>
-      134 |                         <h5>{thisPlan.name}</h5>
+      133 |                 <b>
+      134 |                     <u>
+      135 |                         <h5>{thisPlan.name}</h5>
 
       at printWarning (node_modules/react/cjs/react-jsx-dev-runtime.development.js:117:30)
       at error (node_modules/react/cjs/react-jsx-dev-runtime.development.js:93:5)
       at validateExplicitKey (node_modules/react/cjs/react-jsx-dev-runtime.development.js:986:5)
       at validateChildKeys (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1013:11)
       at jsxWithValidation (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1174:15)
-      at DegreePlanPage (src/components/DegreePlanPage.tsx:131:13)
+      at DegreePlanPage (src/components/DegreePlanPage.tsx:132:13)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
 
   console.error
@@ -36,9 +36,9 @@ Browserslist: caniuse-lite is outdated. Please run:
         at div
         at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
         at div
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:23:5)
         at div
-        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:17:39)
 
       at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
       at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
@@ -56,9 +56,9 @@ Browserslist: caniuse-lite is outdated. Please run:
         at div
         at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
         at div
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:23:5)
         at div
-        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:17:39)
 
       at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
       at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
@@ -75,9 +75,9 @@ Browserslist: caniuse-lite is outdated. Please run:
         at div
         at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
         at div
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:23:5)
         at div
-        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:17:39)
 
       at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
       at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
@@ -94,9 +94,9 @@ Browserslist: caniuse-lite is outdated. Please run:
         at div
         at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
         at div
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:23:5)
         at div
-        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:17:39)
 
       at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
       at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
@@ -125,9 +125,9 @@ Browserslist: caniuse-lite is outdated. Please run:
         at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/@restart/ui/cjs/Modal.js:75:5
         at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-bootstrap/cjs/Modal.js:85:3
         at NewSemesterPopup (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/modals/NewSemesterPopup.tsx:9:5)
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:22:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:23:5)
         at div
-        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:16:39)
+        at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:17:39)
 
       at printWarning (node_modules/react-dom/cjs/react-dom.development.js:67:30)
       at error (node_modules/react-dom/cjs/react-dom.development.js:43:5)
@@ -141,7 +141,7 @@ Browserslist: caniuse-lite is outdated. Please run:
     Error: Not implemented: window.alert
         at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
         at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at handleSubmit (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:64:13)
+        at handleSubmit (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:65:13)
         at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/modals/NewSemesterPopup.tsx:59:36)
         at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
         at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
@@ -150,18 +150,18 @@ Browserslist: caniuse-lite is outdated. Please run:
         at HTMLUnknownElementImpl._dispatch (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
         at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17) undefined
 
-      62 |             )
-      63 |         ) {
-    > 64 |             alert(`${season} ${year} semester already exists!`);
+      63 |             )
+      64 |         ) {
+    > 65 |             alert(`${season} ${year} semester already exists!`);
          |             ^
-      65 |             return;
-      66 |         }
-      67 |
+      66 |             return;
+      67 |         }
+      68 |
 
       at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
       at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
       at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at handleSubmit (src/components/DegreePlanPage.tsx:64:13)
+      at handleSubmit (src/components/DegreePlanPage.tsx:65:13)
       at onClick (src/components/modals/NewSemesterPopup.tsx:59:36)
       at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
 
@@ -169,7 +169,7 @@ Browserslist: caniuse-lite is outdated. Please run:
     Error: Not implemented: window.alert
         at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
         at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:244:33)
+        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:245:33)
         at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
         at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
         at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
@@ -178,18 +178,18 @@ Browserslist: caniuse-lite is outdated. Please run:
         at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
         at HTMLUnknownElement.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34) undefined
 
-      242 |
-      243 |                             if (courseInSemester)
-    > 244 |                                 alert(
+      243 |
+      244 |                             if (courseInSemester)
+    > 245 |                                 alert(
           |                                 ^
-      245 |                                     `${currentSelectedCourse} is already in this semester!`
-      246 |                                 );
-      247 |                             else addCourseToSemester(foundCourse.course);
+      246 |                                     `${currentSelectedCourse} is already in this semester!`
+      247 |                                 );
+      248 |                             else addCourseToSemester(foundCourse.course);
 
       at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
       at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
       at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at onClick (src/components/SingleSemesterPage.tsx:244:33)
+      at onClick (src/components/SingleSemesterPage.tsx:245:33)
       at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
       at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
 
@@ -197,7 +197,7 @@ Browserslist: caniuse-lite is outdated. Please run:
     Error: Not implemented: window.alert
         at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
         at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:287:29)
+        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:289:29)
         at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
         at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
         at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
@@ -206,45 +206,45 @@ Browserslist: caniuse-lite is outdated. Please run:
         at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
         at HTMLUnknownElement.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34) undefined
 
-      285 |
-      286 |                         if (courseInSemester)
-    > 287 |                             alert(
+      287 |
+      288 |                         if (courseInSemester)
+    > 289 |                             alert(
           |                             ^
-      288 |                                 `${currentCustomCourse.code} is already in this semester!`
-      289 |                             );
-      290 |                         else addCourseToSemester(currentCustomCourse);
+      290 |                                 `${currentCustomCourse.code} is already in this semester!`
+      291 |                             );
+      292 |                         else addCourseToSemester(currentCustomCourse);
 
       at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
       at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
       at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at onClick (src/components/SingleSemesterPage.tsx:287:29)
+      at onClick (src/components/SingleSemesterPage.tsx:289:29)
       at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
       at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
 
-PASS src/App.test.tsx (5.409 s)
+PASS src/App.test.tsx
   UD CIS Scheduler tests
-    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (362 ms)
-    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (57 ms)
-    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (291 ms)
-    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (198 ms)
-    ✓ When we create a new semester with new season/year values, it should add with no classes. (425 ms)
-    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (215 ms)
-    ✓ Can't add a semester that already exists (307 ms)
-    ✓ You can delete a course from a semester (188 ms)
-    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (203 ms)
-    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (422 ms)
+    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (151 ms)
+    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (31 ms)
+    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (158 ms)
+    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (97 ms)
+    ✓ When we create a new semester with new season/year values, it should add with no classes. (227 ms)
+    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (121 ms)
+    ✓ Can't add a semester that already exists (140 ms)
+    ✓ You can delete a course from a semester (89 ms)
+    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (104 ms)
+    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (191 ms)
 
 -------------------------|---------|----------|---------|---------|-------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------|---------|----------|---------|---------|-------------------
 All files                |     100 |    92.85 |     100 |     100 |                   
  src                     |     100 |     87.5 |     100 |     100 |                   
-  App.tsx                |     100 |     87.5 |     100 |     100 | 171               
+  App.tsx                |     100 |     87.5 |     100 |     100 | 172               
  src/components          |     100 |    94.11 |     100 |     100 |                   
-  DegreePlanPage.tsx     |     100 |    91.66 |     100 |     100 | 111               
+  DegreePlanPage.tsx     |     100 |    91.66 |     100 |     100 | 112               
   PlannedCourses.tsx     |     100 |      100 |     100 |     100 |                   
   SemesterView.tsx       |     100 |      100 |     100 |     100 |                   
-  SingleSemesterPage.tsx |     100 |       90 |     100 |     100 | 236               
+  SingleSemesterPage.tsx |     100 |       90 |     100 |     100 | 237               
  src/components/modals   |     100 |      100 |     100 |     100 |                   
   IntroPopup.tsx         |     100 |      100 |     100 |     100 |                   
   NewSemesterPopup.tsx   |     100 |      100 |     100 |     100 |                   
@@ -257,5 +257,5 @@ All files                |     100 |    92.85 |     100 |     100 |
 Test Suites: 1 passed, 1 total
 Tests:       10 passed, 10 total
 Snapshots:   0 total
-Time:        6.325 s
+Time:        3.947 s
 Ran all test suites.
