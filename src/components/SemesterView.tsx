@@ -114,8 +114,12 @@ export function SemesterView({
                             <PlannedCourses
                                 key={course.code}
                                 course={course}
+                                sem={sem}
+                                degreePlan={degreePlan}
                                 editMode={editMode}
                                 deleteCourse={deleteCourse}
+                                setCurrentSemester={setCurrentSemester}
+                                updatePlan={updatePlan}
                             />
                         )
                     )}
