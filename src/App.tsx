@@ -3,6 +3,7 @@
 
 import React, { useState } from "react";
 import "./App.css";
+import "./Button.css";
 
 import { IntroPopup } from "./components/modals/IntroPopup";
 import { DegreePlan } from "./interfaces/degreePlan";
@@ -184,10 +185,7 @@ function App(): JSX.Element {
                 UD CIS Scheduler <br></br>Simon Brugel - Cameron Wine - Leo Chen
                 - Conor Jurewicz
             </header>
-            <Button
-                onClick={() => setShowIntro(true)}
-                className="btn btn-secondary"
-            >
+            <Button onClick={() => setShowIntro(true)} className="gen">
                 About
             </Button>
             {!currentPlan ? (
@@ -201,6 +199,7 @@ function App(): JSX.Element {
                                 <p>{degreePlan.semesters.length} semesters</p>
                                 <Button
                                     onClick={() => setCurrentPlan(degreePlan)}
+                                    className="positive"
                                 >
                                     View Plan
                                 </Button>

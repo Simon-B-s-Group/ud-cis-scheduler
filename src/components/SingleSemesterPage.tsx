@@ -9,6 +9,7 @@ import { CourseOption } from "../interfaces/courseoption";
 import { Course } from "../interfaces/course";
 import { DegreePlan } from "../interfaces/degreePlan";
 import { courseOptions } from "./../data/defaultCourses";
+import "../Button.css";
 
 /**
  * A page that allows one to edit a single semester.
@@ -107,7 +108,7 @@ export function SingleSemesterPage({
         <>
             <Button
                 onClick={() => setCurrentSemester(null)}
-                className="btn btn-danger"
+                className="negative"
             >
                 Go Back
             </Button>
@@ -167,6 +168,7 @@ export function SingleSemesterPage({
                             else addCourseToSemester(foundCourse.course);
                         }
                     }}
+                    className="positive"
                 >
                     OK
                 </Button>
@@ -209,6 +211,7 @@ export function SingleSemesterPage({
                             );
                         else addCourseToSemester(currentCustomCourse);
                     }}
+                    className="positive"
                 >
                     OK
                 </Button>

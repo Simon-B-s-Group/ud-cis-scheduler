@@ -5,6 +5,7 @@ import { Season, Semester } from "../interfaces/semester";
 import { Course } from "../interfaces/course";
 import { Button } from "react-bootstrap";
 import { NewSemesterPopup } from "./modals/NewSemesterPopup";
+import "../Button.css";
 
 /**
  * A page showing a whole Degree Plan, specifically its name and semesters
@@ -114,13 +115,13 @@ export function DegreePlanPage({
         <>
             <Button
                 onClick={() => savePlan(thisPlan, true)}
-                className="btn btn-danger"
+                className="negative"
             >
                 Go Back
             </Button>
             <Button
                 onClick={() => setShowNewSemPopup(true)}
-                className="btn btn-primary"
+                className="positive"
             >
                 New Semester
             </Button>
