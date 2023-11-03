@@ -35,7 +35,6 @@ export function SingleSemesterPage({
     updatePlan: (newPlan: DegreePlan, exit: boolean) => void;
 }) {
     // the list of course options in the dropdown, aka the courses that can be added to a semester
-    // TODO: add a setter soon
     const [courseOptions] = useState<CourseOption[]>([
         {
             course: {
@@ -212,6 +211,10 @@ export function SingleSemesterPage({
                     <h6>Add Course to Semester</h6>
                 </u>
             </b>
+            <p>
+                If your desired course isn&apos;t here, you can add a custom one
+                below!
+            </p>
             <Form.Group controlId="newCourse">
                 <Form.Select
                     value={currentSelectedCourse}
