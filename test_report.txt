@@ -223,16 +223,16 @@ Browserslist: caniuse-lite is outdated. Please run:
 
 PASS src/App.test.tsx
   UD CIS Scheduler tests
-    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (182 ms)
-    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (33 ms)
-    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (152 ms)
-    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (108 ms)
-    ✓ When we create a new semester with new season/year values, it should add with no classes. (204 ms)
-    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (93 ms)
-    ✓ Can't add a semester that already exists (135 ms)
-    ✓ You can delete a course from a semester (107 ms)
-    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (116 ms)
-    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (256 ms)
+    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (183 ms)
+    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (32 ms)
+    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (156 ms)
+    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (109 ms)
+    ✓ When we create a new semester with new season/year values, it should add with no classes. (218 ms)
+    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (102 ms)
+    ✓ Can't add a semester that already exists (149 ms)
+    ✓ You can delete a course from a semester (114 ms)
+    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (122 ms)
+    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (274 ms)
 
 -------------------------|---------|----------|---------|---------|---------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
@@ -242,7 +242,7 @@ All files                |   85.93 |    83.33 |   81.96 |    85.6 |
   App.tsx                |      80 |     87.5 |   66.66 |   78.26 | 164,211-215,241-244 
  src/components          |   85.71 |     82.5 |   83.33 |   85.55 |                     
   DegreePlanPage.tsx     |     100 |    91.66 |     100 |     100 | 112                 
-  PlannedCourses.tsx     |      35 |     37.5 |   22.22 |      35 | 37,43,51,66,99-118  
+  PlannedCourses.tsx     |      35 |     37.5 |   22.22 |      35 | 37,43,51,68,102-121 
   SemesterView.tsx       |     100 |      100 |     100 |     100 |                     
   SingleSemesterPage.tsx |     100 |       90 |     100 |     100 | 157                 
  src/components/modals   |     100 |      100 |     100 |     100 |                     
@@ -259,5 +259,5 @@ All files                |   85.93 |    83.33 |   81.96 |    85.6 |
 Test Suites: 1 passed, 1 total
 Tests:       10 passed, 10 total
 Snapshots:   0 total
-Time:        4.058 s
+Time:        4.222 s
 Ran all test suites.
