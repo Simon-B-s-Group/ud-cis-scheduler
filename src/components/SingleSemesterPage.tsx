@@ -50,7 +50,8 @@ export function SingleSemesterPage({
     const [currentCustomCourse, setCurrentCustomCourse] = useState<Course>({
         code: "CISC366",
         name: "Independent Study",
-        credits: 3
+        credits: 3,
+        isMulticultural: false
     });
     const updateCustomCode = (
         event: React.ChangeEvent<HTMLInputElement>

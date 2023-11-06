@@ -29,27 +29,32 @@ function App(): JSX.Element {
                         {
                             code: "CISC108",
                             name: "Introduction to Computer Science I",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         },
                         {
                             code: "EGGG101",
                             name: "Introduction to Engineering",
-                            credits: 2
+                            credits: 2,
+                            isMulticultural: false
                         },
                         {
                             code: "ENGL110",
                             name: "Seminar in Composition",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         },
                         {
                             code: "MATH241",
                             name: "Analytic Geometry & Calculus A",
-                            credits: 4
+                            credits: 4,
+                            isMulticultural: false
                         },
                         {
                             code: "HIST106",
                             name: "U.S. History Since 1865",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         }
                     ]
                 },
@@ -60,27 +65,32 @@ function App(): JSX.Element {
                         {
                             code: "CISC181",
                             name: "Introduction to Computer Science II",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         },
                         {
                             code: "CISC210",
                             name: "Introduction to Systems Programming",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         },
                         {
                             code: "MATH242",
                             name: "Analytic Geometry & Calculus B",
-                            credits: 4
+                            credits: 4,
+                            isMulticultural: false
                         },
                         {
                             code: "CGSC170",
                             name: "Introduction to Cognitive Science",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         },
                         {
                             code: "LING101",
                             name: "Introduction to Linguistics",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         }
                     ]
                 },
@@ -91,27 +101,32 @@ function App(): JSX.Element {
                         {
                             code: "CISC220",
                             name: "Data Structures",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         },
                         {
                             code: "CISC260",
                             name: "Machine Organization and Assembly Language",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         },
                         {
                             code: "MATH210",
                             name: "Discrete Mathematics I",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         },
                         {
                             code: "GEOL107",
                             name: "Geology of Dynamic Earth",
-                            credits: 4
+                            credits: 4,
+                            isMulticultural: false
                         },
                         {
                             code: "LING202",
                             name: "Science of Language",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         }
                     ]
                 },
@@ -122,27 +137,32 @@ function App(): JSX.Element {
                         {
                             code: "CISC275",
                             name: "Introduction to Software Engineering",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         },
                         {
                             code: "CISC355",
                             name: "Computers, Ethics, and Society",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         },
                         {
                             code: "MATH205",
                             name: "Statistical Methods",
-                            credits: 4
+                            credits: 4,
+                            isMulticultural: false
                         },
                         {
                             code: "GEOL105",
                             name: "Geological Hazards and their Human Impacts",
-                            credits: 3
+                            credits: 3,
+                            isMulticultural: false
                         },
                         {
                             code: "GEOL115",
                             name: "Geological Hazards Laboratory",
-                            credits: 1
+                            credits: 1,
+                            isMulticultural: false
                         }
                     ]
                 }
