@@ -1,7 +1,7 @@
 import { DegreeRequirementCategory } from "./degreeRequirementCategory";
 
 /**
- * This represents a set of requirements for a degree
+ * This represents a set of requirements for a degree, such as a concentration.
  */
 export interface DegreeRequirements {
     /**

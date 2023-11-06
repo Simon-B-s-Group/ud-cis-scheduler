@@ -19,12 +19,12 @@ export interface DegreeRequirementCategory {
     name: string;
 
     /**
-     * An optional parameter which consists of the courses that can
-     * be used to satisfy this requirement.
+     * An optional parameter which consists of the NAMES of the courses
+     * that can be used to satisfy this requirement.
      *
      * Either this OR courseTypeRequired must be filled out.
      */
-    coursesRequired?: Course[];
+    coursesRequired?: string[];
 
     /**
      * An optional parameter which consists of the type of courses

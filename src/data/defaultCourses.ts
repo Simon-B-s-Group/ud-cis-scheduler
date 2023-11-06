@@ -62,7 +62,7 @@ export const courseOptions: CourseOption[] = [
             credits: 3,
             isMulticultural: false
         },
-        prereqs: "BISC 207ݡnd BISC303"
+        prereqs: "BISC 207, BISC303"
     },
     {
         course: {
@@ -71,7 +71,7 @@ export const courseOptions: CourseOption[] = [
             credits: 3,
             isMulticultural: false
         },
-        prereqs: "BISC303, BISC 401,ݯr BISC 403."
+        prereqs: "BISC303, BISC 401 or BISC 403."
     },
     {
         course: {
