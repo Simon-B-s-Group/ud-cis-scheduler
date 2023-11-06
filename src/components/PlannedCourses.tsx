@@ -63,7 +63,10 @@ export function PlannedCourses({
             <td> {currentCourse.credits}</td>
             {editMode ? (
                 <td>
-                    <Button onClick={() => setEditing(!editing)}>
+                    <Button
+                        className="positive"
+                        onClick={() => setEditing(!editing)}
+                    >
                         Edit Course
                     </Button>
                     <Button
@@ -93,7 +96,7 @@ export function PlannedCourses({
                                 onChange={updateCredits}
                             ></Form.Control>
                             <Button
-                                variant="success"
+                                className="positive"
                                 onClick={() => {
                                     const updatedSemesterCourses =
                                         sem.courses.map(
