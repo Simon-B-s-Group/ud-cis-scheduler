@@ -206,6 +206,7 @@ function App(): JSX.Element {
                         ></Form.Control>
                     </Form.Group>
                     <Button
+                        className="positive"
                         onClick={() => {
                             setDegreePlans([
                                 ...degreePlans,
@@ -235,7 +236,7 @@ function App(): JSX.Element {
                                     View Plan
                                 </Button>
                                 <Button
-                                    className="btn btn-danger"
+                                    className="negative"
                                     onClick={() =>
                                         setDegreePlans([
                                             ...degreePlans.filter(
