@@ -7,7 +7,7 @@ import "./Button.css";
 
 import { IntroPopup } from "./components/modals/IntroPopup";
 import { DegreePlan } from "./interfaces/degreePlan";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { DegreePlanPage } from "./components/DegreePlanPage";
 import { Semester } from "./interfaces/semester";
 import { SingleSemesterPage } from "./components/SingleSemesterPage";
@@ -158,6 +158,12 @@ function App(): JSX.Element {
         null
     );
 
+    const [newPlanName, setNewPlanName] = useState<string>("");
+
+    function changeNewPlanName(event: React.ChangeEvent<HTMLInputElement>) {
+        setNewPlanName(event.target.value);
+    }
+
     /**
      * This updates the degree plan with newPlan's name with newPlan.
      * i.e. If I have a plan named "Plan 1", and I have it loaded in the editor, if I change one of its courses,
@@ -191,7 +197,32 @@ function App(): JSX.Element {
             {!currentPlan ? (
                 <>
                     <IntroPopup show={showIntro} handleClose={handleClose} />
-                    <h3>Degree Plans</h3>
+                    <h3>Degree Plans</h3>{" "}
+                    <Form.Group controlId="planName">
+                        <Form.Label>New Degree Plan</Form.Label>
+                        <Form.Control
+                            value={newPlanName}
+                            onChange={changeNewPlanName}
+                        ></Form.Control>
+                    </Form.Group>
+                    <Button
+                        onClick={() => {
+                            setDegreePlans([
+                                ...degreePlans,
+                                { name: newPlanName, semesters: [] }
+                            ]);
+                            setNewPlanName("");
+                        }}
+                        disabled={
+                            degreePlans.findIndex(
+                                (degreePlan: DegreePlan) =>
+                                    newPlanName.trim() ===
+                                    degreePlan.name.trim()
+                            ) !== -1
+                        }
+                    >
+                        Create New Degree Plan
+                    </Button>
                     {degreePlans.map((degreePlan: DegreePlan): JSX.Element => {
                         return (
                             <div key={degreePlan.name}>
@@ -202,6 +233,19 @@ function App(): JSX.Element {
                                     className="positive"
                                 >
                                     View Plan
+                                </Button>
+                                <Button
+                                    className="btn btn-danger"
+                                    onClick={() =>
+                                        setDegreePlans([
+                                            ...degreePlans.filter(
+                                                (currentPlan: DegreePlan) =>
+                                                    currentPlan !== degreePlan
+                                            )
+                                        ])
+                                    }
+                                >
+                                    Delete
                                 </Button>
                             </div>
                         );
