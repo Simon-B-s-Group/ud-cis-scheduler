@@ -88,7 +88,7 @@ export function PlannedCourses({
                             ></Form.Control>
                             <Form.Label>Course Credits</Form.Label>
                             <Form.Control
-                                type="text"
+                                type="number"
                                 value={currentCourse.credits}
                                 onChange={updateCredits}
                             ></Form.Control>
@@ -115,6 +115,7 @@ export function PlannedCourses({
                                     };
                                     setCurrentSemester(updatedSemester);
                                     updatePlan(updatedPlan, false);
+                                    setEditing(false);
                                 }}
                             >
                                 OK
