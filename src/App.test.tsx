@@ -3,11 +3,6 @@ import { render, screen, fireEvent, waitFor } from "@testing-library/react";
 import App from "./App";
 import userEvent from "@testing-library/user-event";
 
-/*
-NOTE:
-Line 209 in SingleSemesterPage.tsx is unreachable because in edit mode, SemesterView's delete semester button is not visible.
-*/
-
 describe("UD CIS Scheduler tests", () => {
     // this is like launching the app
     beforeEach(() => render(<App />));
