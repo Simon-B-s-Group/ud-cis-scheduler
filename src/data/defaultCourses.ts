@@ -47,14 +47,14 @@ export const courseOptions: Course[] = [
         code: "BISC403",
         name: "Genetics",
         credits: 3,
-        prereqs: "BISC 207�and BISC303",
+        prereqs: "BISC 207 and BISC303",
         isMulticultural: false
     },
     {
         code: "BISC484",
         name: "Applied Genomics Laboratory",
         credits: 3,
-        prereqs: "BISC303, BISC 401,�or BISC 403.",
+        prereqs: "BISC303, BISC 401, or BISC 403.",
         isMulticultural: false
     },
     {
@@ -241,7 +241,7 @@ export const courseOptions: Course[] = [
         code: "CISC372",
         name: "Parallel Computing",
         credits: 3,
-        prereqs: "C- or better in both CISC 220 and�CISC 260.",
+        prereqs: "C- or better in both CISC 220 and CISC 260.",
         isMulticultural: false
     },
     {
@@ -467,7 +467,7 @@ export const courseOptions: Course[] = [
         code: "CPEG475",
         name: "IoT and Embedded Systems Security",
         credits: 3,
-        prereqs: "CPEG 222,�CPEG 465/CPEG665 or CPEG365",
+        prereqs: "CPEG 222, CPEG 465/CPEG665 or CPEG365",
         isMulticultural: false
     },
     {

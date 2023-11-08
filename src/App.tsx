@@ -21,6 +21,7 @@ function App(): JSX.Element {
     const [degreePlans, setDegreePlans] = useState<DegreePlan[]>([
         {
             name: "Sample Degree Plan",
+            concentration: "No Concentration",
             semesters: [
                 {
                     season: "Fall",
@@ -255,7 +256,11 @@ function App(): JSX.Element {
                         onClick={() => {
                             setDegreePlans([
                                 ...degreePlans,
-                                { name: newPlanName, semesters: [] }
+                                {
+                                    name: newPlanName,
+                                    semesters: [],
+                                    concentration: "No Concentration"
+                                }
                             ]);
                             setNewPlanName("");
                         }}

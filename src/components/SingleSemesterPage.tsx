@@ -50,7 +50,8 @@ export function SingleSemesterPage({
         code: "CISC488",
         name: "Introduction to Natural Language Processing",
         credits: 3,
-        prereqs: "CISC220",
+        prereqs:
+            "CISC220 and experience programming in Python.  A first course in probability or statistics is recommended.",
         isMulticultural: false
     });
     const updateCustomCode = (
