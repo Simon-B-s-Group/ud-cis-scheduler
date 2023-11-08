@@ -9,6 +9,7 @@ import { NewSemesterPopup } from "./modals/NewSemesterPopup";
 import "../Button.css";
 import { DegreeRequirements } from "../interfaces/degreeRequirements";
 import { concentrations } from "../data/concentrations";
+import { DegreeRequirementCategory } from "../interfaces/degreeRequirementCategory";
 
 /**
  * A page showing a whole Degree Plan, specifically its name and semesters
@@ -42,14 +43,35 @@ export function DegreePlanPage({
 
     /**
      * Something I know from internship stuff
-     * Every time thisPlan loads, we set its requirements (because find technically can return undefined)
+     * Every time thisPlan loads, we set its requirements to be displayed (because find technically can return undefined so we cannot put it right into the state)
      */
     useEffect(() => {
         // TODO: combine this with actual concentration
         // TODO: currently it's just the common reqs
-        const requirements = concentrations.find(
+        // TODO: also add the 124 credit requirement
+        const commonRequirements = concentrations.find(
             (c: DegreeRequirements): boolean => c.name === "Common Requirements"
         );
+        const concentrationRequirements = concentrations.find(
+            (c: DegreeRequirements): boolean =>
+                c.name === thisPlan.concentration
+        );
+        let combinedRequirements: DegreeRequirementCategory[] = [];
+        if (commonRequirements) {
+            // won't ever be null
+            combinedRequirements = [...commonRequirements.requirements];
+        }
+        if (concentrationRequirements) {
+            // won't ever be null
+            combinedRequirements = [
+                ...combinedRequirements,
+                ...concentrationRequirements.requirements
+            ];
+        }
+        const requirements: DegreeRequirements = {
+            name: concentrationRequirements?.name ?? "Degree Requirements",
+            requirements: combinedRequirements
+        };
         if (requirements) {
             // this won't ever be undefined
             setDegreeRequirements(requirements);
@@ -64,7 +86,7 @@ export function DegreePlanPage({
         savePlan(thisPlan, false);
     }, [thisPlan]);
 
-    // TEMPORARY
+    // TODO: THIS IS TEMPORARY. TO BE PROPERLY DONE LATER
     useEffect(() => {
         setReqsDisplay(
             degreeRequirements?.requirements.map((requirement) => {
@@ -80,7 +102,7 @@ export function DegreePlanPage({
                         retStr += "Must take ";
                     }
                 } else {
-                    retStr += `At least ${requirement.numCreditsRequired} credit9s) from: `;
+                    retStr += `At least ${requirement.numCreditsRequired} credit(s) from: `;
                 }
 
                 if (requirement.coursesRequired !== undefined) {
@@ -88,9 +110,9 @@ export function DegreePlanPage({
                 } else if (requirement.courseTypeRequired !== undefined) {
                     retStr +=
                         requirement.courseTypeRequired + " Breadth courses";
-                } else {
+                } else if (requirement.coursesMustHaveInName !== undefined) {
                     // TODO: make this look nicer
-                    retStr += requirement.coursesMustHaveInName;
+                    retStr += requirement.coursesMustHaveInName.join(", ");
                 }
 
                 return retStr;

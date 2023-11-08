@@ -116,5 +116,491 @@ export const concentrations: DegreeRequirements[] = [
                 numCoursesRequired: 1
             }
         ]
+    },
+    {
+        name: "No Concentration",
+        requirements: [
+            {
+                name: "Additional Core Courses",
+                coursesRequired: ["CISC361", "CISC372", "MATH242"],
+                numCoursesRequired: 3
+            },
+            {
+                name: "CISC Courses 300+ Level",
+                coursesMustHaveInName: ["CISC3", "CISC4"],
+                numCreditsRequired: 6
+            },
+            {
+                name: "Additional Science",
+                coursesRequired: [
+                    "PHYS207",
+                    "PHYS227",
+                    "PHYS208",
+                    "PHYS228",
+                    "CHEM103",
+                    "CHEM133",
+                    "CHEM104",
+                    "CHEM134",
+                    "BISC207",
+                    "BISC208",
+                    "GEOL105",
+                    "GEOL115",
+                    "GEOL107",
+                    "GEOL110"
+                ],
+                numCreditsRequired: 4
+            }
+        ]
+    },
+    {
+        name: "AI & Robotics",
+        requirements: [
+            {
+                name: "AI Core",
+                coursesRequired: [
+                    "CISC304",
+                    "CISC442",
+                    "CISC481",
+                    "CISC483",
+                    "CISC484"
+                ],
+                numCoursesRequired: 5
+            },
+            {
+                name: "Systems Requirement",
+                coursesRequired: ["CISC361", "CISC372"],
+                numCoursesRequired: 1
+            },
+            {
+                name: "Restricted Electives",
+                coursesRequired: [
+                    "CISC436",
+                    "CISC437",
+                    "CISC489",
+                    "CISC889",
+                    "EDUC462",
+                    "ELEG404",
+                    "ELEG418",
+                    "ELEG387",
+                    "ELEG487",
+                    "LING202",
+                    "LING404",
+                    "LING418",
+                    "LING444",
+                    "LING451",
+                    "LING455",
+                    "MAST632",
+                    "MATH242",
+                    "MATH349",
+                    "MEEG671",
+                    "PSYC310",
+                    "PSYC340",
+                    "PSYC344"
+                ],
+                numCreditsRequired: 12
+            },
+            {
+                name: "CISC Elective",
+                coursesMustHaveInName: ["CISC3", "CISC4"],
+                numCreditsRequired: 3
+            }
+        ]
+    },
+    {
+        name: "Bioinformatics",
+        requirements: [
+            {
+                name: "Bioinformatics Core",
+                coursesRequired: [
+                    "BISC207",
+                    "BISC208",
+                    "BISC401",
+                    "CHEM103",
+                    "CHEM133",
+                    "CHEM104",
+                    "CHEM134",
+                    "CISC372",
+                    "CISC436",
+                    "MATH242",
+                    "MATH349"
+                ],
+                numCoursesRequired: 11
+            },
+            {
+                name: "Organic Chemistry Sequence (CHEM213/215 OR CHEM321/325)",
+                coursesRequired: ["CHEM213", "CHEM215", "CHEM321", "CHEM325"],
+                numCreditsRequired: 4
+            },
+            {
+                name: "Data Analysis Requirement",
+                coursesRequired: ["CISC483", "CISC484"],
+                numCoursesRequired: 1
+            },
+            {
+                name: "Restricted Electives",
+                coursesRequired: [
+                    "ANFS300",
+                    "ANFS310",
+                    "ANFS470",
+                    "BISC403",
+                    "BISC484",
+                    "BISC492",
+                    "CHEM214",
+                    "CHEM216",
+                    "CHEM322",
+                    "CHEM326",
+                    "MATH243"
+                ],
+                numCreditsRequired: 6
+            }
+        ]
+    },
+    {
+        name: "Cybersecurity",
+        requirements: [
+            {
+                name: "Cybersecurity Core",
+                coursesRequired: [
+                    "CISC361",
+                    "CISC372",
+                    "CISC450",
+                    "CISC464",
+                    "GPEG465",
+                    "CPEG494"
+                ],
+                numCoursesRequired: 6
+            },
+            {
+                name: "Advanced Cybersecurity Requirement",
+                coursesRequired: [
+                    "CPEG472",
+                    "CPEG473",
+                    "CPEG475",
+                    "CPEG476",
+                    "CPEG495"
+                ],
+                numCoursesRequired: 2
+            },
+            {
+                name: "Restricted Electives",
+                coursesRequired: [
+                    "MATH242",
+                    "MATH349",
+                    "MATH549",
+                    "CISC304",
+                    "CISC436",
+                    "CISC437",
+                    "CISC440",
+                    "CISC442",
+                    "CISC449",
+                    "CISC453",
+                    "CISC459",
+                    "CISC474",
+                    "CISC481",
+                    "CISC483",
+                    "CISC484",
+                    "CPEG470",
+                    "CPEG471",
+                    "CPEG472",
+                    "CPEG473",
+                    "CPEG475",
+                    "CPEG476",
+                    "CPEG494",
+                    "CPEG495",
+                    "ELEG387",
+                    "ELEG487"
+                ],
+                numCreditsRequired: 6
+            },
+            {
+                name: "CISC Elective",
+                coursesMustHaveInName: ["CISC3", "CISC4"],
+                numCreditsRequired: 3
+            }
+        ]
+    },
+    {
+        name: "Data Science",
+        requirements: [
+            {
+                name: "Data Science Core",
+                coursesRequired: [
+                    "CISC304",
+                    "CISC372",
+                    "CISC437",
+                    "CISC481",
+                    "MATH205",
+                    "MATH242",
+                    "MATH243",
+                    "MATH349"
+                ],
+                numCoursesRequired: 8
+            },
+            {
+                name: "Advanced Data Science",
+                coursesRequired: ["CISC483", "CISC484"],
+                numCoursesRequired: 1
+            },
+            {
+                name: "Advanced Math",
+                coursesRequired: ["MATH302", "MATH350", "MATH426"],
+                numCoursesRequired: 1
+            },
+            {
+                name: "Restricted Electives",
+                coursesRequired: [
+                    "CISC361",
+                    "CISC410",
+                    "CISC436",
+                    "CISC440",
+                    "CISC442",
+                    "CISC449",
+                    "CISC450",
+                    "CISC471",
+                    "CISC474",
+                    "CISC483",
+                    "CISC484",
+                    "CISC489",
+                    "ELEG387",
+                    "ELEG487",
+                    "MATH302",
+                    "MATH350",
+                    "MATH428",
+                    "MATH450"
+                ],
+                numCreditsRequired: 3
+            },
+            {
+                name: "CISC Elective",
+                coursesMustHaveInName: ["CISC3", "CISC4"],
+                numCreditsRequired: 3
+            }
+        ]
+    },
+    {
+        name: "High Performance Computing (Applied Math)",
+        requirements: [
+            {
+                name: "HPC Core",
+                coursesRequired: [
+                    "CISC360",
+                    "CISC361",
+                    "CISC372",
+                    "CISC450",
+                    "CISC471",
+                    "MATH242",
+                    "MATH243"
+                ],
+                numCoursesRequired: 7
+            },
+            {
+                name: "Applied Math Core",
+                coursesRequired: ["MATH351", "MATH428"],
+                numCoursesRequired: 2
+            }
+        ]
+    },
+    {
+        name: "High Performance Computing (Data)",
+        requirements: [
+            {
+                name: "HPC Core",
+                coursesRequired: [
+                    "CISC360",
+                    "CISC361",
+                    "CISC372",
+                    "CISC450",
+                    "CISC471",
+                    "MATH242",
+                    "MATH243"
+                ],
+                numCoursesRequired: 7
+            },
+            {
+                name: "Data Core",
+                coursesRequired: ["CISC437", "MATH350", "MATH450"],
+                numCoursesRequired: 3
+            },
+            {
+                name: "Machine Learning Requirement",
+                coursesRequired: ["CISC483", "CISC484"],
+                numCoursesRequired: 1
+            },
+            {
+                name: "Restricted Electives",
+                coursesRequired: ["MATH302", "MATH349", "MATH351", "MATH535"],
+                numCreditsRequired: 5
+            }
+        ]
+    },
+    {
+        name: "Systems & Networks",
+        requirements: [
+            {
+                name: "Systems Core",
+                coursesRequired: [
+                    "CISC360",
+                    "CISC361",
+                    "CISC372",
+                    "CISC450",
+                    "CISC471"
+                ],
+                numCoursesRequired: 5
+            },
+            {
+                name: "Security Requirement",
+                coursesRequired: [
+                    "CISC464",
+                    "CPEG465",
+                    "CPEG470",
+                    "CPEG476",
+                    "CPEG473",
+                    "CPEG475",
+                    "CPEG497"
+                ],
+                numCoursesRequired: 1
+            },
+            {
+                name: "Advanced Systems Requirement",
+                coursesRequired: [
+                    "CISC437",
+                    "CISC453",
+                    "CISC459",
+                    "CISC464",
+                    "CISC474",
+                    "CISC475",
+                    "CISC469",
+                    "CPEG473",
+                    "CPEG497"
+                ],
+                numCoursesRequired: 2
+            },
+            {
+                name: "Restricted Electives",
+                coursesRequired: [
+                    "CISC304",
+                    "CISC436",
+                    "CISC437",
+                    "CISC440",
+                    "CISC442",
+                    "CISC449",
+                    "CISC453",
+                    "CISC459",
+                    "CISC464",
+                    "CISC474",
+                    "CISC475",
+                    "CISC479",
+                    "CISC481",
+                    "CISC483",
+                    "CISC484",
+                    "CISC489",
+                    "CPEG202",
+                    "CPEG222",
+                    "CPEG323",
+                    "CPEG422",
+                    "CPEG460",
+                    "CPEG465",
+                    "CPEG470",
+                    "CPEG475",
+                    "CPEG476",
+                    "CPEG494",
+                    "CPEG497",
+                    "ELEG387",
+                    "ELEG487",
+                    "MATH242",
+                    "MATH349"
+                ],
+                numCreditsRequired: 6
+            },
+            {
+                name: "CISC Elective",
+                coursesMustHaveInName: ["CISC3", "CISC4"],
+                numCreditsRequired: 3
+            }
+        ]
+    },
+    {
+        name: "Theory & Computation (Discrete)",
+        requirements: [
+            {
+                name: "Theory Core",
+                coursesRequired: ["CISC304", "CISC401", "MATH242", "MATH349"],
+                numCoursesRequired: 4
+            },
+            {
+                name: "Restricted Electives",
+                coursesRequired: [
+                    "CISC372",
+                    "CISC404",
+                    "CISC410",
+                    "CISC414",
+                    "CISC471",
+                    "CISC481",
+                    "ELEG387",
+                    "ELEG487",
+                    "MATH243",
+                    "MATH245",
+                    "MATH302",
+                    "MATH315",
+                    "MATH350",
+                    "MATH428",
+                    "MATH450",
+                    "MATH451"
+                ],
+                numCreditsRequired: 6
+            },
+            {
+                name: "CISC Elective",
+                coursesMustHaveInName: ["CISC3", "CISC4"],
+                numCreditsRequired: 3
+            },
+            {
+                name: "Discrete Track Core",
+                coursesRequired: ["CISC404", "MATH245", "MATH315", "MATH451"],
+                numCoursesRequired: 4
+            }
+        ]
+    },
+    {
+        name: "Theory & Computation (Continuous)",
+        requirements: [
+            {
+                name: "Theory Core",
+                coursesRequired: ["CISC304", "CISC401", "MATH242", "MATH349"],
+                numCoursesRequired: 4
+            },
+            {
+                name: "Restricted Electives",
+                coursesRequired: [
+                    "CISC372",
+                    "CISC404",
+                    "CISC410",
+                    "CISC414",
+                    "CISC471",
+                    "CISC481",
+                    "ELEG387",
+                    "ELEG487",
+                    "MATH243",
+                    "MATH245",
+                    "MATH302",
+                    "MATH315",
+                    "MATH350",
+                    "MATH428",
+                    "MATH450",
+                    "MATH451"
+                ],
+                numCreditsRequired: 6
+            },
+            {
+                name: "CISC Elective",
+                coursesMustHaveInName: ["CISC3", "CISC4"],
+                numCreditsRequired: 3
+            },
+            {
+                name: "Continuous Track Core",
+                coursesRequired: ["MATH243", "MATH302", "MATH535", "MATH426"],
+                numCoursesRequired: 4
+            }
+        ]
     }
 ];
