@@ -182,11 +182,25 @@ export function SingleSemesterPage({
                     OK
                 </Button>
             </Form.Group>
-            <b>
+            <strong>
                 <u>
                     <h6>Add Custom Course</h6>
                 </u>
-            </b>
+            </strong>
+            {currentCustomCourse.code.length >= 6 ? (
+                <p>
+                    Click{" "}
+                    <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={`https://udapps.nss.udel.edu/CourseDescription/info?searchKey=2023%7c${currentCustomCourse.code.toUpperCase()}`}
+                    >
+                        here
+                    </a>{" "}
+                    to view more info about{" "}
+                    {currentCustomCourse.code.toUpperCase()}!
+                </p>
+            ) : null}
             <Form.Group controlId="newCourse">
                 <Form.Label>Course Code</Form.Label>
                 <Form.Control
@@ -231,6 +245,75 @@ export function SingleSemesterPage({
                     OK
                 </Button>
             </Form.Group>
+            <p>
+                <strong>Other Resources</strong>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75605"
+                    }
+                >
+                    Creative Arts & Humanities Breadth Classes
+                </a>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75606"
+                    }
+                >
+                    History & Cultural Change Breadth Classes
+                </a>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75609"
+                    }
+                >
+                    Social and Behavioral Sciences Breadth Classes
+                </a>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75610"
+                    }
+                >
+                    Math, Natural Sciences, & Technology Breadth Classes
+                </a>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75590"
+                    }
+                >
+                    College of Engineering Breadth Classes
+                </a>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75697"
+                    }
+                >
+                    Multicultural Classes
+                </a>
+            </p>
         </>
     );
 }
