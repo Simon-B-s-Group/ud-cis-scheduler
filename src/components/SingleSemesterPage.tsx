@@ -5,7 +5,6 @@ import React, { useState } from "react";
 import { SemesterView } from "./SemesterView";
 import { Semester } from "../interfaces/semester";
 import { Button, Form } from "react-bootstrap";
-import { CourseOption } from "../interfaces/courseoption";
 import { Course } from "../interfaces/course";
 import { DegreePlan } from "../interfaces/degreePlan";
 import { courseOptions } from "./../data/defaultCourses";
@@ -38,7 +37,7 @@ export function SingleSemesterPage({
 }) {
     // the code of the currently selected course to add
     const [currentSelectedCourse, setCurrentSelectedCourse] = useState<string>(
-        courseOptions[0].course.code
+        courseOptions[0].code
     );
     const updateCurrentSelectedCourse = (
         event: React.ChangeEvent<HTMLSelectElement>
@@ -48,9 +47,10 @@ export function SingleSemesterPage({
 
     // the course data of the currently inputted custom course (on the bottom form)
     const [currentCustomCourse, setCurrentCustomCourse] = useState<Course>({
-        code: "CISC366",
-        name: "Independent Study",
+        code: "CISC488",
+        name: "Introduction to Natural Language Processing",
         credits: 3,
+        prereqs: "CISC220",
         isMulticultural: false
     });
     const updateCustomCode = (
@@ -75,6 +75,14 @@ export function SingleSemesterPage({
         setCurrentCustomCourse({
             ...currentCustomCourse,
             credits: Number.parseInt(event.target.value)
+        });
+    };
+    const updateCustomPrereqs = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setCurrentCustomCourse({
+            ...currentCustomCourse,
+            prereqs: event.target.value
         });
     };
 
@@ -139,12 +147,12 @@ export function SingleSemesterPage({
                     value={currentSelectedCourse}
                     onChange={updateCurrentSelectedCourse}
                 >
-                    {courseOptions.map((courseOption: CourseOption) => (
+                    {courseOptions.map((courseOption: Course) => (
                         <option
-                            key={courseOption.course.code}
-                            value={courseOption.course.code}
+                            key={courseOption.code}
+                            value={courseOption.code}
                         >
-                            {courseOption.course.code}
+                            {courseOption.code}
                         </option>
                     ))}
                 </Form.Select>
@@ -152,8 +160,8 @@ export function SingleSemesterPage({
                     variant="success"
                     onClick={() => {
                         const foundCourse = courseOptions.find(
-                            (option: CourseOption): boolean =>
-                                option.course.code === currentSelectedCourse
+                            (option: Course): boolean =>
+                                option.code === currentSelectedCourse
                         );
                         if (foundCourse) {
                             // theoretically this should never be null
@@ -166,7 +174,7 @@ export function SingleSemesterPage({
                                 alert(
                                     `${currentSelectedCourse} is already in this semester!`
                                 );
-                            else addCourseToSemester(foundCourse.course);
+                            else addCourseToSemester(foundCourse);
                         }
                     }}
                     className="positive"
@@ -197,6 +205,12 @@ export function SingleSemesterPage({
                     type="number"
                     value={currentCustomCourse.credits}
                     onChange={updateCustomCredits}
+                />
+                <Form.Label>Course Prerequisites</Form.Label>
+                <Form.Control
+                    type="text"
+                    value={currentCustomCourse.prereqs}
+                    onChange={updateCustomPrereqs}
                 />
                 <Button
                     variant="success"

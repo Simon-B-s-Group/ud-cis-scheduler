@@ -32,4 +32,9 @@ export interface Course {
      * breadth requirement this class fulfills
      */
     breadthFulfilled?: BreadthType;
+
+    /**
+     * The course's pre-reqs as a string
+     */
+    prereqs: string;
 }
