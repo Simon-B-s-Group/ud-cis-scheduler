@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import React, { useEffect, useState } from "react";
 import { DegreePlan } from "../interfaces/degreePlan";
 import { SemesterView } from "./SemesterView";
@@ -6,6 +7,8 @@ import { Course } from "../interfaces/course";
 import { Button } from "react-bootstrap";
 import { NewSemesterPopup } from "./modals/NewSemesterPopup";
 import "../Button.css";
+import { DegreeRequirements } from "../interfaces/degreeRequirements";
+import { concentrations } from "../data/concentrations";
 
 /**
  * A page showing a whole Degree Plan, specifically its name and semesters
@@ -31,6 +34,27 @@ export function DegreePlanPage({
     // this is the plan being edited with this degree plan page
     const [thisPlan, setThisPlan] = useState<DegreePlan>({ ...degreePlan });
     const [showNewSemPopup, setShowNewSemPopup] = useState<boolean>(false);
+    const [degreeRequirements, setDegreeRequirements] =
+        useState<DegreeRequirements | null>(null);
+
+    // TEMP
+    const [reqsDisplay, setReqsDisplay] = useState<string[] | undefined>([]);
+
+    /**
+     * Something I know from internship stuff
+     * Every time thisPlan loads, we set its requirements (because find technically can return undefined)
+     */
+    useEffect(() => {
+        // TODO: combine this with actual concentration
+        // TODO: currently it's just the common reqs
+        const requirements = concentrations.find(
+            (c: DegreeRequirements): boolean => c.name === "Common Requirements"
+        );
+        if (requirements) {
+            // this won't ever be undefined
+            setDegreeRequirements(requirements);
+        }
+    }, []);
 
     /**
      * Something I know from internship stuff
@@ -39,6 +63,40 @@ export function DegreePlanPage({
     useEffect(() => {
         savePlan(thisPlan, false);
     }, [thisPlan]);
+
+    // TEMPORARY
+    useEffect(() => {
+        setReqsDisplay(
+            degreeRequirements?.requirements.map((requirement) => {
+                let retStr = `${requirement.name}: `;
+                if (requirement.numCoursesRequired !== undefined) {
+                    if (
+                        requirement.coursesRequired &&
+                        requirement.numCoursesRequired !==
+                            requirement.coursesRequired.length
+                    ) {
+                        retStr += `At least ${requirement.numCoursesRequired} course(s) from: `;
+                    } else {
+                        retStr += "Must take ";
+                    }
+                } else {
+                    retStr += `At least ${requirement.numCreditsRequired} credit9s) from: `;
+                }
+
+                if (requirement.coursesRequired !== undefined) {
+                    retStr += requirement.coursesRequired.join(", ");
+                } else if (requirement.courseTypeRequired !== undefined) {
+                    retStr +=
+                        requirement.courseTypeRequired + " Breadth courses";
+                } else {
+                    // TODO: make this look nicer
+                    retStr += requirement.coursesMustHaveInName;
+                }
+
+                return retStr;
+            })
+        );
+    }, [degreeRequirements]);
 
     /**
      * To be used in tandem with the NewSemesterPopup modal. Once a submission is made
@@ -155,6 +213,13 @@ export function DegreePlanPage({
                         <span style={textColor}>{totalCredits + " / 124"}</span>
                     </div>
                 </span>
+                {reqsDisplay
+                    ? reqsDisplay.map((item) => (
+                          <>
+                              <p key={item}>{item}</p>
+                          </>
+                      ))
+                    : null}
             </div>
         </>
     );
