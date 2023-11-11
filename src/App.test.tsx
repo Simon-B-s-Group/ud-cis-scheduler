@@ -224,7 +224,7 @@ describe("UD CIS Scheduler tests", () => {
         userEvent.type(nameEdit, "Research");
         userEvent.type(creditsEdit, "4");
 
-        const okButton = screen.getAllByText("OK")[1]; // the first OK button submits a pre-defined course
+        const okButton = screen.getAllByText("OK")[1]; // the second OK button submits a custom course
         userEvent.click(okButton);
 
         expect(screen.queryByText(/CISC487: Research/i)).toBeInTheDocument();
@@ -237,5 +237,67 @@ describe("UD CIS Scheduler tests", () => {
         userEvent.click(backButton);
 
         expect(screen.queryByText(/CISC487: Research/i)).toBeInTheDocument(); // should still be listed as a course
+    });
+
+    test("You can create a new plan with a custom name", () => {
+        const closeButton = screen.getByText("Close");
+        userEvent.click(closeButton);
+
+        expect(screen.queryByText(/My New Plan/i)).toBeNull();
+
+        const nameEdit = screen.getAllByRole("textbox")[0]; // first textbox = name for plan
+        userEvent.type(nameEdit, "My New Plan");
+
+        const newPlanButton = screen.getByText("Create New Degree Plan");
+        userEvent.click(newPlanButton);
+
+        expect(screen.queryByText(/My New Plan/i)).toBeInTheDocument();
+    });
+
+    test("You can delete an existing plan", () => {
+        const closeButton = screen.getByText("Close");
+        userEvent.click(closeButton);
+
+        expect(screen.queryByText(/Sample Degree Plan/i)).toBeInTheDocument();
+
+        const deleteButton = screen.getByText("Delete");
+        userEvent.click(deleteButton);
+
+        expect(screen.queryByText(/Sample Degree Plan/i)).toBeNull();
+    });
+
+    test("You can edit a course's code, name, credits within a semester", () => {
+        const closeButton = screen.getByText("Close");
+        userEvent.click(closeButton);
+
+        const viewButton = screen.getByText("View Plan");
+        userEvent.click(viewButton);
+
+        const editButton = screen.getAllByText("Edit Semester")[0]; // get all Edit buttons on the screen, then set this button const to the first one
+        // so we will click on the edit page for Fall 2023
+        userEvent.click(editButton);
+
+        expect(screen.queryByText(/CISC487/i)).toBeNull();
+        expect(
+            screen.queryByText(/CISC108: Introduction to Computer Science I/i)
+        ).toBeInTheDocument();
+
+        const editCourseButton = screen.getAllByText("Edit Course")[0]; // the first OK button submits a pre-defined course
+        userEvent.click(editCourseButton);
+
+        const codeEdit = screen.getAllByRole("textbox")[0]; // first textbox = code edit
+        const nameEdit = screen.getAllByRole("textbox")[1]; // second textbox = name edit
+        const creditsEdit = screen.getAllByRole("spinbutton")[0];
+        userEvent.type(codeEdit, "CISC487");
+        userEvent.type(nameEdit, "Research");
+        userEvent.type(creditsEdit, "4");
+
+        const okButton = screen.getAllByText("OK")[0]; // the current first OK (conditionally rendered) submits the changes
+        userEvent.click(okButton);
+
+        expect(
+            screen.queryByText(/CISC108: Introduction to Computer Science I/i)
+        ).toBeNull();
+        expect(screen.queryByText(/CISC487/i)).toBeInTheDocument();
     });
 });
