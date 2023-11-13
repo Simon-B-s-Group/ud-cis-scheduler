@@ -40,7 +40,9 @@ export function DegreePlanPage({
         useState<DegreeRequirements | null>(null);
 
     // TEMP
-    const [reqsDisplay, setReqsDisplay] = useState<string[] | undefined>([]);
+    const [reqsDisplay, setReqsDisplay] = useState<JSX.Element | undefined>(
+        <p></p>
+    );
 
     /**
      * Something I know from internship stuff
@@ -88,35 +90,111 @@ export function DegreePlanPage({
     // TODO: THIS IS TEMPORARY. TO BE PROPERLY DONE LATER
     // TODO: convert this to JSX.Element
     useEffect(() => {
-        setReqsDisplay(
-            degreeRequirements?.requirements.map((requirement) => {
-                let retStr = `${requirement.name}: `;
-                if (requirement.numCoursesRequired !== undefined) {
-                    if (
-                        requirement.coursesRequired &&
-                        requirement.numCoursesRequired !==
-                            requirement.coursesRequired.length
-                    ) {
-                        retStr += `At least ${requirement.numCoursesRequired} course(s) from: `;
-                    } else {
-                        retStr += "Must take ";
-                    }
+        // Create an array of JSX elements
+        const coursesUsedForRequirements: Course[] = []; // courses that have been used for other requirements
+        // used in conjunction with "unique" parameter to avoid duplicate course usage for some requirements
+
+        const jsxElements = degreeRequirements?.requirements.map((req) => {
+            // === GET THE DESCRIPTION OF THE REQUIREMENT ===
+            let descriptionString = "";
+            if (req.numCoursesRequired !== undefined) {
+                if (
+                    req.coursesRequired &&
+                    req.numCoursesRequired !== req.coursesRequired.length
+                ) {
+                    descriptionString += `At least ${req.numCoursesRequired} course(s) from: `;
                 } else {
-                    retStr += `At least ${requirement.numCreditsRequired} credit(s) from: `;
+                    descriptionString += "Must take ";
                 }
+            } else {
+                descriptionString += `At least ${req.numCreditsRequired} credit(s) from: `;
+            }
 
-                if (requirement.coursesRequired !== undefined) {
-                    retStr += requirement.coursesRequired.join(", ");
-                } else if (requirement.courseTypeRequired !== undefined) {
-                    retStr +=
-                        requirement.courseTypeRequired + " Breadth courses";
-                } else if (requirement.coursesMustHaveInName !== undefined) {
-                    // TODO: make this look nicer
-                    retStr += requirement.coursesMustHaveInName.join(", ");
+            if (req.coursesRequired !== undefined) {
+                descriptionString += req.coursesRequired.join(", ");
+            } else if (req.courseTypeRequired !== undefined) {
+                descriptionString +=
+                    req.courseTypeRequired + " Breadth courses";
+            } else if (req.coursesMustHaveInName !== undefined) {
+                // TODO: make this look nicer
+                descriptionString += req.coursesMustHaveInName.join(", ");
+            }
+
+            // === CHECK WHICH COURSES USED TO SATISFY ===
+            const coursesUsed: Course[] = []; // courses used ONLY for this requirement
+            degreePlan.semesters.forEach((sem: Semester) => {
+                sem.courses.forEach((course: Course) => {
+                    if (
+                        req.unique &&
+                        coursesUsedForRequirements.includes(course)
+                    )
+                        return;
+                    if (req.coursesRequired !== undefined) {
+                        if (req.coursesRequired.includes(course.code)) {
+                            coursesUsedForRequirements.push(course);
+                            coursesUsed.push(course);
+                        }
+                    } else if (req.coursesMustHaveInName !== undefined) {
+                        req.coursesMustHaveInName.forEach((breadthType) => {
+                            if (course.code.includes(breadthType)) {
+                                coursesUsedForRequirements.push(course);
+                                coursesUsed.push(course);
+                            }
+                        });
+                    } else if (req.courseTypeRequired !== undefined) {
+                        if (
+                            course.breadthFulfilled === req.courseTypeRequired
+                        ) {
+                            coursesUsedForRequirements.push(course);
+                            coursesUsed.push(course);
+                        }
+                    }
+                });
+            });
+
+            const coursesUsedCodes = coursesUsed
+                .map((c: Course): string => c.code)
+                .sort();
+
+            let requirementText = "";
+            let checkOrCross = "❌";
+            const satisfiedCredits = coursesUsed.reduce(
+                (credits: number, course: Course) => credits + course.credits,
+                0
+            );
+
+            if (req.numCreditsRequired !== undefined) {
+                requirementText = `${satisfiedCredits} credits out of ${req.numCreditsRequired} taken`;
+                if (satisfiedCredits == req.numCreditsRequired) {
+                    checkOrCross = "✅";
                 }
+            }
 
-                return retStr;
-            })
+            return (
+                <>
+                    <p>
+                        <strong>
+                            {checkOrCross} {req.name}
+                        </strong>
+                    </p>
+                    <p>{descriptionString}</p>
+                    {/* {coursesUsedCodes.length !== 0 ? (
+                        <p>You used {coursesUsedCodes.join(", ")} to satisfy</p>
+                    ) : null} */}
+                    {requirementText ? (
+                        <p>
+                            <em>{requirementText}</em>
+                        </p>
+                    ) : null}
+                </>
+            );
+        });
+
+        // Render the array of JSX elements
+        setReqsDisplay(
+            <div>
+                <ul>{jsxElements}</ul>
+            </div>
         );
     }, [degreeRequirements]);
 
@@ -229,15 +307,13 @@ export function DegreePlanPage({
                         </>
                     );
                 })}
+                {reqsDisplay}
                 <span style={{ fontWeight: "bold " }}>
                     Total Credits Overall: {""}
                     <div>
                         <span style={textColor}>{totalCredits + " / 124"}</span>
                     </div>
                 </span>
-                {reqsDisplay
-                    ? reqsDisplay.map((item) => <p key={item}>{item}</p>)
-                    : null}
             </div>
         </>
     );
