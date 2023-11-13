@@ -72,30 +72,6 @@ export function PlannedCourses({
         setCurrentSemester(updatedSemester);
         updatePlan(updatedPlan, false);
     };
-    const equalsOriginal = (course: Course): boolean => {
-        if (course.originalCourse && origCourse) {
-            console.log(
-                "Checking if codes are equal...",
-                course.originalCourse.code === origCourse.code
-            );
-            console.log(
-                "Checking if names are equal...",
-                course.originalCourse.name === origCourse.name
-            );
-            console.log(
-                "Checking if credits are equal...",
-                course.originalCourse.credits === origCourse.credits
-            );
-            console.log("course.originalCourse: ", course.originalCourse);
-            console.log("origCourse: ", origCourse);
-            return (
-                course.originalCourse.code === origCourse.code &&
-                course.originalCourse.name === origCourse.name &&
-                course.originalCourse.credits === origCourse.credits
-            );
-        }
-        return false;
-    };
 
     return (
         <tr>
@@ -115,7 +91,6 @@ export function PlannedCourses({
                                 ...currentCourse,
                                 originalCourse: { ...currentCourse }
                             });
-                            console.log(currentCourse.originalCourse);
                         }}
                     >
                         Edit Course
@@ -129,18 +104,27 @@ export function PlannedCourses({
                     <Button
                         className="positive"
                         onClick={() => {
-                            console.log("origCourse: ", origCourse);
                             if (origCourse) {
-                                console.log("made it inside the if statement");
-                                const updatedSemesterCourses = sem.courses.map(
-                                    (c: Course): Course =>
-                                        equalsOriginal(c)
-                                            ? !origCourse
-                                                ? c
-                                                : origCourse
-                                            : c
-                                );
-                                updateSemesterAndPlan(updatedSemesterCourses);
+                                const updatedSemester: Semester = {
+                                    ...sem,
+                                    courses: sem.courses.map(
+                                        (c: Course): Course =>
+                                            c.code === currentCourse.code
+                                                ? origCourse
+                                                : c
+                                    )
+                                };
+                                setCurrentCourse(origCourse);
+                                setCurrentSemester(updatedSemester);
+                                const updatedSemesters: Semester[] =
+                                    degreePlan.semesters.map((s: Semester) =>
+                                        s === sem ? updatedSemester : s
+                                    );
+                                const updatedPlan: DegreePlan = {
+                                    ...degreePlan,
+                                    semesters: updatedSemesters
+                                };
+                                updatePlan(updatedPlan, false);
                             }
                         }}
                     >
@@ -173,12 +157,7 @@ export function PlannedCourses({
                                         ...currentCourse,
                                         originalCourse: origCourse
                                     });
-                                    console.log(
-                                        "currentCourse: ",
-                                        currentCourse
-                                    );
                                     setOrigCourse(currentCourse.originalCourse);
-                                    console.log("origCourse: ", origCourse);
                                     const updatedSemesterCourses =
                                         sem.courses.map(
                                             (c: Course): Course =>
