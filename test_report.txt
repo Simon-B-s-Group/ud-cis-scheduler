@@ -13,20 +13,20 @@ Browserslist: caniuse-lite is outdated. Please run:
         at div
         at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:18:39)
 
-      130 |                 handleSubmit={handleNewSumSubmit}
-      131 |             />
-    > 132 |             <div key={thisPlan.name}>
+      137 |                 handleSubmit={handleNewSumSubmit}
+      138 |             />
+    > 139 |             <div key={thisPlan.name}>
           |             ^
-      133 |                 <b>
-      134 |                     <u>
-      135 |                         <h5>{thisPlan.name}</h5>
+      140 |                 <b>
+      141 |                     <u>
+      142 |                         <h5>{thisPlan.name}</h5>
 
       at printWarning (node_modules/react/cjs/react-jsx-dev-runtime.development.js:117:30)
       at error (node_modules/react/cjs/react-jsx-dev-runtime.development.js:93:5)
       at validateExplicitKey (node_modules/react/cjs/react-jsx-dev-runtime.development.js:986:5)
       at validateChildKeys (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1013:11)
       at jsxWithValidation (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1174:15)
-      at DegreePlanPage (src/components/DegreePlanPage.tsx:132:13)
+      at DegreePlanPage (src/components/DegreePlanPage.tsx:139:13)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
 
   console.error
@@ -34,7 +34,7 @@ Browserslist: caniuse-lite is outdated. Please run:
         at th
         at table
         at div
-        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
+        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:38:5)
         at div
         at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:23:5)
         at div
@@ -54,7 +54,7 @@ Browserslist: caniuse-lite is outdated. Please run:
         at PlannedCourses (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/PlannedCourses.tsx:17:5)
         at table
         at div
-        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
+        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:38:5)
         at div
         at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:23:5)
         at div
@@ -73,7 +73,7 @@ Browserslist: caniuse-lite is outdated. Please run:
         at tr
         at table
         at div
-        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
+        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:38:5)
         at div
         at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:23:5)
         at div
@@ -92,7 +92,7 @@ Browserslist: caniuse-lite is outdated. Please run:
         at br
         at table
         at div
-        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:35:5)
+        at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:38:5)
         at div
         at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:23:5)
         at div
@@ -221,32 +221,32 @@ Browserslist: caniuse-lite is outdated. Please run:
       at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
       at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
 
-PASS src/App.test.tsx
+PASS src/App.test.tsx (7.331 s)
   UD CIS Scheduler tests
-    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (181 ms)
-    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (31 ms)
-    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (156 ms)
-    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (105 ms)
-    ✓ When we create a new semester with new season/year values, it should add with no classes. (210 ms)
-    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (92 ms)
-    ✓ Can't add a semester that already exists (143 ms)
-    ✓ You can delete a course from a semester (104 ms)
-    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (120 ms)
-    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (266 ms)
-    ✓ You can create a new plan with a custom name (59 ms)
-    ✓ You can delete an existing plan (29 ms)
-    ✓ You can edit a course's code, name, credits within a semester (222 ms)
+    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (285 ms)
+    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (129 ms)
+    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (316 ms)
+    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (204 ms)
+    ✓ When we create a new semester with new season/year values, it should add with no classes. (512 ms)
+    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (228 ms)
+    ✓ Can't add a semester that already exists (325 ms)
+    ✓ You can delete a course from a semester (262 ms)
+    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (291 ms)
+    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (634 ms)
+    ✓ You can create a new plan with a custom name (155 ms)
+    ✓ You can delete an existing plan (77 ms)
+    ✓ You can edit a course's code, name, credits within a semester (558 ms)
 
 -------------------------|---------|----------|---------|---------|-------------------
 File                     | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------|---------|----------|---------|---------|-------------------
-All files                |     100 |    93.75 |     100 |     100 |                   
+All files                |   98.47 |    93.75 |   96.82 |   98.43 |                   
  src                     |     100 |     87.5 |     100 |     100 |                   
   App.tsx                |     100 |     87.5 |     100 |     100 | 179               
- src/components          |     100 |       95 |     100 |     100 |                   
-  DegreePlanPage.tsx     |     100 |    91.66 |     100 |     100 | 112               
+ src/components          |   97.87 |       95 |   95.45 |   97.84 |                   
+  DegreePlanPage.tsx     |   96.15 |    91.66 |   91.66 |      96 | 103               
   PlannedCourses.tsx     |     100 |      100 |     100 |     100 |                   
-  SemesterView.tsx       |     100 |      100 |     100 |     100 |                   
+  SemesterView.tsx       |   93.33 |      100 |   88.88 |   93.33 | 111               
   SingleSemesterPage.tsx |     100 |       90 |     100 |     100 | 158               
  src/components/modals   |     100 |      100 |     100 |     100 |                   
   IntroPopup.tsx         |     100 |      100 |     100 |     100 |                   
@@ -262,5 +262,5 @@ All files                |     100 |    93.75 |     100 |     100 |
 Test Suites: 1 passed, 1 total
 Tests:       13 passed, 13 total
 Snapshots:   0 total
-Time:        4.558 s
+Time:        8.352 s
 Ran all test suites.
