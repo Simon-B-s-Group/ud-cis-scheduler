@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import "./Button.css";
+import "./Control.css";
 
 import { IntroPopup } from "./components/modals/IntroPopup";
 import { DegreePlan } from "./interfaces/degreePlan";
@@ -242,18 +243,19 @@ function App(): JSX.Element {
                 UD CIS Scheduler <br></br>Simon Brugel - Cameron Wine - Leo Chen
                 - Conor Jurewicz
             </header>
-            <Button onClick={() => setShowIntro(true)} className="gen">
-                About
-            </Button>
             {!currentPlan ? (
                 <>
                     <IntroPopup show={showIntro} handleClose={handleClose} />
+                    <Button onClick={() => setShowIntro(true)} className="gen">
+                        About
+                    </Button>
                     <h3>Degree Plans</h3>{" "}
                     <Form.Group controlId="planName">
                         <Form.Label>New Degree Plan</Form.Label>
                         <Form.Control
                             value={newPlanName}
                             onChange={changeNewPlanName}
+                            className="gen_ct"
                         ></Form.Control>
                     </Form.Group>
                     <Button

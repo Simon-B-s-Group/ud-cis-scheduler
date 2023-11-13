@@ -291,6 +291,13 @@ export function DegreePlanPage({
         });
     };
 
+    const handleAllSemDelete = (): void => {
+        setThisPlan({
+            ...thisPlan,
+            semesters: []
+        });
+    };
+
     const totalCredits = degreePlan.semesters.reduce(
         (currentTotal: number, currentSemester: Semester) =>
             currentTotal +
@@ -347,6 +354,7 @@ export function DegreePlanPage({
                                 editMode={false}
                                 setCurrentSemester={setCurrentSemester}
                                 deleteThisSem={handleSemDelete}
+                                deleteAllSem={handleAllSemDelete}
                                 updatePlan={savePlan}
                             ></SemesterView>
                         </>

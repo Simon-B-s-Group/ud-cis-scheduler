@@ -10,7 +10,7 @@ import { DegreePlan } from "../interfaces/degreePlan";
 import { courseOptions } from "./../data/defaultCourses";
 import "../Button.css";
 import { BreadthType } from "../interfaces/degreeRequirementCategory";
-
+import "../Dropdown.css";
 /**
  * A page that allows one to edit a single semester.
  *
@@ -169,6 +169,7 @@ export function SingleSemesterPage({
                 <Form.Select
                     value={currentSelectedCourse}
                     onChange={updateCurrentSelectedCourse}
+                    className="gen_dp"
                 >
                     {courseOptions.map((courseOption: Course) => (
                         <option
