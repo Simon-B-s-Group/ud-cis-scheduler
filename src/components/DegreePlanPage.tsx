@@ -1,4 +1,5 @@
-/* eslint-disable indent */
+/* eslint-disable no-extra-parens */
+// THIS WAS APPROVED BY AROMANDO - UNSOLVABLE ESLINT AND PRETTIER CONFLICTS
 import React, { useEffect, useState } from "react";
 import { DegreePlan } from "../interfaces/degreePlan";
 import { SemesterView } from "./SemesterView";
@@ -236,11 +237,7 @@ export function DegreePlanPage({
                     </div>
                 </span>
                 {reqsDisplay
-                    ? reqsDisplay.map((item) => (
-                          <>
-                              <p key={item}>{item}</p>
-                          </>
-                      ))
+                    ? reqsDisplay.map((item) => <p key={item}>{item}</p>)
                     : null}
             </div>
         </>
