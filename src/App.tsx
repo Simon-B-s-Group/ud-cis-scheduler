@@ -203,6 +203,7 @@ function App(): JSX.Element {
                         <Form.Control
                             value={newPlanName}
                             onChange={changeNewPlanName}
+                            className="gen_ct"
                         ></Form.Control>
                     </Form.Group>
                     <Button
