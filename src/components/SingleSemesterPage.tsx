@@ -9,6 +9,7 @@ import { Course } from "../interfaces/course";
 import { DegreePlan } from "../interfaces/degreePlan";
 import { courseOptions } from "./../data/defaultCourses";
 import "../Button.css";
+import { BreadthType } from "../interfaces/degreeRequirementCategory";
 
 /**
  * A page that allows one to edit a single semester.
@@ -35,6 +36,15 @@ export function SingleSemesterPage({
     setCurrentSemester: (newSem: Semester | null) => void;
     updatePlan: (newPlan: DegreePlan, exit: boolean) => void;
 }) {
+    const BREADTH_TYPES = [
+        "Art",
+        "History",
+        "Social",
+        "Math",
+        "College",
+        "None"
+    ];
+
     // the code of the currently selected course to add
     const [currentSelectedCourse, setCurrentSelectedCourse] = useState<string>(
         courseOptions[0].code
@@ -52,7 +62,8 @@ export function SingleSemesterPage({
         credits: 3,
         prereqs:
             "CISC220 and experience programming in Python.  A first course in probability or statistics is recommended.",
-        isMulticultural: false
+        isMulticultural: false,
+        breadthFulfilled: undefined
     });
     const updateCustomCode = (
         event: React.ChangeEvent<HTMLInputElement>
@@ -84,6 +95,17 @@ export function SingleSemesterPage({
         setCurrentCustomCourse({
             ...currentCustomCourse,
             prereqs: event.target.value
+        });
+    };
+    const updateCustomBreadth = (
+        event: React.ChangeEvent<HTMLSelectElement>
+    ) => {
+        setCurrentCustomCourse({
+            ...currentCustomCourse,
+            breadthFulfilled:
+                event.target.value === "None"
+                    ? undefined
+                    : (event.target.value as BreadthType)
         });
     };
 
@@ -227,6 +249,18 @@ export function SingleSemesterPage({
                     value={currentCustomCourse.prereqs}
                     onChange={updateCustomPrereqs}
                 />
+                <Form.Label>Breadth Category</Form.Label>
+                <br />
+                <Form.Select
+                    value={currentCustomCourse.breadthFulfilled ?? "None"}
+                    onChange={updateCustomBreadth}
+                >
+                    {BREADTH_TYPES.map((breadth: string) => (
+                        <option key={breadth} value={breadth}>
+                            {breadth}
+                        </option>
+                    ))}
+                </Form.Select>
                 <Button
                     variant="success"
                     onClick={() => {
