@@ -17,6 +17,11 @@ export interface DegreeRequirementCategory {
      */
     name: string;
 
+    /**
+     * If true, the courses used to satisfy this degree requirement cannot be used for other classes.
+     */
+    unique: boolean;
+
     //================================================================================================================================
     /**
      * /!\ IMPORTANT NOTE /!\

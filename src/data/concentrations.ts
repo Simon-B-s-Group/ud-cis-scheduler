@@ -7,7 +7,8 @@ export const concentrations: DegreeRequirements[] = [
             {
                 name: "Completed ENGL110",
                 coursesRequired: ["ENGL110"],
-                numCoursesRequired: 1
+                numCoursesRequired: 1,
+                unique: false
             },
             {
                 name: "Completed FYS",
@@ -26,7 +27,8 @@ export const concentrations: DegreeRequirements[] = [
                     "NURS100",
                     "UNIV101"
                 ],
-                numCoursesRequired: 1
+                numCoursesRequired: 1,
+                unique: false
             },
             {
                 name: "Core Classes",
@@ -43,47 +45,56 @@ export const concentrations: DegreeRequirements[] = [
                     "MATH210",
                     "MATH241"
                 ],
-                numCoursesRequired: 11
+                numCoursesRequired: 11,
+                unique: false
             },
             {
                 name: "Discovery Learning Experience",
-                coursesRequired: ["CISC498", "UNIV401"],
-                numCoursesRequired: 1
+                coursesRequired: ["CISC498", "UNIV401", "CISC499", "UNIV402"],
+                numCoursesRequired: 1,
+                unique: true
             },
             {
                 name: "Capstone",
-                coursesRequired: ["CISC499", "UNIV402"],
-                numCoursesRequired: 1
+                coursesRequired: ["CISC498", "UNIV401", "CISC499", "UNIV402"],
+                numCoursesRequired: 1,
+                unique: true
             },
             {
                 name: "Creative Arts Breadth",
                 courseTypeRequired: "Art",
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: false
             },
             {
                 name: "History & Cultural Breadth",
                 courseTypeRequired: "History",
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: false
             },
             {
                 name: "Social Sciences Breadth",
                 courseTypeRequired: "Social",
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: false
             },
             {
                 name: "Math Breadth",
                 courseTypeRequired: "Math",
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: false
             },
             {
                 name: "Multicultural Requirement",
                 courseTypeRequired: "Multicultural",
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: false
             },
             {
                 name: "College of Engineering Additional Breadth",
                 courseTypeRequired: "College",
-                numCreditsRequired: 9
+                numCreditsRequired: 9,
+                unique: false
             },
             {
                 name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
@@ -103,17 +114,20 @@ export const concentrations: DegreeRequirements[] = [
                     "GEOL107",
                     "GEOL110"
                 ],
-                numCreditsRequired: 8
+                numCreditsRequired: 8,
+                unique: true
             },
             {
                 name: "Statistics Requirement",
                 coursesRequired: ["MATH205", "MATH350"],
-                numCoursesRequired: 1
+                numCoursesRequired: 1,
+                unique: false
             },
             {
                 name: "Advanced English Requirement",
                 coursesRequired: ["ENGL312", "ENGL410"],
-                numCoursesRequired: 1
+                numCoursesRequired: 1,
+                unique: false
             }
         ]
     },
@@ -123,12 +137,14 @@ export const concentrations: DegreeRequirements[] = [
             {
                 name: "Additional Core Courses",
                 coursesRequired: ["CISC361", "CISC372", "MATH242"],
-                numCoursesRequired: 3
+                numCoursesRequired: 3,
+                unique: false
             },
             {
                 name: "CISC Courses 300+ Level",
                 coursesMustHaveInName: ["CISC3", "CISC4"],
-                numCreditsRequired: 6
+                numCreditsRequired: 6,
+                unique: true
             },
             {
                 name: "Additional Science",
@@ -148,7 +164,8 @@ export const concentrations: DegreeRequirements[] = [
                     "GEOL107",
                     "GEOL110"
                 ],
-                numCreditsRequired: 4
+                numCreditsRequired: 4,
+                unique: true
             }
         ]
     },
@@ -164,12 +181,14 @@ export const concentrations: DegreeRequirements[] = [
                     "CISC483",
                     "CISC484"
                 ],
-                numCoursesRequired: 5
+                numCoursesRequired: 5,
+                unique: false
             },
             {
                 name: "Systems Requirement",
                 coursesRequired: ["CISC361", "CISC372"],
-                numCoursesRequired: 1
+                numCoursesRequired: 1,
+                unique: false
             },
             {
                 name: "Restricted Electives",
@@ -197,12 +216,14 @@ export const concentrations: DegreeRequirements[] = [
                     "PSYC340",
                     "PSYC344"
                 ],
-                numCreditsRequired: 12
+                numCreditsRequired: 12,
+                unique: false
             },
             {
                 name: "CISC Elective",
                 coursesMustHaveInName: ["CISC3", "CISC4"],
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: true
             }
         ]
     },
@@ -224,17 +245,20 @@ export const concentrations: DegreeRequirements[] = [
                     "MATH242",
                     "MATH349"
                 ],
-                numCoursesRequired: 11
+                numCoursesRequired: 11,
+                unique: false
             },
             {
                 name: "Organic Chemistry Sequence (CHEM213/215 OR CHEM321/325)",
                 coursesRequired: ["CHEM213", "CHEM215", "CHEM321", "CHEM325"],
-                numCreditsRequired: 4
+                numCreditsRequired: 4,
+                unique: false
             },
             {
                 name: "Data Analysis Requirement",
                 coursesRequired: ["CISC483", "CISC484"],
-                numCoursesRequired: 1
+                numCoursesRequired: 1,
+                unique: false
             },
             {
                 name: "Restricted Electives",
@@ -251,7 +275,8 @@ export const concentrations: DegreeRequirements[] = [
                     "CHEM326",
                     "MATH243"
                 ],
-                numCreditsRequired: 6
+                numCreditsRequired: 6,
+                unique: false
             }
         ]
     },
@@ -268,7 +293,8 @@ export const concentrations: DegreeRequirements[] = [
                     "GPEG465",
                     "CPEG494"
                 ],
-                numCoursesRequired: 6
+                numCoursesRequired: 6,
+                unique: false
             },
             {
                 name: "Advanced Cybersecurity Requirement",
@@ -279,7 +305,8 @@ export const concentrations: DegreeRequirements[] = [
                     "CPEG476",
                     "CPEG495"
                 ],
-                numCoursesRequired: 2
+                numCoursesRequired: 2,
+                unique: false
             },
             {
                 name: "Restricted Electives",
@@ -310,12 +337,14 @@ export const concentrations: DegreeRequirements[] = [
                     "ELEG387",
                     "ELEG487"
                 ],
-                numCreditsRequired: 6
+                numCreditsRequired: 6,
+                unique: true
             },
             {
                 name: "CISC Elective",
                 coursesMustHaveInName: ["CISC3", "CISC4"],
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: true
             }
         ]
     },
@@ -334,17 +363,20 @@ export const concentrations: DegreeRequirements[] = [
                     "MATH243",
                     "MATH349"
                 ],
-                numCoursesRequired: 8
+                numCoursesRequired: 8,
+                unique: false
             },
             {
                 name: "Advanced Data Science",
                 coursesRequired: ["CISC483", "CISC484"],
-                numCoursesRequired: 1
+                numCoursesRequired: 1,
+                unique: false
             },
             {
                 name: "Advanced Math",
                 coursesRequired: ["MATH302", "MATH350", "MATH426"],
-                numCoursesRequired: 1
+                numCoursesRequired: 1,
+                unique: false
             },
             {
                 name: "Restricted Electives",
@@ -368,12 +400,14 @@ export const concentrations: DegreeRequirements[] = [
                     "MATH428",
                     "MATH450"
                 ],
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: true
             },
             {
                 name: "CISC Elective",
                 coursesMustHaveInName: ["CISC3", "CISC4"],
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: true
             }
         ]
     },
@@ -391,12 +425,14 @@ export const concentrations: DegreeRequirements[] = [
                     "MATH242",
                     "MATH243"
                 ],
-                numCoursesRequired: 7
+                numCoursesRequired: 7,
+                unique: false
             },
             {
                 name: "Applied Math Core",
                 coursesRequired: ["MATH351", "MATH428"],
-                numCoursesRequired: 2
+                numCoursesRequired: 2,
+                unique: false
             }
         ]
     },
@@ -414,22 +450,26 @@ export const concentrations: DegreeRequirements[] = [
                     "MATH242",
                     "MATH243"
                 ],
-                numCoursesRequired: 7
+                numCoursesRequired: 7,
+                unique: false
             },
             {
                 name: "Data Core",
                 coursesRequired: ["CISC437", "MATH350", "MATH450"],
-                numCoursesRequired: 3
+                numCoursesRequired: 3,
+                unique: false
             },
             {
                 name: "Machine Learning Requirement",
                 coursesRequired: ["CISC483", "CISC484"],
-                numCoursesRequired: 1
+                numCoursesRequired: 1,
+                unique: false
             },
             {
                 name: "Restricted Electives",
                 coursesRequired: ["MATH302", "MATH349", "MATH351", "MATH535"],
-                numCreditsRequired: 5
+                numCreditsRequired: 5,
+                unique: false
             }
         ]
     },
@@ -445,7 +485,8 @@ export const concentrations: DegreeRequirements[] = [
                     "CISC450",
                     "CISC471"
                 ],
-                numCoursesRequired: 5
+                numCoursesRequired: 5,
+                unique: false
             },
             {
                 name: "Security Requirement",
@@ -458,7 +499,8 @@ export const concentrations: DegreeRequirements[] = [
                     "CPEG475",
                     "CPEG497"
                 ],
-                numCoursesRequired: 1
+                numCoursesRequired: 1,
+                unique: false
             },
             {
                 name: "Advanced Systems Requirement",
@@ -473,7 +515,8 @@ export const concentrations: DegreeRequirements[] = [
                     "CPEG473",
                     "CPEG497"
                 ],
-                numCoursesRequired: 2
+                numCoursesRequired: 2,
+                unique: true
             },
             {
                 name: "Restricted Electives",
@@ -510,12 +553,14 @@ export const concentrations: DegreeRequirements[] = [
                     "MATH242",
                     "MATH349"
                 ],
-                numCreditsRequired: 6
+                numCreditsRequired: 6,
+                unique: true
             },
             {
                 name: "CISC Elective",
                 coursesMustHaveInName: ["CISC3", "CISC4"],
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: true
             }
         ]
     },
@@ -525,7 +570,8 @@ export const concentrations: DegreeRequirements[] = [
             {
                 name: "Theory Core",
                 coursesRequired: ["CISC304", "CISC401", "MATH242", "MATH349"],
-                numCoursesRequired: 4
+                numCoursesRequired: 4,
+                unique: false
             },
             {
                 name: "Restricted Electives",
@@ -547,17 +593,20 @@ export const concentrations: DegreeRequirements[] = [
                     "MATH450",
                     "MATH451"
                 ],
-                numCreditsRequired: 6
+                numCreditsRequired: 6,
+                unique: false
             },
             {
                 name: "CISC Elective",
                 coursesMustHaveInName: ["CISC3", "CISC4"],
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: true
             },
             {
                 name: "Discrete Track Core",
                 coursesRequired: ["CISC404", "MATH245", "MATH315", "MATH451"],
-                numCoursesRequired: 4
+                numCoursesRequired: 4,
+                unique: false
             }
         ]
     },
@@ -567,7 +616,8 @@ export const concentrations: DegreeRequirements[] = [
             {
                 name: "Theory Core",
                 coursesRequired: ["CISC304", "CISC401", "MATH242", "MATH349"],
-                numCoursesRequired: 4
+                numCoursesRequired: 4,
+                unique: false
             },
             {
                 name: "Restricted Electives",
@@ -589,17 +639,20 @@ export const concentrations: DegreeRequirements[] = [
                     "MATH450",
                     "MATH451"
                 ],
-                numCreditsRequired: 6
+                numCreditsRequired: 6,
+                unique: false
             },
             {
                 name: "CISC Elective",
                 coursesMustHaveInName: ["CISC3", "CISC4"],
-                numCreditsRequired: 3
+                numCreditsRequired: 3,
+                unique: true
             },
             {
                 name: "Continuous Track Core",
                 coursesRequired: ["MATH243", "MATH302", "MATH535", "MATH426"],
-                numCoursesRequired: 4
+                numCoursesRequired: 4,
+                unique: false
             }
         ]
     }

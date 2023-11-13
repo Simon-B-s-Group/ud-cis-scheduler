@@ -47,8 +47,6 @@ export function DegreePlanPage({
      * Every time thisPlan loads, we set its requirements to be displayed (because find technically can return undefined so we cannot put it right into the state)
      */
     useEffect(() => {
-        // TODO: combine this with actual concentration
-        // TODO: currently it's just the common reqs
         // TODO: also add the 124 credit requirement
         const commonRequirements = concentrations.find(
             (c: DegreeRequirements): boolean => c.name === "Common Requirements"
@@ -88,6 +86,7 @@ export function DegreePlanPage({
     }, [thisPlan]);
 
     // TODO: THIS IS TEMPORARY. TO BE PROPERLY DONE LATER
+    // TODO: convert this to JSX.Element
     useEffect(() => {
         setReqsDisplay(
             degreeRequirements?.requirements.map((requirement) => {
