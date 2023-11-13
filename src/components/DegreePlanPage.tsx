@@ -1,11 +1,11 @@
 /* eslint-disable no-extra-parens */
 // THIS WAS APPROVED BY AROMANDO - UNSOLVABLE ESLINT AND PRETTIER CONFLICTS
 import React, { useEffect, useState } from "react";
-import { DegreePlan } from "../interfaces/degreePlan";
+import { Concentration, DegreePlan } from "../interfaces/degreePlan";
 import { SemesterView } from "./SemesterView";
 import { Season, Semester } from "../interfaces/semester";
 import { Course } from "../interfaces/course";
-import { Button } from "react-bootstrap";
+import { Button, Form } from "react-bootstrap";
 import { NewSemesterPopup } from "./modals/NewSemesterPopup";
 import "../Button.css";
 import { DegreeRequirements } from "../interfaces/degreeRequirements";
@@ -41,10 +41,14 @@ export function DegreePlanPage({
     const [reqsDisplay, setReqsDisplay] = useState<JSX.Element | undefined>(
         <p></p>
     );
+    const [selectedConcentration, setSelectedConcentration] = useState<string>(
+        degreePlan.concentration
+    );
 
     /**
      * Something I know from internship stuff
-     * Every time thisPlan loads, we set its requirements to be displayed (because find technically can return undefined so we cannot put it right into the state)
+     * Every time thisPlan loads or we change our concentration, we set its requirements to be displayed
+     * (because find technically can return undefined so we cannot put it right into the state)
      */
     useEffect(() => {
         const commonRequirements = concentrations.find(
@@ -74,7 +78,7 @@ export function DegreePlanPage({
             // this won't ever be undefined
             setDegreeRequirements(requirements);
         }
-    }, []);
+    }, [selectedConcentration]);
 
     /**
      * Something I know from internship stuff
@@ -89,10 +93,10 @@ export function DegreePlanPage({
      * Once we setup degree requirements, we display them as an element
      */
     useEffect(() => {
-        // Create an array of JSX elements
         const coursesUsedForRequirements: Course[] = []; // courses that have been used for other requirements
         // used in conjunction with "unique" parameter to avoid duplicate course usage for some requirements
 
+        // the elements to display in the degree requirement field
         const jsxElements = degreeRequirements?.requirements.map((req) => {
             // === GET THE DESCRIPTION OF THE REQUIREMENT ===
             let descriptionString = "";
@@ -115,7 +119,6 @@ export function DegreePlanPage({
                 descriptionString +=
                     req.courseTypeRequired + " Breadth courses";
             } else if (req.coursesMustHaveInName !== undefined) {
-                // TODO: make this look nicer
                 if (req.coursesMustHaveInName.includes("CISC3")) {
                     descriptionString +=
                         "CISC courses at the 300 level or higher";
@@ -164,6 +167,7 @@ export function DegreePlanPage({
                 });
             });
 
+            // === SETUP THE TEXT TO DISPLAY ON THE WINDOW ===
             const coursesUsedCodes = coursesUsed
                 .map((c: Course): string => c.code)
                 .sort();
@@ -299,6 +303,17 @@ export function DegreePlanPage({
 
     const textColor = { color: totalCredits >= 124 ? "green" : "red" };
 
+    const updateSelectedConcentration = (
+        event: React.ChangeEvent<HTMLSelectElement>
+    ): void => {
+        setSelectedConcentration(event.target.value);
+        setThisPlan({
+            ...thisPlan,
+            concentration: event.target.value as Concentration
+        });
+        savePlan(thisPlan, false);
+    };
+
     return (
         <>
             <Button
@@ -337,6 +352,30 @@ export function DegreePlanPage({
                         </>
                     );
                 })}
+                <Form.Group controlId="conc">
+                    <Form.Label>Select Your Concentration</Form.Label>
+                    <Form.Select
+                        value={selectedConcentration}
+                        onChange={updateSelectedConcentration}
+                    >
+                        {[
+                            "No Concentration",
+                            "AI & Robotics",
+                            "Bioinformatics",
+                            "Cybersecurity",
+                            "Data Science",
+                            "High Performance Computing (Applied Math)",
+                            "High Performance Computing (Data)",
+                            "Systems & Networks",
+                            "Theory & Computation (Discrete)",
+                            "Theory & Computation (Continuous)"
+                        ].map((conc: string) => (
+                            <option key={conc} value={conc}>
+                                {conc}
+                            </option>
+                        ))}
+                    </Form.Select>
+                </Form.Group>
                 {reqsDisplay}
                 <span style={{ fontWeight: "bold " }}>
                     Total Credits Overall: {""}
