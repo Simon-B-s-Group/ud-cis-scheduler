@@ -18,4 +18,9 @@ export interface Course {
      * The number of credits for this course
      */
     credits: number;
+
+    /**
+     * The original state of the course before editing
+     */
+    originalCourse?: Course;
 }
