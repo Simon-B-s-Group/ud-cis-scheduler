@@ -5,11 +5,11 @@ import React, { useState } from "react";
 import { SemesterView } from "./SemesterView";
 import { Semester } from "../interfaces/semester";
 import { Button, Form } from "react-bootstrap";
-import { CourseOption } from "../interfaces/courseoption";
 import { Course } from "../interfaces/course";
 import { DegreePlan } from "../interfaces/degreePlan";
 import { courseOptions } from "./../data/defaultCourses";
 import "../Button.css";
+import { BreadthType } from "../interfaces/degreeRequirementCategory";
 import "../Dropdown.css";
 /**
  * A page that allows one to edit a single semester.
@@ -36,9 +36,18 @@ export function SingleSemesterPage({
     setCurrentSemester: (newSem: Semester | null) => void;
     updatePlan: (newPlan: DegreePlan, exit: boolean) => void;
 }) {
+    const BREADTH_TYPES = [
+        "Art",
+        "History",
+        "Social",
+        "Math",
+        "College",
+        "None"
+    ];
+
     // the code of the currently selected course to add
     const [currentSelectedCourse, setCurrentSelectedCourse] = useState<string>(
-        courseOptions[0].course.code
+        courseOptions[0].code
     );
     const updateCurrentSelectedCourse = (
         event: React.ChangeEvent<HTMLSelectElement>
@@ -48,9 +57,13 @@ export function SingleSemesterPage({
 
     // the course data of the currently inputted custom course (on the bottom form)
     const [currentCustomCourse, setCurrentCustomCourse] = useState<Course>({
-        code: "CISC366",
-        name: "Independent Study",
-        credits: 3
+        code: "CISC488",
+        name: "Introduction to Natural Language Processing",
+        credits: 3,
+        prereqs:
+            "CISC220 and experience programming in Python.  A first course in probability or statistics is recommended.",
+        isMulticultural: false,
+        breadthFulfilled: undefined
     });
     const updateCustomCode = (
         event: React.ChangeEvent<HTMLInputElement>
@@ -74,6 +87,25 @@ export function SingleSemesterPage({
         setCurrentCustomCourse({
             ...currentCustomCourse,
             credits: Number.parseInt(event.target.value)
+        });
+    };
+    const updateCustomPrereqs = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setCurrentCustomCourse({
+            ...currentCustomCourse,
+            prereqs: event.target.value
+        });
+    };
+    const updateCustomBreadth = (
+        event: React.ChangeEvent<HTMLSelectElement>
+    ) => {
+        setCurrentCustomCourse({
+            ...currentCustomCourse,
+            breadthFulfilled:
+                event.target.value === "None"
+                    ? undefined
+                    : (event.target.value as BreadthType)
         });
     };
 
@@ -139,12 +171,12 @@ export function SingleSemesterPage({
                     onChange={updateCurrentSelectedCourse}
                     className="gen_dp"
                 >
-                    {courseOptions.map((courseOption: CourseOption) => (
+                    {courseOptions.map((courseOption: Course) => (
                         <option
-                            key={courseOption.course.code}
-                            value={courseOption.course.code}
+                            key={courseOption.code}
+                            value={courseOption.code}
                         >
-                            {courseOption.course.code}
+                            {courseOption.code}
                         </option>
                     ))}
                 </Form.Select>
@@ -152,8 +184,8 @@ export function SingleSemesterPage({
                     variant="success"
                     onClick={() => {
                         const foundCourse = courseOptions.find(
-                            (option: CourseOption): boolean =>
-                                option.course.code === currentSelectedCourse
+                            (option: Course): boolean =>
+                                option.code === currentSelectedCourse
                         );
                         if (foundCourse) {
                             // theoretically this should never be null
@@ -166,7 +198,7 @@ export function SingleSemesterPage({
                                 alert(
                                     `${currentSelectedCourse} is already in this semester!`
                                 );
-                            else addCourseToSemester(foundCourse.course);
+                            else addCourseToSemester(foundCourse);
                         }
                     }}
                     className="positive"
@@ -174,11 +206,25 @@ export function SingleSemesterPage({
                     OK
                 </Button>
             </Form.Group>
-            <b>
+            <strong>
                 <u>
                     <h6>Add Custom Course</h6>
                 </u>
-            </b>
+            </strong>
+            {currentCustomCourse.code.length >= 6 ? (
+                <p>
+                    Click{" "}
+                    <a
+                        target="_blank"
+                        rel="noreferrer"
+                        href={`https://udapps.nss.udel.edu/CourseDescription/info?searchKey=2023%7c${currentCustomCourse.code.toUpperCase()}`}
+                    >
+                        here
+                    </a>{" "}
+                    to view more info about{" "}
+                    {currentCustomCourse.code.toUpperCase()}!
+                </p>
+            ) : null}
             <Form.Group controlId="newCourse">
                 <Form.Label>Course Code</Form.Label>
                 <Form.Control
@@ -198,6 +244,24 @@ export function SingleSemesterPage({
                     value={currentCustomCourse.credits}
                     onChange={updateCustomCredits}
                 />
+                <Form.Label>Course Prerequisites</Form.Label>
+                <Form.Control
+                    type="text"
+                    value={currentCustomCourse.prereqs}
+                    onChange={updateCustomPrereqs}
+                />
+                <Form.Label>Breadth Category</Form.Label>
+                <br />
+                <Form.Select
+                    value={currentCustomCourse.breadthFulfilled ?? "None"}
+                    onChange={updateCustomBreadth}
+                >
+                    {BREADTH_TYPES.map((breadth: string) => (
+                        <option key={breadth} value={breadth}>
+                            {breadth}
+                        </option>
+                    ))}
+                </Form.Select>
                 <Button
                     variant="success"
                     onClick={() => {
@@ -217,6 +281,75 @@ export function SingleSemesterPage({
                     OK
                 </Button>
             </Form.Group>
+            <p>
+                <strong>Other Resources</strong>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75605"
+                    }
+                >
+                    Creative Arts & Humanities Breadth Classes
+                </a>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75606"
+                    }
+                >
+                    History & Cultural Change Breadth Classes
+                </a>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75609"
+                    }
+                >
+                    Social and Behavioral Sciences Breadth Classes
+                </a>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75610"
+                    }
+                >
+                    Math, Natural Sciences, & Technology Breadth Classes
+                </a>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75590"
+                    }
+                >
+                    College of Engineering Breadth Classes
+                </a>
+            </p>
+            <p>
+                <a
+                    target="_blank"
+                    rel="noreferrer"
+                    href={
+                        "https://catalog.udel.edu/preview_program.php?catoid=87&poid=75697"
+                    }
+                >
+                    Multicultural Classes
+                </a>
+            </p>
         </>
     );
 }

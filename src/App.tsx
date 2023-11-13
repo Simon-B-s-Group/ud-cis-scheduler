@@ -22,6 +22,7 @@ function App(): JSX.Element {
     const [degreePlans, setDegreePlans] = useState<DegreePlan[]>([
         {
             name: "Sample Degree Plan",
+            concentration: "No Concentration",
             semesters: [
                 {
                     season: "Fall",
@@ -30,27 +31,40 @@ function App(): JSX.Element {
                         {
                             code: "CISC108",
                             name: "Introduction to Computer Science I",
-                            credits: 3
+                            credits: 3,
+                            prereqs: "",
+                            isMulticultural: false
                         },
                         {
                             code: "EGGG101",
                             name: "Introduction to Engineering",
-                            credits: 2
+                            credits: 2,
+                            prereqs: "",
+                            isMulticultural: false
                         },
                         {
                             code: "ENGL110",
-                            name: "Seminar in Composition",
-                            credits: 3
+                            name: "First-Year Writing",
+                            credits: 3,
+                            prereqs: "",
+                            isMulticultural: false
                         },
                         {
                             code: "MATH241",
-                            name: "Analytic Geometry & Calculus A",
-                            credits: 4
+                            name: "Analytic Geometry and Calculus A",
+                            credits: 4,
+                            prereqs:
+                                "MATH117 or acceptable score on the Math Placement Exam in accordance with current standards determined by the Department of Mathematical Sciences. See https://www.mathsci.udel.edu/courses-placement/ud-math-placement for more information.",
+                            isMulticultural: false,
+                            breadthFulfilled: "Math"
                         },
                         {
                             code: "HIST106",
                             name: "U.S. History Since 1865",
-                            credits: 3
+                            credits: 3,
+                            prereqs: "",
+                            isMulticultural: false,
+                            breadthFulfilled: "History"
                         }
                     ]
                 },
@@ -61,27 +75,41 @@ function App(): JSX.Element {
                         {
                             code: "CISC181",
                             name: "Introduction to Computer Science II",
-                            credits: 3
+                            credits: 3,
+                            prereqs:
+                                " Grade of C- or better in CISC108 or CISC106. COREQ: MATH221,  MATH241, or a higher level math course or math placement.",
+                            isMulticultural: false
                         },
                         {
                             code: "CISC210",
                             name: "Introduction to Systems Programming",
-                            credits: 3
+                            credits: 3,
+                            prereqs:
+                                "A grade of C- or better in CISC106 or CISC108. COREQ: MATH221 or MATH241 or a higher level math course or math placement.",
+                            isMulticultural: false
                         },
                         {
                             code: "MATH242",
-                            name: "Analytic Geometry & Calculus B",
-                            credits: 4
+                            name: "Analytic Geometry and Calculus B",
+                            credits: 4,
+                            prereqs: "MATH232 or MATH241.",
+                            isMulticultural: false
                         },
                         {
                             code: "CGSC170",
                             name: "Introduction to Cognitive Science",
-                            credits: 3
+                            credits: 3,
+                            prereqs: "",
+                            isMulticultural: false,
+                            breadthFulfilled: "Social"
                         },
                         {
                             code: "LING101",
                             name: "Introduction to Linguistics",
-                            credits: 3
+                            credits: 3,
+                            prereqs: "",
+                            isMulticultural: true,
+                            breadthFulfilled: "Social"
                         }
                     ]
                 },
@@ -92,27 +120,38 @@ function App(): JSX.Element {
                         {
                             code: "CISC220",
                             name: "Data Structures",
-                            credits: 3
+                            credits: 3,
+                            prereqs:
+                                "A minimum grade of C- in CISC210. COREQ: MATH210 or MATH241.",
+                            isMulticultural: false
                         },
                         {
                             code: "CISC260",
                             name: "Machine Organization and Assembly Language",
-                            credits: 3
+                            credits: 3,
+                            prereqs: "A minimum grade of C- in CISC210.",
+                            isMulticultural: false
                         },
                         {
                             code: "MATH210",
                             name: "Discrete Mathematics I",
-                            credits: 3
+                            credits: 3,
+                            prereqs: "",
+                            isMulticultural: false
                         },
                         {
                             code: "GEOL107",
                             name: "Geology of Dynamic Earth",
-                            credits: 4
+                            credits: 4,
+                            prereqs: "",
+                            isMulticultural: false
                         },
                         {
                             code: "LING202",
                             name: "Science of Language",
-                            credits: 3
+                            credits: 3,
+                            prereqs: "LING101",
+                            isMulticultural: false
                         }
                     ]
                 },
@@ -123,27 +162,39 @@ function App(): JSX.Element {
                         {
                             code: "CISC275",
                             name: "Introduction to Software Engineering",
-                            credits: 3
+                            credits: 3,
+                            prereqs:
+                                "Minimum grade of C- in CISC181 and CISC220.",
+                            isMulticultural: false
                         },
                         {
                             code: "CISC355",
-                            name: "Computers, Ethics, and Society",
-                            credits: 3
+                            name: "Computers, Ethics and Society",
+                            credits: 3,
+                            prereqs: "",
+                            isMulticultural: false,
+                            breadthFulfilled: "College"
                         },
                         {
                             code: "MATH205",
                             name: "Statistical Methods",
-                            credits: 4
+                            credits: 4,
+                            prereqs: "MATH210 or MATH230.",
+                            isMulticultural: false
                         },
                         {
                             code: "GEOL105",
                             name: "Geological Hazards and their Human Impacts",
-                            credits: 3
+                            credits: 3,
+                            prereqs: "",
+                            isMulticultural: false
                         },
                         {
                             code: "GEOL115",
                             name: "Geological Hazards Laboratory",
-                            credits: 1
+                            credits: 1,
+                            prereqs: "",
+                            isMulticultural: false
                         }
                     ]
                 }
@@ -212,7 +263,11 @@ function App(): JSX.Element {
                         onClick={() => {
                             setDegreePlans([
                                 ...degreePlans,
-                                { name: newPlanName, semesters: [] }
+                                {
+                                    name: newPlanName,
+                                    semesters: [],
+                                    concentration: "No Concentration"
+                                }
                             ]);
                             setNewPlanName("");
                         }}
