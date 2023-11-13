@@ -38,8 +38,6 @@ export function DegreePlanPage({
     const [showNewSemPopup, setShowNewSemPopup] = useState<boolean>(false);
     const [degreeRequirements, setDegreeRequirements] =
         useState<DegreeRequirements | null>(null);
-
-    // TEMP
     const [reqsDisplay, setReqsDisplay] = useState<JSX.Element | undefined>(
         <p></p>
     );
@@ -49,7 +47,6 @@ export function DegreePlanPage({
      * Every time thisPlan loads, we set its requirements to be displayed (because find technically can return undefined so we cannot put it right into the state)
      */
     useEffect(() => {
-        // TODO: also add the 124 credit requirement
         const commonRequirements = concentrations.find(
             (c: DegreeRequirements): boolean => c.name === "Common Requirements"
         );
@@ -87,8 +84,10 @@ export function DegreePlanPage({
         savePlan(thisPlan, false);
     }, [thisPlan]);
 
-    // TODO: THIS IS TEMPORARY. TO BE PROPERLY DONE LATER
-    // TODO: convert this to JSX.Element
+    /**
+     * Something I know from internship stuff
+     * Once we setup degree requirements, we display them as an element
+     */
     useEffect(() => {
         // Create an array of JSX elements
         const coursesUsedForRequirements: Course[] = []; // courses that have been used for other requirements
@@ -117,7 +116,12 @@ export function DegreePlanPage({
                     req.courseTypeRequired + " Breadth courses";
             } else if (req.coursesMustHaveInName !== undefined) {
                 // TODO: make this look nicer
-                descriptionString += req.coursesMustHaveInName.join(", ");
+                if (req.coursesMustHaveInName.includes("CISC3")) {
+                    descriptionString +=
+                        "CISC courses at the 300 level or higher";
+                } else {
+                    descriptionString += req.coursesMustHaveInName.join(", ");
+                }
             }
 
             // === CHECK WHICH COURSES USED TO SATISFY ===
@@ -142,11 +146,19 @@ export function DegreePlanPage({
                             }
                         });
                     } else if (req.courseTypeRequired !== undefined) {
-                        if (
-                            course.breadthFulfilled === req.courseTypeRequired
-                        ) {
-                            coursesUsedForRequirements.push(course);
-                            coursesUsed.push(course);
+                        if (req.courseTypeRequired === "Multicultural") {
+                            if (course.isMulticultural) {
+                                coursesUsedForRequirements.push(course);
+                                coursesUsed.push(course);
+                            }
+                        } else {
+                            if (
+                                course.breadthFulfilled ===
+                                req.courseTypeRequired
+                            ) {
+                                coursesUsedForRequirements.push(course);
+                                coursesUsed.push(course);
+                            }
                         }
                     }
                 });
@@ -164,9 +176,30 @@ export function DegreePlanPage({
             );
 
             if (req.numCreditsRequired !== undefined) {
-                requirementText = `${satisfiedCredits} credits out of ${req.numCreditsRequired} taken`;
-                if (satisfiedCredits == req.numCreditsRequired) {
+                requirementText = `${satisfiedCredits} credit(s) out of ${req.numCreditsRequired} taken`;
+                if (satisfiedCredits > 0) {
+                    requirementText += `: ${coursesUsedCodes.join(", ")}`;
+                }
+
+                if (satisfiedCredits >= req.numCreditsRequired) {
                     checkOrCross = "✅";
+                }
+            } else if (req.numCoursesRequired !== undefined) {
+                requirementText = `${coursesUsed.length} course(s) out of ${req.numCoursesRequired} taken`;
+                if (coursesUsed.length >= req.numCoursesRequired) {
+                    checkOrCross = "✅";
+                } else {
+                    if (
+                        req.coursesRequired &&
+                        req.coursesRequired.length === req.numCoursesRequired
+                    ) {
+                        const coursesLeft = req.coursesRequired.filter(
+                            (cn: string) => !coursesUsedCodes.includes(cn)
+                        );
+                        requirementText += `: Must take ${coursesLeft.join(
+                            ", "
+                        )}`;
+                    }
                 }
             }
 
@@ -178,9 +211,6 @@ export function DegreePlanPage({
                         </strong>
                     </p>
                     <p>{descriptionString}</p>
-                    {/* {coursesUsedCodes.length !== 0 ? (
-                        <p>You used {coursesUsedCodes.join(", ")} to satisfy</p>
-                    ) : null} */}
                     {requirementText ? (
                         <p>
                             <em>{requirementText}</em>

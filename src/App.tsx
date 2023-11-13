@@ -54,14 +54,16 @@ function App(): JSX.Element {
                             credits: 4,
                             prereqs:
                                 "MATH117 or acceptable score on the Math Placement Exam in accordance with current standards determined by the Department of Mathematical Sciences. See https://www.mathsci.udel.edu/courses-placement/ud-math-placement for more information.",
-                            isMulticultural: false
+                            isMulticultural: false,
+                            breadthFulfilled: "Math"
                         },
                         {
                             code: "HIST106",
                             name: "U.S. History Since 1865",
                             credits: 3,
                             prereqs: "",
-                            isMulticultural: false
+                            isMulticultural: false,
+                            breadthFulfilled: "History"
                         }
                     ]
                 },
@@ -97,14 +99,16 @@ function App(): JSX.Element {
                             name: "Introduction to Cognitive Science",
                             credits: 3,
                             prereqs: "",
-                            isMulticultural: false
+                            isMulticultural: false,
+                            breadthFulfilled: "Social"
                         },
                         {
                             code: "LING101",
                             name: "Introduction to Linguistics",
                             credits: 3,
                             prereqs: "",
-                            isMulticultural: false
+                            isMulticultural: true,
+                            breadthFulfilled: "Social"
                         }
                     ]
                 },
@@ -167,7 +171,8 @@ function App(): JSX.Element {
                             name: "Computers, Ethics and Society",
                             credits: 3,
                             prereqs: "",
-                            isMulticultural: false
+                            isMulticultural: false,
+                            breadthFulfilled: "College"
                         },
                         {
                             code: "MATH205",

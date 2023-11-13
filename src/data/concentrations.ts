@@ -49,16 +49,10 @@ export const concentrations: DegreeRequirements[] = [
                 unique: false
             },
             {
-                name: "Discovery Learning Experience",
+                name: "Capstone & Discovery Learning Experience",
                 coursesRequired: ["CISC498", "UNIV401", "CISC499", "UNIV402"],
-                numCoursesRequired: 1,
-                unique: true
-            },
-            {
-                name: "Capstone",
-                coursesRequired: ["CISC498", "UNIV401", "CISC499", "UNIV402"],
-                numCoursesRequired: 1,
-                unique: true
+                numCoursesRequired: 2,
+                unique: false
             },
             {
                 name: "Creative Arts Breadth",
@@ -97,27 +91,6 @@ export const concentrations: DegreeRequirements[] = [
                 unique: false
             },
             {
-                name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
-                coursesRequired: [
-                    "PHYS207",
-                    "PHYS227",
-                    "PHYS208",
-                    "PHYS228",
-                    "CHEM103",
-                    "CHEM133",
-                    "CHEM104",
-                    "CHEM134",
-                    "BISC207",
-                    "BISC208",
-                    "GEOL105",
-                    "GEOL115",
-                    "GEOL107",
-                    "GEOL110"
-                ],
-                numCreditsRequired: 8,
-                unique: true
-            },
-            {
                 name: "Statistics Requirement",
                 coursesRequired: ["MATH205", "MATH350"],
                 numCoursesRequired: 1,
@@ -147,7 +120,7 @@ export const concentrations: DegreeRequirements[] = [
                 unique: true
             },
             {
-                name: "Additional Science",
+                name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
                 coursesRequired: [
                     "PHYS207",
                     "PHYS227",
@@ -164,7 +137,7 @@ export const concentrations: DegreeRequirements[] = [
                     "GEOL107",
                     "GEOL110"
                 ],
-                numCreditsRequired: 4,
+                numCreditsRequired: 12,
                 unique: true
             }
         ]
@@ -172,6 +145,27 @@ export const concentrations: DegreeRequirements[] = [
     {
         name: "AI & Robotics",
         requirements: [
+            {
+                name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
+                coursesRequired: [
+                    "PHYS207",
+                    "PHYS227",
+                    "PHYS208",
+                    "PHYS228",
+                    "CHEM103",
+                    "CHEM133",
+                    "CHEM104",
+                    "CHEM134",
+                    "BISC207",
+                    "BISC208",
+                    "GEOL105",
+                    "GEOL115",
+                    "GEOL107",
+                    "GEOL110"
+                ],
+                numCreditsRequired: 8,
+                unique: true
+            },
             {
                 name: "AI Core",
                 coursesRequired: [
@@ -231,6 +225,27 @@ export const concentrations: DegreeRequirements[] = [
         name: "Bioinformatics",
         requirements: [
             {
+                name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
+                coursesRequired: [
+                    "PHYS207",
+                    "PHYS227",
+                    "PHYS208",
+                    "PHYS228",
+                    "CHEM103",
+                    "CHEM133",
+                    "CHEM104",
+                    "CHEM134",
+                    "BISC207",
+                    "BISC208",
+                    "GEOL105",
+                    "GEOL115",
+                    "GEOL107",
+                    "GEOL110"
+                ],
+                numCreditsRequired: 8,
+                unique: true
+            },
+            {
                 name: "Bioinformatics Core",
                 coursesRequired: [
                     "BISC207",
@@ -283,6 +298,27 @@ export const concentrations: DegreeRequirements[] = [
     {
         name: "Cybersecurity",
         requirements: [
+            {
+                name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
+                coursesRequired: [
+                    "PHYS207",
+                    "PHYS227",
+                    "PHYS208",
+                    "PHYS228",
+                    "CHEM103",
+                    "CHEM133",
+                    "CHEM104",
+                    "CHEM134",
+                    "BISC207",
+                    "BISC208",
+                    "GEOL105",
+                    "GEOL115",
+                    "GEOL107",
+                    "GEOL110"
+                ],
+                numCreditsRequired: 8,
+                unique: true
+            },
             {
                 name: "Cybersecurity Core",
                 coursesRequired: [
@@ -352,6 +388,27 @@ export const concentrations: DegreeRequirements[] = [
         name: "Data Science",
         requirements: [
             {
+                name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
+                coursesRequired: [
+                    "PHYS207",
+                    "PHYS227",
+                    "PHYS208",
+                    "PHYS228",
+                    "CHEM103",
+                    "CHEM133",
+                    "CHEM104",
+                    "CHEM134",
+                    "BISC207",
+                    "BISC208",
+                    "GEOL105",
+                    "GEOL115",
+                    "GEOL107",
+                    "GEOL110"
+                ],
+                numCreditsRequired: 8,
+                unique: true
+            },
+            {
                 name: "Data Science Core",
                 coursesRequired: [
                     "CISC304",
@@ -415,6 +472,27 @@ export const concentrations: DegreeRequirements[] = [
         name: "High Performance Computing (Applied Math)",
         requirements: [
             {
+                name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
+                coursesRequired: [
+                    "PHYS207",
+                    "PHYS227",
+                    "PHYS208",
+                    "PHYS228",
+                    "CHEM103",
+                    "CHEM133",
+                    "CHEM104",
+                    "CHEM134",
+                    "BISC207",
+                    "BISC208",
+                    "GEOL105",
+                    "GEOL115",
+                    "GEOL107",
+                    "GEOL110"
+                ],
+                numCreditsRequired: 8,
+                unique: true
+            },
+            {
                 name: "HPC Core",
                 coursesRequired: [
                     "CISC360",
@@ -439,6 +517,27 @@ export const concentrations: DegreeRequirements[] = [
     {
         name: "High Performance Computing (Data)",
         requirements: [
+            {
+                name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
+                coursesRequired: [
+                    "PHYS207",
+                    "PHYS227",
+                    "PHYS208",
+                    "PHYS228",
+                    "CHEM103",
+                    "CHEM133",
+                    "CHEM104",
+                    "CHEM134",
+                    "BISC207",
+                    "BISC208",
+                    "GEOL105",
+                    "GEOL115",
+                    "GEOL107",
+                    "GEOL110"
+                ],
+                numCreditsRequired: 8,
+                unique: true
+            },
             {
                 name: "HPC Core",
                 coursesRequired: [
@@ -476,6 +575,27 @@ export const concentrations: DegreeRequirements[] = [
     {
         name: "Systems & Networks",
         requirements: [
+            {
+                name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
+                coursesRequired: [
+                    "PHYS207",
+                    "PHYS227",
+                    "PHYS208",
+                    "PHYS228",
+                    "CHEM103",
+                    "CHEM133",
+                    "CHEM104",
+                    "CHEM134",
+                    "BISC207",
+                    "BISC208",
+                    "GEOL105",
+                    "GEOL115",
+                    "GEOL107",
+                    "GEOL110"
+                ],
+                numCreditsRequired: 8,
+                unique: true
+            },
             {
                 name: "Systems Core",
                 coursesRequired: [
@@ -568,6 +688,27 @@ export const concentrations: DegreeRequirements[] = [
         name: "Theory & Computation (Discrete)",
         requirements: [
             {
+                name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
+                coursesRequired: [
+                    "PHYS207",
+                    "PHYS227",
+                    "PHYS208",
+                    "PHYS228",
+                    "CHEM103",
+                    "CHEM133",
+                    "CHEM104",
+                    "CHEM134",
+                    "BISC207",
+                    "BISC208",
+                    "GEOL105",
+                    "GEOL115",
+                    "GEOL107",
+                    "GEOL110"
+                ],
+                numCreditsRequired: 8,
+                unique: true
+            },
+            {
                 name: "Theory Core",
                 coursesRequired: ["CISC304", "CISC401", "MATH242", "MATH349"],
                 numCoursesRequired: 4,
@@ -613,6 +754,27 @@ export const concentrations: DegreeRequirements[] = [
     {
         name: "Theory & Computation (Continuous)",
         requirements: [
+            {
+                name: "Lab Science (any sequence, or GEOL105/115->107 OR GEOL110->107)",
+                coursesRequired: [
+                    "PHYS207",
+                    "PHYS227",
+                    "PHYS208",
+                    "PHYS228",
+                    "CHEM103",
+                    "CHEM133",
+                    "CHEM104",
+                    "CHEM134",
+                    "BISC207",
+                    "BISC208",
+                    "GEOL105",
+                    "GEOL115",
+                    "GEOL107",
+                    "GEOL110"
+                ],
+                numCreditsRequired: 8,
+                unique: true
+            },
             {
                 name: "Theory Core",
                 coursesRequired: ["CISC304", "CISC401", "MATH242", "MATH349"],

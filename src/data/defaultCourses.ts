@@ -219,7 +219,8 @@ export const courseOptions: Course[] = [
         name: "Computers, Ethics and Society",
         credits: 3,
         prereqs: "",
-        isMulticultural: false
+        isMulticultural: false,
+        breadthFulfilled: "College"
     },
     {
         code: "CISC360",
@@ -553,14 +554,16 @@ export const courseOptions: Course[] = [
         name: "Written Communications in Business",
         credits: 3,
         prereqs: " ENGL110.",
-        isMulticultural: false
+        isMulticultural: false,
+        breadthFulfilled: "College"
     },
     {
         code: "ENGL410",
         name: "Technical Writing",
         credits: 3,
         prereqs: " ENGL110.",
-        isMulticultural: false
+        isMulticultural: false,
+        breadthFulfilled: "College"
     },
     {
         code: "GEOL105",
