@@ -4,6 +4,7 @@
 import React, { useState } from "react";
 import "./App.css";
 import "./Button.css";
+import "./Control.css";
 
 import { IntroPopup } from "./components/modals/IntroPopup";
 import { DegreePlan } from "./interfaces/degreePlan";
