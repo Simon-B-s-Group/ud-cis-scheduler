@@ -32,6 +32,9 @@ export function PlannedCourses({
 }): JSX.Element {
     const [editing, setEditing] = useState<boolean>(false);
     const [currentCourse, setCurrentCourse] = useState<Course>(course);
+    const [origCourse, setOrigCourse] = useState<Course | undefined>(
+        course.originalCourse
+    );
 
     const updateCode = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setCurrentCourse({
@@ -53,6 +56,22 @@ export function PlannedCourses({
             credits: Number.parseInt(event.target.value)
         });
     };
+    const updateSemesterAndPlan = (semesterCourses: Course[]): void => {
+        const updatedSemester: Semester = {
+            ...sem,
+            courses: semesterCourses
+        };
+        const updatedSemesters = degreePlan.semesters.map((s: Semester) =>
+            s === sem ? updatedSemester : s
+        );
+        const updatedPlan: DegreePlan = {
+            ...degreePlan,
+            semesters: updatedSemesters
+        };
+
+        setCurrentSemester(updatedSemester);
+        updatePlan(updatedPlan, false);
+    };
 
     return (
         <tr>
@@ -65,7 +84,14 @@ export function PlannedCourses({
                 <td>
                     <Button
                         className="positive"
-                        onClick={() => setEditing(!editing)}
+                        onClick={() => {
+                            setEditing(!editing);
+                            setOrigCourse({ ...currentCourse });
+                            setCurrentCourse({
+                                ...currentCourse,
+                                originalCourse: { ...currentCourse }
+                            });
+                        }}
                     >
                         Edit Course
                     </Button>
@@ -74,6 +100,35 @@ export function PlannedCourses({
                         onClick={() => deleteCourse(course)}
                     >
                         Delete Course
+                    </Button>
+                    <Button
+                        className="positive"
+                        onClick={() => {
+                            if (origCourse) {
+                                const updatedSemester: Semester = {
+                                    ...sem,
+                                    courses: sem.courses.map(
+                                        (c: Course): Course =>
+                                            c.code === currentCourse.code
+                                                ? origCourse
+                                                : c
+                                    )
+                                };
+                                setCurrentCourse(origCourse);
+                                setCurrentSemester(updatedSemester);
+                                const updatedSemesters: Semester[] =
+                                    degreePlan.semesters.map((s: Semester) =>
+                                        s === sem ? updatedSemester : s
+                                    );
+                                const updatedPlan: DegreePlan = {
+                                    ...degreePlan,
+                                    semesters: updatedSemesters
+                                };
+                                updatePlan(updatedPlan, false);
+                            }
+                        }}
+                    >
+                        Revert Changes
                     </Button>
                     {editing ? (
                         <Form.Group controlId="editCourse">
@@ -98,26 +153,19 @@ export function PlannedCourses({
                             <Button
                                 className="positive"
                                 onClick={() => {
+                                    setCurrentCourse({
+                                        ...currentCourse,
+                                        originalCourse: origCourse
+                                    });
+                                    setOrigCourse(currentCourse.originalCourse);
                                     const updatedSemesterCourses =
                                         sem.courses.map(
                                             (c: Course): Course =>
                                                 c === course ? currentCourse : c
                                         );
-                                    const updatedSemester: Semester = {
-                                        ...sem,
-                                        courses: updatedSemesterCourses
-                                    };
-                                    const updatedSemesters =
-                                        degreePlan.semesters.map(
-                                            (s: Semester): Semester =>
-                                                s === sem ? updatedSemester : s
-                                        );
-                                    const updatedPlan: DegreePlan = {
-                                        ...degreePlan,
-                                        semesters: updatedSemesters
-                                    };
-                                    setCurrentSemester(updatedSemester);
-                                    updatePlan(updatedPlan, false);
+                                    updateSemesterAndPlan(
+                                        updatedSemesterCourses
+                                    );
                                     setEditing(false);
                                 }}
                             >

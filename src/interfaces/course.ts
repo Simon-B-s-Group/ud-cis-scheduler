@@ -22,6 +22,11 @@ export interface Course {
     credits: number;
 
     /**
+     * The original state of the course before editing
+     */
+    originalCourse?: Course;
+
+    /**
      * If true, this course can be used to satisfy the Multicultural
      * requirement. Otherwise, it cannot.
      */
