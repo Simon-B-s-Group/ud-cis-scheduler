@@ -10,3 +10,63 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.code_ct {
+    border: 1px solid #ced4da; /* Set the border color and width */
+    padding: 0.375rem 0.75rem; /* Top and bottom padding, left and right padding */
+    font-size: 1rem; /* Set the font size */
+    line-height: 1.5; /* Set the line height for text inside the input */
+    color: #495057; /* Set the text color */
+    background-color: #ffffff; /* Set the background color */
+    border-radius: 0.25rem; /* Set the border radius for rounded corners */
+    width: 110px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.class_name_ct {
+    border: 1px solid #ced4da; /* Set the border color and width */
+    padding: 0.375rem 0.75rem; /* Top and bottom padding, left and right padding */
+    font-size: 1rem; /* Set the font size */
+    line-height: 1.5; /* Set the line height for text inside the input */
+    color: #495057; /* Set the text color */
+    background-color: #ffffff; /* Set the background color */
+    border-radius: 0.25rem; /* Set the border radius for rounded corners */
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.credits_ct {
+    border: 1px solid #ced4da; /* Set the border color and width */
+    padding: 0.375rem 0.75rem; /* Top and bottom padding, left and right padding */
+    font-size: 1rem; /* Set the font size */
+    line-height: 1.5; /* Set the line height for text inside the input */
+    color: #495057; /* Set the text color */
+    background-color: #ffffff; /* Set the background color */
+    border-radius: 0.25rem; /* Set the border radius for rounded corners */
+    width: 70px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.prereq_ct {
+    border: 1px solid #ced4da; /* Set the border color and width */
+    padding: 0.375rem 0.75rem; /* Top and bottom padding, left and right padding */
+    font-size: 1rem; /* Set the font size */
+    line-height: 1.5; /* Set the line height for text inside the input */
+    color: #495057; /* Set the text color */
+    background-color: #ffffff; /* Set the background color */
+    border-radius: 0.25rem; /* Set the border radius for rounded corners */
+    width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    border-radius: 50px;
+}

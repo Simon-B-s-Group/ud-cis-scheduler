@@ -8,6 +8,7 @@ import { Course } from "../interfaces/course";
 import { Button, Form } from "react-bootstrap";
 import { NewSemesterPopup } from "./modals/NewSemesterPopup";
 import "../Button.css";
+import "../Dropdown.css";
 import { DegreeRequirements } from "../interfaces/degreeRequirements";
 import { concentrations } from "../data/concentrations";
 import { DegreeRequirementCategory } from "../interfaces/degreeRequirementCategory";
@@ -365,6 +366,7 @@ export function DegreePlanPage({
                     <Form.Select
                         value={selectedConcentration}
                         onChange={updateSelectedConcentration}
+                        className="gen_dp"
                     >
                         {[
                             "No Concentration",

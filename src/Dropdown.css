@@ -1,5 +1,5 @@
 .gen_dp {
-    width: 200px;
+    width: 180px;
     padding: 10px 20px;
     border: 2px solid #212121b9;
     background-color: #fff;
@@ -13,4 +13,5 @@
         font-weight 0.5s;
     cursor: pointer;
     border-radius: 50px;
+    margin-bottom: 20px;
 }

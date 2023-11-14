@@ -6,6 +6,7 @@ import { Course } from "../interfaces/course";
 import { Button, Form } from "react-bootstrap";
 import { Semester } from "../interfaces/semester";
 import { DegreePlan } from "../interfaces/degreePlan";
+import "../Button.css";
 
 /**
  * A single row of the courses table for the semester view
@@ -137,6 +138,7 @@ export function PlannedCourses({
                                 type="text"
                                 value={currentCourse.code}
                                 onChange={updateCode}
+                                className="gen_dp"
                             ></Form.Control>
                             <Form.Label>Course Name</Form.Label>
                             <Form.Control
