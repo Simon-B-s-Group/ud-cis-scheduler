@@ -37,11 +37,9 @@ with open('sorted_courses.txt', 'r') as file:
                 p_text_array = [p.text.strip() for p in p_elements]
                 p_text_array2 = [p.text.strip() for p in title]
                 writefile.write('{\n')
-                writefile.write('\tcourse: {\n')
-                writefile.write('\t\tcode: "' + line.strip() + '",\n')
-                writefile.write('\t\tname: "' + ' '.join(title[0].text.strip().split(' ')[1:]) + '",\n')
-                writefile.write('\t\tcredits: ' + ' '.join(p_elements[1].text.strip()[0]) + ',\n')
-                writefile.write('\t},\n')
+                writefile.write('\tcode: "' + line.strip() + '",\n')
+                writefile.write('\tname: "' + ' '.join(title[0].text.strip().split(' ')[1:]) + '",\n')
+                writefile.write('\tcredits: ' + ' '.join(p_elements[1].text.strip()[0]) + ',\n')
                 cont = True
                 for elem in p_elements:
                     if 'Prerequisites:' in elem.text.strip():
@@ -50,6 +48,8 @@ with open('sorted_courses.txt', 'r') as file:
                         break
                 if cont:
                     writefile.write('\tprereqs: "",\n')
+                writefile.write('\tisMulticultural: false,\n')
+                
                 writefile.write('},\n')
                 print('done', line.strip())
     else:

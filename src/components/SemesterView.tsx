@@ -28,6 +28,9 @@ import { DegreePlan } from "../interfaces/degreePlan";
  * (SEE: handleSemDelete in DegreePlanPage.tsx; that's what gets passed into here)
  * NOTE: THIS IS AN OPTIONAL PARAMETER. ONLY TO BE USED IF THIS IS DISPLAYED IN NON-EDIT MODE (DegreePlanPage)
  *
+ * @param deleteAllSem This is a function that permanently deletes all semesters from its parent DegreePlan.
+ * (SEE: handleAllSemDelete in DegreePlanPage.tsx; that's what gets passed into here)
+ *
  * @param updatePlan This function updates the plan containing this semester.
  * (SEE: updateDegreePlan in App.tsx; that's what gets passed into here)
  */
@@ -37,6 +40,7 @@ export function SemesterView({
     editMode,
     setCurrentSemester,
     deleteThisSem,
+    deleteAllSem,
     updatePlan
 }: {
     sem: Semester;
@@ -44,6 +48,7 @@ export function SemesterView({
     editMode: boolean;
     setCurrentSemester: (newSem: Semester | null) => void;
     deleteThisSem?: (season: Season, year: number) => void; // the '?' indicates it is an optional parameter. We ONLY need this to be given in non-edit mode.
+    deleteAllSem?: (season: Season, year: number) => void;
     updatePlan: (newPlan: DegreePlan, exit: boolean) => void;
 }): JSX.Element {
     /**
@@ -100,6 +105,13 @@ export function SemesterView({
                         className="negative"
                     >
                         Delete Semester
+                    </Button>
+                    <Button
+                        variant="danger"
+                        onClick={() => deleteAllSem?.(sem.season, sem.year)}
+                        className="negative"
+                    >
+                        Delete All Semesters
                     </Button>
                 </>
             ) : null}
