@@ -6,7 +6,7 @@ import { Course } from "../interfaces/course";
 import { Button, Form } from "react-bootstrap";
 import { Semester } from "../interfaces/semester";
 import { DegreePlan } from "../interfaces/degreePlan";
-import "../Button.css";
+import "../Control.css";
 
 /**
  * A single row of the courses table for the semester view
