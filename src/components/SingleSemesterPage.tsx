@@ -9,8 +9,9 @@ import { Course } from "../interfaces/course";
 import { DegreePlan } from "../interfaces/degreePlan";
 import { courseOptions } from "./../data/defaultCourses";
 import "../Button.css";
-import { BreadthType } from "../interfaces/degreeRequirementCategory";
 import "../Dropdown.css";
+import { BreadthType } from "../interfaces/degreeRequirementCategory";
+
 /**
  * A page that allows one to edit a single semester.
  *
@@ -231,30 +232,35 @@ export function SingleSemesterPage({
                     type="text"
                     value={currentCustomCourse.code}
                     onChange={updateCustomCode}
+                    className="code_ct"
                 />
                 <Form.Label>Course Name</Form.Label>
                 <Form.Control
                     type="text"
                     value={currentCustomCourse.name}
                     onChange={updateCustomName}
+                    className="class_name_ct"
                 />
                 <Form.Label>Course Credits</Form.Label>
                 <Form.Control
                     type="number"
                     value={currentCustomCourse.credits}
                     onChange={updateCustomCredits}
+                    className="credits_ct"
                 />
                 <Form.Label>Course Prerequisites</Form.Label>
                 <Form.Control
                     type="text"
                     value={currentCustomCourse.prereqs}
                     onChange={updateCustomPrereqs}
+                    className="prereq_ct"
                 />
                 <Form.Label>Breadth Category</Form.Label>
                 <br />
                 <Form.Select
                     value={currentCustomCourse.breadthFulfilled ?? "None"}
                     onChange={updateCustomBreadth}
+                    className="gen_dp"
                 >
                     {BREADTH_TYPES.map((breadth: string) => (
                         <option key={breadth} value={breadth}>
