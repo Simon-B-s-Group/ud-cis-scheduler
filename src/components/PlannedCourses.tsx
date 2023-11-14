@@ -13,6 +13,7 @@ import "../Control.css";
  * @param course The course for this row
  * @param editMode If the parent semester view is in edit mode, we add a Delete button
  * @param deleteCourse A function which deletes the course of this row from the semester
+ * @param deleteAllCourses Deletes all courses from a semester
  */
 export function PlannedCourses({
     course,
@@ -20,6 +21,7 @@ export function PlannedCourses({
     degreePlan,
     editMode,
     deleteCourse,
+    deleteAllCourses,
     setCurrentSemester,
     updatePlan
 }: {
@@ -28,6 +30,7 @@ export function PlannedCourses({
     degreePlan: DegreePlan;
     editMode: boolean;
     deleteCourse: (course: Course) => void;
+    deleteAllCourses?: (semester: Semester) => void;
     setCurrentSemester: (newSem: Semester | null) => void;
     updatePlan: (newPlan: DegreePlan, exit: boolean) => void;
 }): JSX.Element {
@@ -101,6 +104,12 @@ export function PlannedCourses({
                         onClick={() => deleteCourse(course)}
                     >
                         Delete Course
+                    </Button>
+                    <Button
+                        className="negative"
+                        onClick={() => deleteAllCourses?.(sem)}
+                    >
+                        Delete All Courses
                     </Button>
                     <Button
                         className="positive"

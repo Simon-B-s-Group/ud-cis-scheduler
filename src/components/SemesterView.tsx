@@ -82,6 +82,28 @@ export function SemesterView({
         updatePlan(updatedPlan, false);
     };
 
+    const deleteAllCourses = (semester: Semester): void => {
+        // Clear all courses in the semester at once
+        const updatedSemester: Semester = { ...semester, courses: [] };
+        setCurrentSemester(updatedSemester);
+
+        // Update the semester in the degree plan
+        const updatedSemesters: Semester[] = degreePlan.semesters.map(
+            (s: Semester): Semester =>
+                s.season === semester.season && s.year === semester.year
+                    ? updatedSemester
+                    : s
+        );
+
+        // Update the degree plan with the modified semester
+        const updatedPlan: DegreePlan = {
+            ...degreePlan,
+            semesters: updatedSemesters
+        };
+
+        updatePlan(updatedPlan, false);
+    };
+
     return (
         <div>
             <span>
@@ -133,6 +155,7 @@ export function SemesterView({
                                 degreePlan={degreePlan}
                                 editMode={editMode}
                                 deleteCourse={deleteCourse}
+                                deleteAllCourses={deleteAllCourses}
                                 setCurrentSemester={setCurrentSemester}
                                 updatePlan={updatePlan}
                             />
