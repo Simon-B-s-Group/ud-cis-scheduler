@@ -178,19 +178,19 @@ Browserslist: caniuse-lite is outdated. Please run:
 
 FAIL src/App.test.tsx
   UD CIS Scheduler tests
-    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (181 ms)
-    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (31 ms)
-    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (204 ms)
-    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (136 ms)
-    ✕ When we create a new semester with new season/year values, it should add with no classes. (121 ms)
-    ✕ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (115 ms)
-    ✕ Can't add a semester that already exists (114 ms)
-    ✓ You can delete a course from a semester (119 ms)
-    ✕ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (111 ms)
-    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (322 ms)
-    ✓ You can create a new plan with a custom name (64 ms)
-    ✓ You can delete an existing plan (29 ms)
-    ✓ You can edit a course's code, name, credits within a semester (225 ms)
+    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (196 ms)
+    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (36 ms)
+    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (226 ms)
+    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (148 ms)
+    ✕ When we create a new semester with new season/year values, it should add with no classes. (124 ms)
+    ✕ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (121 ms)
+    ✕ Can't add a semester that already exists (107 ms)
+    ✓ You can delete a course from a semester (118 ms)
+    ✕ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (124 ms)
+    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (339 ms)
+    ✓ You can create a new plan with a custom name (68 ms)
+    ✓ You can delete an existing plan (30 ms)
+    ✓ You can edit a course's code, name, credits within a semester (246 ms)
 
   ● UD CIS Scheduler tests › When we create a new semester with new season/year values, it should add with no classes.
 
@@ -1873,6 +1873,12 @@ FAIL src/App.test.tsx
                   [36m>[39m
                     [0mDelete Course[0m
                   [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"positive btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mRevert Changes[0m
+                  [36m</button>[39m
                 [36m</td>[39m
               [36m</tr>[39m
               [36m<tr>[39m
@@ -1898,6 +1904,12 @@ FAIL src/App.test.tsx
                     [33mtype[39m=[32m"button"[39m
                   [36m>[39m
                     [0mDelete Course[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"positive btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mRevert Changes[0m
                   [36m</button>[39m
                 [36m</td>[39m
               [36m</tr>[39m
@@ -1925,6 +1937,12 @@ FAIL src/App.test.tsx
                   [36m>[39m
                     [0mDelete Course[0m
                   [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"positive btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mRevert Changes[0m
+                  [36m</button>[39m
                 [36m</td>[39m
               [36m</tr>[39m
               [36m<tr>[39m
@@ -1950,6 +1968,12 @@ FAIL src/App.test.tsx
                     [33mtype[39m=[32m"button"[39m
                   [36m>[39m
                     [0mDelete Course[0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"positive btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mRevert Changes[0m
                   [36m</button>[39m
                 [36m</td>[39m
               [36m</tr>[39m
@@ -1977,45 +2001,11 @@ FAIL src/App.test.tsx
                   [36m>[39m
                     [0mDelete Course[0m
                   [36m</button>[39m
-                [36m</td>[39m
-              [36m</tr>[39m
-              [36m<tr[39m
-                [33mstyle[39m=[32m"font-weight: bold;"[39m
-              [36m>[39m
-                [0mTotal Credits for Semester:[0m
-                [0m [0m
-                [0m15[0m
-              [36m</tr>[39m
-              [36m<br />[39m
-            [36m</table>[39m
-          [36m</div>[39m
-          [36m<b>[39m
-            [36m<u>[39m
-              [36m<h6>[39m
-                [0mAdd Course to Semester[0m
-              [36m</h6>[39m
-            [36m</u>[39m
-          [36m</b>[39m
-          [36m<p>[39m
-            [0mIf your desired course isn't here, you can add a custom one below![0m
-          [36m</p>[39m
-          [36m<div>[39m
-            [36m<select[39m
-              [33mclass[39m=[32m"gen_dp form-select"[39m
-              [33mid[39m=[32m"newCourse"[39m
-            [36m>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ANFS300"[39m
-              [36m>[39m
-                [0mANFS300[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[32m"ANFS310"[39m
-              [36m>[39m
-                [0mANFS310[0m
-              [36m</option>[39m
-              [36m<option[39m
-                [33mvalue[39m=[3...
+                  [36m<button[39m
+                    [33mclass[39m=[32m"positive btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mRev...
 
       189 |         userEvent.click(editButton);
       190 |
@@ -2039,12 +2029,12 @@ FAIL src/App.test.tsx
 -------------------------------|---------|----------|---------|---------|-----------------------------
 File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s           
 -------------------------------|---------|----------|---------|---------|-----------------------------
-All files                      |   89.54 |    80.35 |   84.81 |    89.4 |                             
+All files                      |   86.44 |    76.27 |   81.92 |   86.26 |                             
  src                           |     100 |     87.5 |     100 |     100 |                             
   App.tsx                      |     100 |     87.5 |     100 |     100 | 230                         
- src/components                |   89.01 |     79.8 |      85 |   88.95 |                             
+ src/components                |   85.35 |    75.45 |   81.25 |   85.27 |                             
   DegreePlanPage.tsx           |   92.59 |       80 |      92 |   92.52 | 126,257-258,264,295,316-321 
-  PlannedCourses.tsx           |     100 |      100 |     100 |     100 |                             
+  PlannedCourses.tsx           |      75 |    57.14 |   76.92 |      75 | 107-127                     
   SemesterView.tsx             |   93.33 |       90 |   88.88 |   93.33 | 111                         
   SingleSemesterPage.tsx       |   71.79 |     62.5 |    64.7 |   71.79 | 55,95,103,186-201           
  src/components/modals         |   72.72 |      100 |   57.14 |   72.72 |                             
@@ -2063,5 +2053,5 @@ All files                      |   89.54 |    80.35 |   84.81 |    89.4 |
 Test Suites: 1 failed, 1 total
 Tests:       4 failed, 9 passed, 13 total
 Snapshots:   0 total
-Time:        4.743 s
+Time:        5.015 s
 Ran all test suites.
