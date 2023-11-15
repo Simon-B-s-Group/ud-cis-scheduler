@@ -99,13 +99,21 @@ export function SingleSemesterPage({
     };
     const updateCustomBreadth = (
         event: React.ChangeEvent<HTMLSelectElement>
-    ) => {
+    ): void => {
         setCurrentCustomCourse({
             ...currentCustomCourse,
             breadthFulfilled:
                 event.target.value === "None"
                     ? undefined
                     : (event.target.value as BreadthType)
+        });
+    };
+    const updateIsMulticultural = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setCurrentCustomCourse({
+            ...currentCustomCourse,
+            isMulticultural: event.target.checked
         });
     };
 
@@ -262,6 +270,13 @@ export function SingleSemesterPage({
                         </option>
                     ))}
                 </Form.Select>
+                <Form.Check
+                    type="checkbox"
+                    id="isMC"
+                    label="Multicultural?"
+                    checked={currentCustomCourse.isMulticultural}
+                    onChange={updateIsMulticultural}
+                />
                 <Button
                     variant="success"
                     onClick={() => {
