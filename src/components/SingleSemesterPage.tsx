@@ -73,6 +73,17 @@ export function SingleSemesterPage({
             ...currentCustomCourse,
             code: event.target.value
         });
+
+        const codePattern = /^[A-Za-z]{3,4}\d{3}$|^[A-Za-z]{3}\d{3}$/;
+        /*
+        === FROM CHAT GPT ===
+        ^: asserts the start of the string.
+        ([A-Za-z]{3,4}\d{3}): matches 3 to 4 alphabetical characters followed by exactly 3 numeric characters.
+        |: acts as an OR operator.
+        ([A-Za-z]{3}\d{3}): matches exactly 3 alphabetical characters followed by exactly 3 numeric characters.
+        $: asserts the end of the string.
+        */
+        setValidCode(codePattern.test(event.target.value));
     };
     const updateCustomName = (
         event: React.ChangeEvent<HTMLInputElement>
@@ -100,7 +111,7 @@ export function SingleSemesterPage({
     };
     const updateCustomBreadth = (
         event: React.ChangeEvent<HTMLSelectElement>
-    ) => {
+    ): void => {
         setCurrentCustomCourse({
             ...currentCustomCourse,
             breadthFulfilled:
@@ -109,6 +120,15 @@ export function SingleSemesterPage({
                     : (event.target.value as BreadthType)
         });
     };
+    const updateIsMulticultural = (
+        event: React.ChangeEvent<HTMLInputElement>
+    ): void => {
+        setCurrentCustomCourse({
+            ...currentCustomCourse,
+            isMulticultural: event.target.checked
+        });
+    };
+    const [validCode, setValidCode] = useState<boolean>(true); // must be 6-7 characters, with first 3-4 chars = letters, last 3 = numbers
 
     /**
      * Adds a new course to the semester and updates the plan containing it accordingly.
@@ -268,6 +288,13 @@ export function SingleSemesterPage({
                         </option>
                     ))}
                 </Form.Select>
+                <Form.Check
+                    type="checkbox"
+                    id="isMC"
+                    label="Multicultural?"
+                    checked={currentCustomCourse.isMulticultural}
+                    onChange={updateIsMulticultural}
+                />
                 <Button
                     variant="success"
                     onClick={() => {
@@ -280,9 +307,19 @@ export function SingleSemesterPage({
                             alert(
                                 `${currentCustomCourse.code} is already in this semester!`
                             );
-                        else addCourseToSemester(currentCustomCourse);
+                        else {
+                            addCourseToSemester(currentCustomCourse);
+                            setCurrentCustomCourse({
+                                code: "",
+                                name: "",
+                                credits: 3,
+                                prereqs: "",
+                                isMulticultural: false
+                            });
+                        }
                     }}
                     className="positive"
+                    disabled={!validCode}
                 >
                     OK
                 </Button>
