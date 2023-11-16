@@ -120,12 +120,7 @@ export function DegreePlanPage({
                 descriptionString +=
                     req.courseTypeRequired + " Breadth courses";
             } else if (req.coursesMustHaveInName !== undefined) {
-                if (req.coursesMustHaveInName.includes("CISC3")) {
-                    descriptionString +=
-                        "CISC courses at the 300 level or higher";
-                } else {
-                    descriptionString += req.coursesMustHaveInName.join(", ");
-                }
+                descriptionString += "CISC courses at the 300 level or higher";
             }
 
             // === CHECK WHICH COURSES USED TO SATISFY ===
@@ -143,8 +138,8 @@ export function DegreePlanPage({
                             coursesUsed.push(course);
                         }
                     } else if (req.coursesMustHaveInName !== undefined) {
-                        req.coursesMustHaveInName.forEach((breadthType) => {
-                            if (course.code.includes(breadthType)) {
+                        req.coursesMustHaveInName.forEach((name) => {
+                            if (course.code.includes(name)) {
                                 coursesUsedForRequirements.push(course);
                                 coursesUsed.push(course);
                             }

@@ -176,6 +176,13 @@ function App(): JSX.Element {
                             breadthFulfilled: "College"
                         },
                         {
+                            code: "CISC374",
+                            name: "Educational Game Development",
+                            credits: 3,
+                            prereqs: "CISC 220.",
+                            isMulticultural: false
+                        },
+                        {
                             code: "MATH205",
                             name: "Statistical Methods",
                             credits: 4,
