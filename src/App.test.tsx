@@ -94,7 +94,7 @@ describe("UD CIS Scheduler tests", () => {
 
         const newSemesterButton = screen.getByText("New Semester");
         userEvent.click(newSemesterButton);
-        const seasonSelect = screen.getByRole("combobox");
+        const seasonSelect = screen.getAllByRole("combobox")[1];
         userEvent.selectOptions(seasonSelect, "Summer");
         const yearSelect = screen.getByRole("spinbutton");
         userEvent.clear(yearSelect);
@@ -127,7 +127,7 @@ describe("UD CIS Scheduler tests", () => {
             which: 27
         });
 
-        const seasonSelect = screen.getByRole("combobox");
+        const seasonSelect = screen.getAllByRole("combobox")[1];
 
         // the modal takes a bit to close
         await waitFor(() => {
@@ -146,7 +146,7 @@ describe("UD CIS Scheduler tests", () => {
 
         const newSemesterButton = screen.getByText("New Semester");
         userEvent.click(newSemesterButton);
-        const seasonSelect = screen.getByRole("combobox");
+        const seasonSelect = screen.getAllByRole("combobox")[1];
         userEvent.selectOptions(seasonSelect, "Fall");
         const yearSelect = screen.getByRole("spinbutton");
         userEvent.clear(yearSelect);
@@ -188,7 +188,7 @@ describe("UD CIS Scheduler tests", () => {
         // so we will click on the edit page for Fall 2023
         userEvent.click(editButton);
 
-        const courseSelect = screen.getByRole("combobox");
+        const courseSelect = screen.getAllByRole("combobox")[0];
         userEvent.selectOptions(courseSelect, "CISC372");
         const okButton = screen.getAllByText("OK")[0]; // the first OK button submits a pre-defined course
         userEvent.click(okButton);
