@@ -210,16 +210,21 @@ export function SingleSemesterPage({
                         );
                         if (foundCourse) {
                             // theoretically this should never be null
-                            const courseInSemester = sem.courses.find(
-                                (course: Course): boolean =>
-                                    course.code === currentSelectedCourse
-                            );
-
-                            if (courseInSemester)
-                                alert(
-                                    `${currentSelectedCourse} is already in this semester!`
-                                );
-                            else addCourseToSemester(foundCourse);
+                            // see if this course is in another or this semester
+                            let addCourse = true;
+                            degreePlan.semesters.forEach((s: Semester) => {
+                                s.courses.forEach((c: Course) => {
+                                    if (c.code === currentSelectedCourse) {
+                                        alert(
+                                            `${c.code} is already in this or another semester!`
+                                        );
+                                        addCourse = false;
+                                    }
+                                });
+                            });
+                            if (addCourse) {
+                                addCourseToSemester(foundCourse);
+                            }
                         }
                     }}
                     className="positive"
@@ -298,16 +303,19 @@ export function SingleSemesterPage({
                 <Button
                     variant="success"
                     onClick={() => {
-                        const courseInSemester = sem.courses.find(
-                            (course: Course): boolean =>
-                                course.code === currentCustomCourse.code
-                        );
-
-                        if (courseInSemester)
-                            alert(
-                                `${currentCustomCourse.code} is already in this semester!`
-                            );
-                        else {
+                        // see if this course is in another or this semester
+                        let addCourse = true;
+                        degreePlan.semesters.forEach((s: Semester) => {
+                            s.courses.forEach((c: Course) => {
+                                if (c.code === currentCustomCourse.code) {
+                                    alert(
+                                        `${c.code} is already in this or another semester!`
+                                    );
+                                    addCourse = false;
+                                }
+                            });
+                        });
+                        if (addCourse) {
                             addCourseToSemester(currentCustomCourse);
                             setCurrentCustomCourse({
                                 code: "",
@@ -316,6 +324,7 @@ export function SingleSemesterPage({
                                 prereqs: "",
                                 isMulticultural: false
                             });
+                            setValidCode(false);
                         }
                     }}
                     className="positive"
