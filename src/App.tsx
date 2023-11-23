@@ -279,6 +279,7 @@ function App(): JSX.Element {
                             setNewPlanName("");
                         }}
                         disabled={
+                            newPlanName.trim() === "" ||
                             degreePlans.findIndex(
                                 (degreePlan: DegreePlan) =>
                                     newPlanName.trim() ===
