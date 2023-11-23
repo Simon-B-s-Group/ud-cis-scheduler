@@ -279,11 +279,11 @@ function App(): JSX.Element {
                             setNewPlanName("");
                         }}
                         disabled={
-                            newPlanName.trim() === "" ||
+                            newPlanName.replace(/\s/g, "") === "" ||
                             degreePlans.findIndex(
                                 (degreePlan: DegreePlan) =>
-                                    newPlanName.trim() ===
-                                    degreePlan.name.trim()
+                                    newPlanName.replace(/\s/g, "") ===
+                                    degreePlan.name.replace(/\s/g, "")
                             ) !== -1
                         }
                     >
