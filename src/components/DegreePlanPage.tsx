@@ -317,6 +317,24 @@ export function DegreePlanPage({
         savePlan(thisPlan, false);
     };
 
+    const semToNum = (sem: Semester): number => {
+        let value = 0;
+        if (sem.season === "Spring") {
+            value = 1;
+        } else if (sem.season === "Summer") {
+            value = 2;
+        } else if (sem.season === "Fall") {
+            value = 3;
+        } else if (sem.season === "Winter") {
+            value = 4;
+        }
+        return sem.year * 10 + value;
+    };
+
+    thisPlan.semesters.sort(
+        (a: Semester, b: Semester): number => semToNum(a) - semToNum(b)
+    );
+
     return (
         <>
             <Button
