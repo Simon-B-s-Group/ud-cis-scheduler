@@ -293,8 +293,12 @@ function App(): JSX.Element {
                         return (
                             <div key={degreePlan.name}>
                                 <h4>{degreePlan.name}</h4>
-                                <p>{degreePlan.semesters.length} semesters</p>
+                                <p>
+                                    {`[${degreePlan.concentration}]`} <br></br>
+                                    {degreePlan.semesters.length} semesters
+                                </p>
                                 <Button
+                                    variant="secondary"
                                     onClick={() => setCurrentPlan(degreePlan)}
                                     className="positive"
                                 >
