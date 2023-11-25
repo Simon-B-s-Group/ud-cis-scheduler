@@ -247,24 +247,24 @@ Browserslist: caniuse-lite is outdated. Please run:
 
 PASS src/App.test.tsx
   UD CIS Scheduler tests
-    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (146 ms)
-    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (32 ms)
-    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (211 ms)
-    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (134 ms)
-    ✓ When we create a new semester with new season/year values, it should add with no classes. (238 ms)
-    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (107 ms)
-    ✓ Can't add a semester that already exists (165 ms)
-    ✓ You can delete a course from a semester (117 ms)
-    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (144 ms)
-    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (434 ms)
-    ✓ You can create a new plan with a custom name (59 ms)
-    ✓ You can delete an existing plan (32 ms)
-    ✓ You can edit a course's code, name, credits within a semester (226 ms)
-    ✓ Can delete all semesters in a plan (71 ms)
-    ✓ Can set a plan's concentration (90 ms)
-    ✓ Can delete all courses in a semester (85 ms)
-    ✓ For a course, we can edit it then revert to its original state (263 ms)
-    ✓ Can't add a custom course if it's in another semester already (130 ms)
+    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (150 ms)
+    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (34 ms)
+    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (230 ms)
+    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (154 ms)
+    ✓ When we create a new semester with new season/year values, it should add with no classes. (245 ms)
+    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (118 ms)
+    ✓ Can't add a semester that already exists (174 ms)
+    ✓ You can delete a course from a semester (124 ms)
+    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (148 ms)
+    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (446 ms)
+    ✓ You can create a new plan with a custom name (60 ms)
+    ✓ You can delete an existing plan (36 ms)
+    ✓ You can edit a course's code, name, credits within a semester (233 ms)
+    ✓ Can delete all semesters in a plan (73 ms)
+    ✓ Can set a plan's concentration (87 ms)
+    ✓ Can delete all courses in a semester (90 ms)
+    ✓ For a course, we can edit it then revert to its original state (265 ms)
+    ✓ Can't add a custom course if it's in another semester already (135 ms)
 
 -------------------------------|---------|----------|---------|---------|-------------------
 File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
@@ -293,5 +293,5 @@ All files                      |   99.25 |    88.05 |     100 |   99.24 |
 Test Suites: 1 passed, 1 total
 Tests:       18 passed, 18 total
 Snapshots:   0 total
-Time:        5.73 s
+Time:        5.918 s
 Ran all test suites.
