@@ -38,6 +38,7 @@ export function SemesterView({
     sem,
     degreePlan,
     editMode,
+    showPrereqs,
     setCurrentSemester,
     deleteThisSem,
     deleteAllSem,
@@ -46,6 +47,7 @@ export function SemesterView({
     sem: Semester;
     degreePlan: DegreePlan;
     editMode: boolean;
+    showPrereqs: boolean;
     setCurrentSemester: (newSem: Semester | null) => void;
     deleteThisSem?: (season: Season, year: number) => void; // the '?' indicates it is an optional parameter. We ONLY need this to be given in non-edit mode.
     deleteAllSem?: (season: Season, year: number) => void;
@@ -154,6 +156,7 @@ export function SemesterView({
                                 sem={sem}
                                 degreePlan={degreePlan}
                                 editMode={editMode}
+                                showPrereqs={showPrereqs}
                                 deleteCourse={deleteCourse}
                                 deleteAllCourses={deleteAllCourses}
                                 setCurrentSemester={setCurrentSemester}

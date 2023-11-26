@@ -45,6 +45,7 @@ export function DegreePlanPage({
     const [selectedConcentration, setSelectedConcentration] = useState<string>(
         degreePlan.concentration
     );
+    const [showPrereqs, setShowPrereqs] = useState<boolean>(false);
 
     /**
      * Something I know from internship stuff
@@ -353,6 +354,12 @@ export function DegreePlanPage({
                 show={showNewSemPopup}
                 handleSubmit={handleNewSumSubmit}
             />
+            <Button
+                onClick={() => setShowPrereqs(!showPrereqs)}
+                className="positive"
+            >
+                {showPrereqs ? "Hide" : "Show"} Pre/Corequisites
+            </Button>
             <div key={thisPlan.name}>
                 <b>
                     <u>
@@ -366,6 +373,7 @@ export function DegreePlanPage({
                                 sem={semester}
                                 degreePlan={thisPlan}
                                 editMode={false}
+                                showPrereqs={showPrereqs}
                                 setCurrentSemester={setCurrentSemester}
                                 deleteThisSem={handleSemDelete}
                                 deleteAllSem={handleAllSemDelete}
