@@ -20,6 +20,7 @@ export function PlannedCourses({
     sem,
     degreePlan,
     editMode,
+    showPrereqs,
     deleteCourse,
     deleteAllCourses,
     setCurrentSemester,
@@ -29,6 +30,7 @@ export function PlannedCourses({
     sem: Semester;
     degreePlan: DegreePlan;
     editMode: boolean;
+    showPrereqs: boolean;
     deleteCourse: (course: Course) => void;
     deleteAllCourses?: (semester: Semester) => void;
     setCurrentSemester: (newSem: Semester | null) => void;
@@ -80,8 +82,11 @@ export function PlannedCourses({
     return (
         <tr>
             <td>
-                {currentCourse.code}: {currentCourse.name}
+                <u>
+                    {currentCourse.code}: {currentCourse.name}
+                </u>
                 <br />
+                {showPrereqs ? currentCourse.prereqs : ""}
             </td>
             <td> {currentCourse.credits}</td>
             {editMode ? (

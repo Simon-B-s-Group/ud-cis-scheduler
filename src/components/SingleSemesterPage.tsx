@@ -174,6 +174,7 @@ export function SingleSemesterPage({
                 sem={sem}
                 degreePlan={degreePlan}
                 editMode={true}
+                showPrereqs={false}
                 setCurrentSemester={setCurrentSemester}
                 updatePlan={updatePlan}
             />
