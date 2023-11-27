@@ -169,20 +169,30 @@ export function PlannedCourses({
                             <Button
                                 className="positive"
                                 onClick={() => {
-                                    setCurrentCourse({
-                                        ...currentCourse,
-                                        originalCourse: origCourse
-                                    });
-                                    setOrigCourse(currentCourse.originalCourse);
-                                    const updatedSemesterCourses =
-                                        sem.courses.map(
-                                            (c: Course): Course =>
-                                                c === course ? currentCourse : c
+                                    if (currentCourse.credits < 1) {
+                                        alert(
+                                            "Courses must be one or more credits"
                                         );
-                                    updateSemesterAndPlan(
-                                        updatedSemesterCourses
-                                    );
-                                    setEditing(false);
+                                    } else {
+                                        setCurrentCourse({
+                                            ...currentCourse,
+                                            originalCourse: origCourse
+                                        });
+                                        setOrigCourse(
+                                            currentCourse.originalCourse
+                                        );
+                                        const updatedSemesterCourses =
+                                            sem.courses.map(
+                                                (c: Course): Course =>
+                                                    c === course
+                                                        ? currentCourse
+                                                        : c
+                                            );
+                                        updateSemesterAndPlan(
+                                            updatedSemesterCourses
+                                        );
+                                        setEditing(false);
+                                    }
                                 }}
                             >
                                 OK
