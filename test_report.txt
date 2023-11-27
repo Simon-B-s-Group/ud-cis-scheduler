@@ -193,90 +193,90 @@ Browserslist: caniuse-lite is outdated. Please run:
     Error: Not implemented: window.alert
         at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
         at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:219:41)
+        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:225:41)
         at Array.forEach (<anonymous>)
-        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:217:43)
+        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:223:43)
         at Array.forEach (<anonymous>)
-        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:216:50)
+        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:222:50)
         at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
         at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
         at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25) undefined
 
-      217 |                                 s.courses.forEach((c: Course) => {
-      218 |                                     if (c.code === currentSelectedCourse) {
-    > 219 |                                         alert(
+      223 |                                 s.courses.forEach((c: Course) => {
+      224 |                                     if (c.code === currentSelectedCourse) {
+    > 225 |                                         alert(
           |                                         ^
-      220 |                                             `${c.code} is already in this or another semester!`
-      221 |                                         );
-      222 |                                         addCourse = false;
+      226 |                                             `${c.code} is already in this or another semester!`
+      227 |                                         );
+      228 |                                         addCourse = false;
 
       at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
       at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
       at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at forEach (src/components/SingleSemesterPage.tsx:219:41)
+      at forEach (src/components/SingleSemesterPage.tsx:225:41)
           at Array.forEach (<anonymous>)
-      at src/components/SingleSemesterPage.tsx:217:43
+      at src/components/SingleSemesterPage.tsx:223:43
 
   console.error
     Error: Not implemented: window.alert
         at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
         at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:312:37)
+        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:318:37)
         at Array.forEach (<anonymous>)
-        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:310:39)
+        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:316:39)
         at Array.forEach (<anonymous>)
-        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:309:46)
+        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:315:46)
         at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
         at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
         at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25) undefined
 
-      310 |                             s.courses.forEach((c: Course) => {
-      311 |                                 if (c.code === currentCustomCourse.code) {
-    > 312 |                                     alert(
+      316 |                             s.courses.forEach((c: Course) => {
+      317 |                                 if (c.code === currentCustomCourse.code) {
+    > 318 |                                     alert(
           |                                     ^
-      313 |                                         `${c.code} is already in this or another semester!`
-      314 |                                     );
-      315 |                                     addCourse = false;
+      319 |                                         `${c.code} is already in this or another semester!`
+      320 |                                     );
+      321 |                                     addCourse = false;
 
       at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
       at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
       at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at forEach (src/components/SingleSemesterPage.tsx:312:37)
+      at forEach (src/components/SingleSemesterPage.tsx:318:37)
           at Array.forEach (<anonymous>)
-      at src/components/SingleSemesterPage.tsx:310:39
+      at src/components/SingleSemesterPage.tsx:316:39
 
 PASS src/App.test.tsx
   UD CIS Scheduler tests
-    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (146 ms)
-    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (33 ms)
-    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (218 ms)
-    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (142 ms)
-    ✓ When we create a new semester with new season/year values, it should add with no classes. (250 ms)
+    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (155 ms)
+    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (31 ms)
+    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (212 ms)
+    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (141 ms)
+    ✓ When we create a new semester with new season/year values, it should add with no classes. (248 ms)
     ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (119 ms)
-    ✓ Can't add a semester that already exists (181 ms)
-    ✓ You can delete a course from a semester (113 ms)
-    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (144 ms)
-    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (429 ms)
-    ✓ You can create a new plan with a custom name (62 ms)
-    ✓ You can delete an existing plan (31 ms)
-    ✓ You can edit a course's code, name, credits within a semester (233 ms)
+    ✓ Can't add a semester that already exists (170 ms)
+    ✓ You can delete a course from a semester (117 ms)
+    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (155 ms)
+    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (438 ms)
+    ✓ You can create a new plan with a custom name (59 ms)
+    ✓ You can delete an existing plan (29 ms)
+    ✓ You can edit a course's code, name, credits within a semester (231 ms)
     ✓ Can delete all semesters in a plan (70 ms)
-    ✓ Can set a plan's concentration (84 ms)
-    ✓ Can delete all courses in a semester (96 ms)
+    ✓ Can set a plan's concentration (87 ms)
+    ✓ Can delete all courses in a semester (101 ms)
     ✓ For a course, we can edit it then revert to its original state (275 ms)
     ✓ Can't add a custom course if it's in another semester already (134 ms)
 
 -------------------------------|---------|----------|---------|---------|-------------------
 File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 -------------------------------|---------|----------|---------|---------|-------------------
-All files                      |   98.89 |    86.42 |   98.92 |   98.88 |                   
+All files                      |    98.9 |    86.42 |   98.93 |   98.88 |                   
  src                           |     100 |    83.33 |     100 |     100 |                   
   App.tsx                      |     100 |    83.33 |     100 |     100 | 227-241           
- src/components                |    98.7 |    86.71 |   98.63 |    98.7 |                   
+ src/components                |   98.71 |    86.71 |   98.64 |   98.71 |                   
   DegreePlanPage.tsx           |   97.52 |    83.33 |   96.42 |    97.5 | 329-330,358       
   PlannedCourses.tsx           |     100 |     87.5 |     100 |     100 | 89,122            
   SemesterView.tsx             |     100 |      100 |     100 |     100 |                   
-  SingleSemesterPage.tsx       |     100 |       90 |     100 |     100 | 118,212           
+  SingleSemesterPage.tsx       |     100 |       90 |     100 |     100 | 118,218           
  src/components/modals         |     100 |      100 |     100 |     100 |                   
   IntroPopup.tsx               |     100 |      100 |     100 |     100 |                   
   NewSemesterPopup.tsx         |     100 |      100 |     100 |     100 |                   
@@ -293,5 +293,5 @@ All files                      |   98.89 |    86.42 |   98.92 |   98.88 |
 Test Suites: 1 passed, 1 total
 Tests:       18 passed, 18 total
 Snapshots:   0 total
-Time:        5.841 s
+Time:        5.953 s
 Ran all test suites.
