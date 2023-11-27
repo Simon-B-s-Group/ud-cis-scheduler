@@ -217,11 +217,6 @@ Browserslist: caniuse-lite is outdated. Please run:
           at Array.forEach (<anonymous>)
       at src/components/SingleSemesterPage.tsx:223:43
 
-  console.log
-    15
-
-      at onClick (src/components/SingleSemesterPage.tsx:341:33)
-
   console.error
     Error: Not implemented: window.alert
         at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
@@ -250,58 +245,53 @@ Browserslist: caniuse-lite is outdated. Please run:
           at Array.forEach (<anonymous>)
       at src/components/SingleSemesterPage.tsx:327:39
 
-  console.log
-    15
-
-      at onClick (src/components/SingleSemesterPage.tsx:341:33)
-
 PASS src/App.test.tsx
   UD CIS Scheduler tests
-    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (154 ms)
-    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (40 ms)
+    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (149 ms)
+    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (32 ms)
     ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (225 ms)
-    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (153 ms)
-    ✓ When we create a new semester with new season/year values, it should add with no classes. (264 ms)
-    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (117 ms)
-    ✓ Can't add a semester that already exists (207 ms)
-    ✓ You can delete a course from a semester (121 ms)
-    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (161 ms)
-    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (472 ms)
-    ✓ You can create a new plan with a custom name (66 ms)
-    ✓ You can delete an existing plan (31 ms)
-    ✓ You can edit a course's code, name, credits within a semester (242 ms)
+    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (146 ms)
+    ✓ When we create a new semester with new season/year values, it should add with no classes. (248 ms)
+    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (138 ms)
+    ✓ Can't add a semester that already exists (186 ms)
+    ✓ You can delete a course from a semester (113 ms)
+    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (150 ms)
+    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (466 ms)
+    ✓ You can create a new plan with a custom name (61 ms)
+    ✓ You can delete an existing plan (25 ms)
+    ✓ You can edit a course's code, name, credits within a semester (233 ms)
     ✓ Can delete all semesters in a plan (73 ms)
-    ✓ Can set a plan's concentration (92 ms)
-    ✓ Can delete all courses in a semester (98 ms)
-    ✓ For a course, we can edit it then revert to its original state (294 ms)
-    ✓ Can't add a custom course if it's in another semester already (140 ms)
+    ✓ Can set a plan's concentration (88 ms)
+    ✓ Can delete all courses in a semester (92 ms)
+    ✓ For a course, we can edit it then revert to its original state (301 ms)
+    ✓ Can't add a custom course if it's in another semester already (131 ms)
 
--------------------------------|---------|----------|---------|---------|-------------------
-File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
--------------------------------|---------|----------|---------|---------|-------------------
-All files                      |   97.53 |    85.41 |   98.95 |    97.5 |                   
- src                           |     100 |    83.33 |     100 |     100 |                   
-  App.tsx                      |     100 |    83.33 |     100 |     100 | 227-241           
- src/components                |   97.14 |     85.6 |   98.68 |   97.13 |                   
-  DegreePlanPage.tsx           |   97.52 |    83.33 |   96.42 |    97.5 | 329-330,358       
-  PlannedCourses.tsx           |     100 |     87.5 |     100 |     100 | 89,122            
-  SemesterView.tsx             |     100 |      100 |     100 |     100 |                   
-  SingleSemesterPage.tsx       |   93.84 |    83.33 |     100 |   93.84 | 238-241,343-346   
- src/components/modals         |     100 |      100 |     100 |     100 |                   
-  IntroPopup.tsx               |     100 |      100 |     100 |     100 |                   
-  NewSemesterPopup.tsx         |     100 |      100 |     100 |     100 |                   
- src/data                      |     100 |      100 |     100 |     100 |                   
-  concentrations.ts            |     100 |      100 |     100 |     100 |                   
-  defaultCourses.ts            |     100 |      100 |     100 |     100 |                   
- src/interfaces                |       0 |        0 |       0 |       0 |                   
-  course.ts                    |       0 |        0 |       0 |       0 |                   
-  degreePlan.ts                |       0 |        0 |       0 |       0 |                   
-  degreeRequirementCategory.ts |       0 |        0 |       0 |       0 |                   
-  degreeRequirements.ts        |       0 |        0 |       0 |       0 |                   
-  semester.ts                  |       0 |        0 |       0 |       0 |                   
--------------------------------|---------|----------|---------|---------|-------------------
+-------------------------------|---------|----------|---------|---------|---------------------
+File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
+-------------------------------|---------|----------|---------|---------|---------------------
+All files                      |   96.86 |    84.45 |   98.95 |   96.83 |                     
+ src                           |     100 |    83.33 |     100 |     100 |                     
+  App.tsx                      |     100 |    83.33 |     100 |     100 | 227-241             
+ src/components                |   96.37 |    84.55 |   98.68 |   96.35 |                     
+  DegreePlanPage.tsx           |   97.52 |    83.33 |   96.42 |    97.5 | 329-330,358         
+  PlannedCourses.tsx           |   97.43 |    83.33 |     100 |   97.43 | 173                 
+  SemesterView.tsx             |     100 |      100 |     100 |     100 |                     
+  SingleSemesterPage.tsx       |   92.42 |    80.76 |     100 |   92.42 | 238-241,342-345,348 
+ src/components/modals         |     100 |      100 |     100 |     100 |                     
+  IntroPopup.tsx               |     100 |      100 |     100 |     100 |                     
+  NewSemesterPopup.tsx         |     100 |      100 |     100 |     100 |                     
+ src/data                      |     100 |      100 |     100 |     100 |                     
+  concentrations.ts            |     100 |      100 |     100 |     100 |                     
+  defaultCourses.ts            |     100 |      100 |     100 |     100 |                     
+ src/interfaces                |       0 |        0 |       0 |       0 |                     
+  course.ts                    |       0 |        0 |       0 |       0 |                     
+  degreePlan.ts                |       0 |        0 |       0 |       0 |                     
+  degreeRequirementCategory.ts |       0 |        0 |       0 |       0 |                     
+  degreeRequirements.ts        |       0 |        0 |       0 |       0 |                     
+  semester.ts                  |       0 |        0 |       0 |       0 |                     
+-------------------------------|---------|----------|---------|---------|---------------------
 Test Suites: 1 passed, 1 total
 Tests:       18 passed, 18 total
 Snapshots:   0 total
-Time:        6.159 s
+Time:        5.957 s
 Ran all test suites.
