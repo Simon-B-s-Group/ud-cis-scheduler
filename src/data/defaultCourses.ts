@@ -655,7 +655,8 @@ export const courseOptions: Course[] = [
         credits: 4,
         prereqs:
             "MATH117 or acceptable score on the Math Placement Exam in accordance with current standards determined by the Department of Mathematical Sciences. See https://www.mathsci.udel.edu/courses-placement/ud-math-placement for more information.",
-        isMulticultural: false
+        isMulticultural: false,
+        breadthFulfilled: "Math"
     },
     {
         code: "MATH242",

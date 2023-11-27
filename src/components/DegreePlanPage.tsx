@@ -12,6 +12,7 @@ import "../Dropdown.css";
 import { DegreeRequirements } from "../interfaces/degreeRequirements";
 import { concentrations } from "../data/concentrations";
 import { DegreeRequirementCategory } from "../interfaces/degreeRequirementCategory";
+import { Accordion } from "react-bootstrap";
 
 /**
  * A page showing a whole Degree Plan, specifically its name and semesters
@@ -99,132 +100,153 @@ export function DegreePlanPage({
         // used in conjunction with "unique" parameter to avoid duplicate course usage for some requirements
 
         // the elements to display in the degree requirement field
-        const jsxElements = degreeRequirements?.requirements.map((req) => {
-            // === GET THE DESCRIPTION OF THE REQUIREMENT ===
-            let descriptionString = "";
-            if (req.numCoursesRequired !== undefined) {
-                if (
-                    req.coursesRequired &&
-                    req.numCoursesRequired !== req.coursesRequired.length
-                ) {
-                    descriptionString += `At least ${req.numCoursesRequired} course(s) from: `;
-                } else {
-                    descriptionString += "Must take ";
-                }
-            } else {
-                descriptionString += `At least ${req.numCreditsRequired} credit(s) from: `;
-            }
-
-            if (req.coursesRequired !== undefined) {
-                descriptionString += req.coursesRequired.join(", ");
-            } else if (req.courseTypeRequired !== undefined) {
-                descriptionString +=
-                    req.courseTypeRequired + " Breadth courses";
-            } else if (req.coursesMustHaveInName !== undefined) {
-                descriptionString += "CISC courses at the 300 level or higher";
-            }
-
-            // === CHECK WHICH COURSES USED TO SATISFY ===
-            const coursesUsed: Course[] = []; // courses used ONLY for this requirement
-            thisPlan.semesters.forEach((sem: Semester) => {
-                sem.courses.forEach((course: Course) => {
-                    if (
-                        req.unique &&
-                        coursesUsedForRequirements.includes(course)
-                    )
-                        return;
-                    if (req.coursesRequired !== undefined) {
-                        if (req.coursesRequired.includes(course.code)) {
-                            coursesUsedForRequirements.push(course);
-                            coursesUsed.push(course);
-                        }
-                    } else if (req.coursesMustHaveInName !== undefined) {
-                        req.coursesMustHaveInName.forEach((name) => {
-                            if (course.code.includes(name)) {
-                                coursesUsedForRequirements.push(course);
-                                coursesUsed.push(course);
-                            }
-                        });
-                    } else if (req.courseTypeRequired !== undefined) {
-                        if (req.courseTypeRequired === "Multicultural") {
-                            if (course.isMulticultural) {
-                                coursesUsedForRequirements.push(course);
-                                coursesUsed.push(course);
-                            }
-                        } else {
-                            if (
-                                course.breadthFulfilled ===
-                                req.courseTypeRequired
-                            ) {
-                                coursesUsedForRequirements.push(course);
-                                coursesUsed.push(course);
-                            }
-                        }
-                    }
-                });
-            });
-
-            // === SETUP THE TEXT TO DISPLAY ON THE WINDOW ===
-            const coursesUsedCodes = coursesUsed
-                .map((c: Course): string => c.code)
-                .sort();
-
-            let requirementText = "";
-            let checkOrCross = "❌";
-            const satisfiedCredits = coursesUsed.reduce(
-                (credits: number, course: Course) => credits + course.credits,
-                0
-            );
-
-            if (req.numCreditsRequired !== undefined) {
-                requirementText = `${satisfiedCredits} credit(s) out of ${req.numCreditsRequired} taken`;
-                if (satisfiedCredits > 0) {
-                    requirementText += `: ${coursesUsedCodes.join(", ")}`;
-                }
-
-                if (satisfiedCredits >= req.numCreditsRequired) {
-                    checkOrCross = "✅";
-                }
-            } else if (req.numCoursesRequired !== undefined) {
-                requirementText = `${coursesUsed.length} course(s) out of ${req.numCoursesRequired} taken`;
-                if (coursesUsed.length >= req.numCoursesRequired) {
-                    checkOrCross = "✅";
-                } else {
+        const jsxElements = degreeRequirements?.requirements.map(
+            (req, index) => {
+                // === GET THE DESCRIPTION OF THE REQUIREMENT ===
+                let descriptionString = "";
+                if (req.numCoursesRequired !== undefined) {
                     if (
                         req.coursesRequired &&
-                        req.coursesRequired.length === req.numCoursesRequired
+                        req.numCoursesRequired !== req.coursesRequired.length
                     ) {
-                        const coursesLeft = req.coursesRequired.filter(
-                            (cn: string) => !coursesUsedCodes.includes(cn)
-                        );
-                        requirementText += `: Must take ${coursesLeft.join(
-                            ", "
-                        )}`;
+                        descriptionString += `At least ${req.numCoursesRequired} course(s) from: `;
+                    } else {
+                        descriptionString += "Must take ";
+                    }
+                } else {
+                    descriptionString += `At least ${req.numCreditsRequired} credit(s) from: `;
+                }
+
+                if (req.coursesRequired !== undefined) {
+                    descriptionString += req.coursesRequired.join(", ");
+                } else if (req.courseTypeRequired !== undefined) {
+                    descriptionString +=
+                        req.courseTypeRequired + " Breadth courses";
+                } else if (req.coursesMustHaveInName !== undefined) {
+                    descriptionString +=
+                        "CISC courses at the 300 level or higher";
+                }
+
+                // === CHECK WHICH COURSES USED TO SATISFY ===
+                const coursesUsed: Course[] = []; // courses used ONLY for this requirement
+                thisPlan.semesters.forEach((sem: Semester) => {
+                    sem.courses.forEach((course: Course) => {
+                        if (
+                            req.unique &&
+                            coursesUsedForRequirements.includes(course)
+                        )
+                            return;
+                        if (req.coursesRequired !== undefined) {
+                            if (req.coursesRequired.includes(course.code)) {
+                                coursesUsedForRequirements.push(course);
+                                coursesUsed.push(course);
+                            }
+                        } else if (req.coursesMustHaveInName !== undefined) {
+                            req.coursesMustHaveInName.forEach((name) => {
+                                if (course.code.includes(name)) {
+                                    coursesUsedForRequirements.push(course);
+                                    coursesUsed.push(course);
+                                }
+                            });
+                        } else if (req.courseTypeRequired !== undefined) {
+                            if (req.courseTypeRequired === "Multicultural") {
+                                if (course.isMulticultural) {
+                                    coursesUsedForRequirements.push(course);
+                                    coursesUsed.push(course);
+                                }
+                            } else {
+                                if (
+                                    course.breadthFulfilled ===
+                                    req.courseTypeRequired
+                                ) {
+                                    coursesUsedForRequirements.push(course);
+                                    coursesUsed.push(course);
+                                }
+                            }
+                        }
+                    });
+                });
+
+                // === SETUP THE TEXT TO DISPLAY ON THE WINDOW ===
+                const coursesUsedCodes = coursesUsed
+                    .map((c: Course): string => c.code)
+                    .sort();
+
+                let requirementText = "";
+                let checkOrCross = "❌";
+                const satisfiedCredits = coursesUsed.reduce(
+                    (credits: number, course: Course) =>
+                        credits + course.credits,
+                    0
+                );
+
+                if (req.numCreditsRequired !== undefined) {
+                    requirementText = `${satisfiedCredits} credit(s) out of ${req.numCreditsRequired} taken`;
+                    if (satisfiedCredits > 0) {
+                        requirementText += `: ${coursesUsedCodes.join(", ")}`;
+                    }
+
+                    if (satisfiedCredits >= req.numCreditsRequired) {
+                        checkOrCross = "✅";
+                    }
+                } else if (req.numCoursesRequired !== undefined) {
+                    requirementText = `${coursesUsed.length} course(s) out of ${req.numCoursesRequired} taken`;
+                    if (coursesUsed.length >= req.numCoursesRequired) {
+                        checkOrCross = "✅";
+                    } else {
+                        if (
+                            req.coursesRequired &&
+                            req.coursesRequired.length ===
+                                req.numCoursesRequired
+                        ) {
+                            const coursesLeft = req.coursesRequired.filter(
+                                (cn: string) => !coursesUsedCodes.includes(cn)
+                            );
+                            requirementText += `: Must take ${coursesLeft.join(
+                                ", "
+                            )}`;
+                        }
                     }
                 }
-            }
 
-            return (
-                <>
-                    <p>
-                        <strong>
-                            {checkOrCross} {req.name}
-                        </strong>
-                    </p>
-                    <p>{descriptionString}</p>
-                    {requirementText ? (
-                        <p>
-                            <em>{requirementText}</em>
-                        </p>
-                    ) : null}
-                </>
-            );
-        });
+                return (
+                    <>
+                        <Accordion.Item eventKey={index.toString()}>
+                            <Accordion.Header>
+                                <strong>
+                                    {checkOrCross} {req.name}
+                                </strong>
+                            </Accordion.Header>
+                            <Accordion.Body>
+                                <p className="left-align-paragraph">
+                                    <strong>Requirement: </strong>
+                                    {descriptionString}
+                                </p>
+                                {requirementText ? (
+                                    <p
+                                        className="left-align-paragraph"
+                                        style={{
+                                            color:
+                                                checkOrCross === "✅"
+                                                    ? "#16c60c"
+                                                    : "#f03a17"
+                                        }}
+                                    >
+                                        <strong>Status: </strong>
+                                        {requirementText}
+                                    </p>
+                                ) : null}
+                            </Accordion.Body>
+                        </Accordion.Item>
+                    </>
+                );
+            }
+        );
 
         // Render the array of JSX elements
         setReqsDisplay(
             <div>
-                <ul>{jsxElements}</ul>
+                <Accordion defaultActiveKey="0">{jsxElements}</Accordion>
             </div>
         );
     }, [thisPlan.semesters, degreeRequirements]);
