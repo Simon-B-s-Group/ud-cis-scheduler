@@ -86,7 +86,19 @@ export function PlannedCourses({
                     {currentCourse.code}: {currentCourse.name}
                 </u>
                 <br />
-                {showPrereqs ? currentCourse.prereqs : ""}
+                {showPrereqs ? (
+                    <em>
+                        <strong>Prereqs: </strong>
+                        {currentCourse.prereqs === ""
+                            ? "None"
+                            : currentCourse.prereqs}
+                        <br />
+                        <strong>Breadth Fulfilled: </strong>
+                        {currentCourse.breadthFulfilled ?? "None"}
+                    </em>
+                ) : (
+                    ""
+                )}
             </td>
             <td> {currentCourse.credits}</td>
             {editMode ? (
