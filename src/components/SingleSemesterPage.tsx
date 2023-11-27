@@ -229,6 +229,17 @@ export function SingleSemesterPage({
                                     }
                                 });
                             });
+                            const currentCredits = sem.courses.reduce(
+                                (total: number, course: Course) =>
+                                    total + course.credits,
+                                0
+                            );
+                            if (currentCredits + foundCourse.credits > 21) {
+                                alert(
+                                    "You cannot have more that 21 credits in a semester"
+                                );
+                                addCourse = false;
+                            }
                             if (addCourse) {
                                 addCourseToSemester(foundCourse);
                             }
@@ -322,6 +333,18 @@ export function SingleSemesterPage({
                                 }
                             });
                         });
+                        const currentCredits = sem.courses.reduce(
+                            (total: number, course: Course) =>
+                                total + course.credits,
+                            0
+                        );
+                        console.log(currentCredits);
+                        if (currentCredits + currentCustomCourse.credits > 21) {
+                            alert(
+                                "You cannot have more that 21 credits in a semester"
+                            );
+                            addCourse = false;
+                        }
                         if (addCourse) {
                             addCourseToSemester(currentCustomCourse);
                             setCurrentCustomCourse({
