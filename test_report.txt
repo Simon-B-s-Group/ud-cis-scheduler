@@ -9,24 +9,24 @@ Browserslist: caniuse-lite is outdated. Please run:
     Warning: Each child in a list should have a unique "key" prop.
     
     Check the render method of `DegreePlanPage`. See https://reactjs.org/link/warning-keys for more information.
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:29:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:30:5)
         at div
         at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:18:39)
 
-      361 |                 {showPrereqs ? "Hide" : "Show"} Pre/Corequisites
-      362 |             </Button>
-    > 363 |             <div key={thisPlan.name}>
+      383 |                 {showPrereqs ? "Hide" : "Show"} Pre/Corequisites
+      384 |             </Button>
+    > 385 |             <div key={thisPlan.name}>
           |             ^
-      364 |                 <b>
-      365 |                     <u>
-      366 |                         <h5>{thisPlan.name}</h5>
+      386 |                 <b>
+      387 |                     <u>
+      388 |                         <h5>{thisPlan.name}</h5>
 
       at printWarning (node_modules/react/cjs/react-jsx-dev-runtime.development.js:117:30)
       at error (node_modules/react/cjs/react-jsx-dev-runtime.development.js:93:5)
       at validateExplicitKey (node_modules/react/cjs/react-jsx-dev-runtime.development.js:986:5)
       at validateChildKeys (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1013:11)
       at jsxWithValidation (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1174:15)
-      at DegreePlanPage (src/components/DegreePlanPage.tsx:363:13)
+      at DegreePlanPage (src/components/DegreePlanPage.tsx:385:13)
       at renderWithHooks (node_modules/react-dom/cjs/react-dom.development.js:14985:18)
 
   console.error
@@ -36,7 +36,7 @@ Browserslist: caniuse-lite is outdated. Please run:
         at div
         at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:38:5)
         at div
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:29:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:30:5)
         at div
         at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:18:39)
 
@@ -56,7 +56,7 @@ Browserslist: caniuse-lite is outdated. Please run:
         at div
         at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:38:5)
         at div
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:29:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:30:5)
         at div
         at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:18:39)
 
@@ -75,7 +75,7 @@ Browserslist: caniuse-lite is outdated. Please run:
         at div
         at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:38:5)
         at div
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:29:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:30:5)
         at div
         at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:18:39)
 
@@ -94,7 +94,7 @@ Browserslist: caniuse-lite is outdated. Please run:
         at div
         at SemesterView (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SemesterView.tsx:38:5)
         at div
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:29:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:30:5)
         at div
         at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:18:39)
 
@@ -109,25 +109,25 @@ Browserslist: caniuse-lite is outdated. Please run:
   console.error
     Warning: Each child in a list should have a unique "key" prop.
     
-    Check the top-level render call using <ul>. See https://reactjs.org/link/warning-keys for more information.
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:29:5)
+    Check the top-level render call using <Accordion>. See https://reactjs.org/link/warning-keys for more information.
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:30:5)
         at div
         at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:18:39)
 
-      225 |         setReqsDisplay(
-      226 |             <div>
-    > 227 |                 <ul>{jsxElements}</ul>
+      247 |         setReqsDisplay(
+      248 |             <div>
+    > 249 |                 <Accordion defaultActiveKey="0">{jsxElements}</Accordion>
           |                 ^
-      228 |             </div>
-      229 |         );
-      230 |     }, [degreeRequirements]);
+      250 |             </div>
+      251 |         );
+      252 |     }, [thisPlan.semesters, degreeRequirements]);
 
       at printWarning (node_modules/react/cjs/react-jsx-dev-runtime.development.js:117:30)
       at error (node_modules/react/cjs/react-jsx-dev-runtime.development.js:93:5)
       at validateExplicitKey (node_modules/react/cjs/react-jsx-dev-runtime.development.js:986:5)
       at validateChildKeys (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1013:11)
       at jsxWithValidation (node_modules/react/cjs/react-jsx-dev-runtime.development.js:1184:11)
-      at src/components/DegreePlanPage.tsx:227:17
+      at src/components/DegreePlanPage.tsx:249:17
       at invokePassiveEffectCreate (node_modules/react-dom/cjs/react-dom.development.js:23487:20)
 
   console.error
@@ -149,7 +149,7 @@ Browserslist: caniuse-lite is outdated. Please run:
         at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/@restart/ui/cjs/Modal.js:75:5
         at /home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-bootstrap/cjs/Modal.js:85:3
         at NewSemesterPopup (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/modals/NewSemesterPopup.tsx:9:5)
-        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:29:5)
+        at DegreePlanPage (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:30:5)
         at div
         at App (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/App.tsx:18:39)
 
@@ -165,7 +165,7 @@ Browserslist: caniuse-lite is outdated. Please run:
     Error: Not implemented: window.alert
         at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
         at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at handleSubmit (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:254:13)
+        at handleSubmit (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/DegreePlanPage.tsx:276:13)
         at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/modals/NewSemesterPopup.tsx:59:36)
         at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
         at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
@@ -174,18 +174,18 @@ Browserslist: caniuse-lite is outdated. Please run:
         at HTMLUnknownElementImpl._dispatch (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
         at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17) undefined
 
-      252 |             )
-      253 |         ) {
-    > 254 |             alert(`${season} ${year} semester already exists!`);
+      274 |             )
+      275 |         ) {
+    > 276 |             alert(`${season} ${year} semester already exists!`);
           |             ^
-      255 |             return;
-      256 |         }
-      257 |
+      277 |             return;
+      278 |         }
+      279 |
 
       at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
       at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
       at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at handleSubmit (src/components/DegreePlanPage.tsx:254:13)
+      at handleSubmit (src/components/DegreePlanPage.tsx:276:13)
       at onClick (src/components/modals/NewSemesterPopup.tsx:59:36)
       at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
 
@@ -247,34 +247,34 @@ Browserslist: caniuse-lite is outdated. Please run:
 
 PASS src/App.test.tsx
   UD CIS Scheduler tests
-    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (149 ms)
-    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (32 ms)
-    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (225 ms)
-    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (146 ms)
-    ✓ When we create a new semester with new season/year values, it should add with no classes. (248 ms)
-    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (138 ms)
-    ✓ Can't add a semester that already exists (186 ms)
-    ✓ You can delete a course from a semester (113 ms)
-    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (150 ms)
-    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (466 ms)
-    ✓ You can create a new plan with a custom name (61 ms)
-    ✓ You can delete an existing plan (25 ms)
-    ✓ You can edit a course's code, name, credits within a semester (233 ms)
-    ✓ Can delete all semesters in a plan (73 ms)
-    ✓ Can set a plan's concentration (88 ms)
-    ✓ Can delete all courses in a semester (92 ms)
-    ✓ For a course, we can edit it then revert to its original state (301 ms)
-    ✓ Can't add a custom course if it's in another semester already (131 ms)
+    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (144 ms)
+    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (35 ms)
+    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (241 ms)
+    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (177 ms)
+    ✓ When we create a new semester with new season/year values, it should add with no classes. (273 ms)
+    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (125 ms)
+    ✓ Can't add a semester that already exists (188 ms)
+    ✓ You can delete a course from a semester (125 ms)
+    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (171 ms)
+    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (459 ms)
+    ✓ You can create a new plan with a custom name (59 ms)
+    ✓ You can delete an existing plan (29 ms)
+    ✓ You can edit a course's code, name, credits within a semester (235 ms)
+    ✓ Can delete all semesters in a plan (82 ms)
+    ✓ Can set a plan's concentration (107 ms)
+    ✓ Can delete all courses in a semester (101 ms)
+    ✓ For a course, we can edit it then revert to its original state (287 ms)
+    ✓ Can't add a custom course if it's in another semester already (166 ms)
 
 -------------------------------|---------|----------|---------|---------|---------------------
 File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s   
 -------------------------------|---------|----------|---------|---------|---------------------
-All files                      |   96.86 |    84.45 |   98.95 |   96.83 |                     
+All files                      |   96.86 |    82.46 |   98.95 |   96.83 |                     
  src                           |     100 |    83.33 |     100 |     100 |                     
   App.tsx                      |     100 |    83.33 |     100 |     100 | 227-241             
- src/components                |   96.37 |    84.55 |   98.68 |   96.35 |                     
-  DegreePlanPage.tsx           |   97.52 |    83.33 |   96.42 |    97.5 | 329-330,358         
-  PlannedCourses.tsx           |   97.43 |    83.33 |     100 |   97.43 | 173                 
+ src/components                |   96.37 |    82.39 |   98.68 |   96.35 |                     
+  DegreePlanPage.tsx           |   97.52 |    83.75 |   96.42 |    97.5 | 351-352,380         
+  PlannedCourses.tsx           |   97.43 |    68.18 |     100 |   97.43 | 185                 
   SemesterView.tsx             |     100 |      100 |     100 |     100 |                     
   SingleSemesterPage.tsx       |   92.42 |    80.76 |     100 |   92.42 | 238-241,342-345,348 
  src/components/modals         |     100 |      100 |     100 |     100 |                     
@@ -293,5 +293,5 @@ All files                      |   96.86 |    84.45 |   98.95 |   96.83 |
 Test Suites: 1 passed, 1 total
 Tests:       18 passed, 18 total
 Snapshots:   0 total
-Time:        5.957 s
+Time:        6.125 s
 Ran all test suites.
