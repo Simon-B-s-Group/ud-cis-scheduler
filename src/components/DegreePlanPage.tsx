@@ -126,7 +126,7 @@ export function DegreePlanPage({
 
             // === CHECK WHICH COURSES USED TO SATISFY ===
             const coursesUsed: Course[] = []; // courses used ONLY for this requirement
-            degreePlan.semesters.forEach((sem: Semester) => {
+            thisPlan.semesters.forEach((sem: Semester) => {
                 sem.courses.forEach((course: Course) => {
                     if (
                         req.unique &&
@@ -227,7 +227,7 @@ export function DegreePlanPage({
                 <ul>{jsxElements}</ul>
             </div>
         );
-    }, [degreeRequirements]);
+    }, [thisPlan.semesters, degreeRequirements]);
 
     /**
      * To be used in tandem with the NewSemesterPopup modal. Once a submission is made
