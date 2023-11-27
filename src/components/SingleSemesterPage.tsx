@@ -338,12 +338,14 @@ export function SingleSemesterPage({
                                 total + course.credits,
                             0
                         );
-                        console.log(currentCredits);
                         if (currentCredits + currentCustomCourse.credits > 21) {
                             alert(
                                 "You cannot have more that 21 credits in a semester"
                             );
                             addCourse = false;
+                        }
+                        if (currentCustomCourse.credits < 1) {
+                            alert("Courses must be one or more credits");
                         }
                         if (addCourse) {
                             addCourseToSemester(currentCustomCourse);
