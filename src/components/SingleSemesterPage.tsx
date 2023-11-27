@@ -137,7 +137,13 @@ export function SingleSemesterPage({
     const addCourseToSemester = (course: Course) => {
         // the updated semester
         const newSemester = { ...sem, courses: [...sem.courses, course] };
-        setCurrentSemester(newSemester);
+        const sortedSemester = {
+            ...sem,
+            courses: newSemester.courses.sort((a, b) =>
+                a.code.localeCompare(b.code, undefined, { numeric: true })
+            )
+        };
+        setCurrentSemester(sortedSemester);
 
         // the updated list of semesters for this plan
         const updatedPlanSemesters = degreePlan.semesters.map(
