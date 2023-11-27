@@ -223,6 +223,10 @@ function App(): JSX.Element {
         setNewPlanName(event.target.value);
     }
 
+    function semesterNumber(degreePlan: DegreePlan): string {
+        return degreePlan.semesters.length == 1 ? "semester" : "semesters";
+    }
+
     /**
      * This updates the degree plan with newPlan's name with newPlan.
      * i.e. If I have a plan named "Plan 1", and I have it loaded in the editor, if I change one of its courses,
@@ -295,7 +299,9 @@ function App(): JSX.Element {
                                 <h4>{degreePlan.name}</h4>
                                 <p>
                                     {`[${degreePlan.concentration}]`} <br></br>
-                                    {degreePlan.semesters.length} semesters
+                                    {`${
+                                        degreePlan.semesters.length
+                                    } ${semesterNumber(degreePlan)}`}
                                 </p>
                                 <Button
                                     variant="secondary"
