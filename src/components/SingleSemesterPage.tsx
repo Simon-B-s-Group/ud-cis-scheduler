@@ -10,6 +10,7 @@ import { DegreePlan } from "../interfaces/degreePlan";
 import { courseOptions } from "./../data/defaultCourses";
 import "../Button.css";
 import "../Dropdown.css";
+import "../Checkbox.css";
 import { BreadthType } from "../interfaces/degreeRequirementCategory";
 
 /**
@@ -317,6 +318,12 @@ export function SingleSemesterPage({
                     label="Multicultural?"
                     checked={currentCustomCourse.isMulticultural}
                     onChange={updateIsMulticultural}
+                    className="checkbox-container"
+                    style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center"
+                    }}
                 />
                 <Button
                     variant="success"
