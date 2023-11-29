@@ -15,3 +15,29 @@
     border-radius: 50px;
     margin-bottom: 20px;
 }
+
+.conc_dp {
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    border: 2px solid #212121b9;
+    background-color: #fff;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    outline: 5px;
+    font-size: 14px;
+    margin: 4px 2px;
+    transition: background-color 1s, color 2s, border-color 2s, border 0.33s,
+        font-weight 0.5s;
+    cursor: pointer;
+    border-radius: 7px;
+    margin-bottom: 50px;
+    border-top: 2px solid #212121b9;
+}
+
+.conc_dp + .conc_dp {
+    margin-top: -2px; /* Adjust this value to control the spacing between dropdowns */
+    border-top: 5px solid #212121b9; /* Use the same border style as the dropdown */
+}

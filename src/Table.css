@@ -5,6 +5,25 @@
     margin-right: auto;
 }
 
+.gen_table {
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    padding: 10px 20px;
+    border: 2px solid #212121b9;
+    background-color: #fff;
+    color: #000000;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    transition: background-color 1s, color 2s, border-color 2s, border 0.33s,
+        font-weight 0.5s;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
 th {
     border: 2px solid rgb(190, 190, 190);
     padding: 10px;

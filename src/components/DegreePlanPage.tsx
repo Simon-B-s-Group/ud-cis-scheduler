@@ -245,7 +245,7 @@ export function DegreePlanPage({
 
         // Render the array of JSX elements
         setReqsDisplay(
-            <div>
+            <div className="conc_dp">
                 <Accordion defaultActiveKey="0">{jsxElements}</Accordion>
             </div>
         );
@@ -391,16 +391,18 @@ export function DegreePlanPage({
                 {thisPlan.semesters.map((semester: Semester): JSX.Element => {
                     return (
                         <>
-                            <SemesterView
-                                sem={semester}
-                                degreePlan={thisPlan}
-                                editMode={false}
-                                showPrereqs={showPrereqs}
-                                setCurrentSemester={setCurrentSemester}
-                                deleteThisSem={handleSemDelete}
-                                deleteAllSem={handleAllSemDelete}
-                                updatePlan={savePlan}
-                            ></SemesterView>
+                            <div className="gen_table">
+                                <SemesterView
+                                    sem={semester}
+                                    degreePlan={thisPlan}
+                                    editMode={false}
+                                    showPrereqs={showPrereqs}
+                                    setCurrentSemester={setCurrentSemester}
+                                    deleteThisSem={handleSemDelete}
+                                    deleteAllSem={handleAllSemDelete}
+                                    updatePlan={savePlan}
+                                ></SemesterView>
+                            </div>
                         </>
                     );
                 })}
@@ -430,6 +432,7 @@ export function DegreePlanPage({
                     </Form.Select>
                 </Form.Group>
                 {reqsDisplay}
+                <div></div>
                 <span style={{ fontWeight: "bold " }}>
                     Total Credits Overall: {""}
                     <div>
