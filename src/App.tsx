@@ -263,6 +263,7 @@ function App(): JSX.Element {
                             value={newPlanName}
                             onChange={changeNewPlanName}
                             className="gen_ct"
+                            placeholder="New Plan"
                         ></Form.Control>
                     </Form.Group>
                     <Button
@@ -282,8 +283,12 @@ function App(): JSX.Element {
                             newPlanName.replace(/\s/g, "") === "" ||
                             degreePlans.findIndex(
                                 (degreePlan: DegreePlan) =>
-                                    newPlanName.replace(/\s/g, "") ===
-                                    degreePlan.name.replace(/\s/g, "")
+                                    newPlanName
+                                        .toLowerCase()
+                                        .replace(/\s/g, "") ===
+                                    degreePlan.name
+                                        .toLowerCase()
+                                        .replace(/\s/g, "")
                             ) !== -1
                         }
                     >
