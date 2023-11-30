@@ -257,9 +257,6 @@ function App(): JSX.Element {
             {!currentPlan ? (
                 <>
                     <IntroPopup show={showIntro} handleClose={handleClose} />
-                    <Button onClick={() => setShowIntro(true)} className="gen">
-                        About
-                    </Button>
                     <h3>Degree Plans</h3>{" "}
                     <Form.Group controlId="planName">
                         <Form.Label>New Degree Plan</Form.Label>
@@ -350,6 +347,13 @@ function App(): JSX.Element {
                     />
                 </>
             )}
+            <Button
+                onClick={() => setShowIntro(true)}
+                className="gen"
+                style={{ marginTop: "1%" }}
+            >
+                About
+            </Button>
         </div>
     );
 }
