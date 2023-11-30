@@ -407,7 +407,12 @@ export function DegreePlanPage({
                     );
                 })}
                 <Form.Group controlId="conc">
-                    <Form.Label>Select Your Concentration</Form.Label>
+                    <Form.Label>
+                        <h5>
+                            <u>Select Your Concentration</u>
+                        </h5>
+                    </Form.Label>
+                    <br />
                     <Form.Select
                         value={selectedConcentration}
                         onChange={updateSelectedConcentration}

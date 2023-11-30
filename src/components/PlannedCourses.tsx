@@ -95,6 +95,10 @@ export function PlannedCourses({
                         <br />
                         <strong>Breadth Fulfilled: </strong>
                         {currentCourse.breadthFulfilled ?? "None"}
+                        <br />
+                        {currentCourse.isMulticultural ? (
+                            <strong>Satisfies multicultural</strong>
+                        ) : null}
                     </em>
                 ) : (
                     ""
@@ -160,12 +164,14 @@ export function PlannedCourses({
                     {editing ? (
                         <Form.Group controlId="editCourse">
                             <Form.Label>Course Code</Form.Label>
+                            <br />
                             <Form.Control
                                 type="text"
                                 value={currentCourse.code}
                                 onChange={updateCode}
                                 className="gen_dp"
                             ></Form.Control>
+                            <br />
                             <Form.Label>Course Name</Form.Label>
                             <Form.Control
                                 type="text"
