@@ -192,24 +192,44 @@ export function PlannedCourses({
                                             "Courses must be one or more credits"
                                         );
                                     } else {
-                                        setCurrentCourse({
-                                            ...currentCourse,
-                                            originalCourse: origCourse
-                                        });
-                                        setOrigCourse(
-                                            currentCourse.originalCourse
+                                        let addCourse = true;
+                                        degreePlan.semesters.forEach(
+                                            (s: Semester) => {
+                                                s.courses.forEach(
+                                                    (c: Course) => {
+                                                        if (
+                                                            c.code ===
+                                                            currentCourse.code
+                                                        ) {
+                                                            alert(
+                                                                `${c.code} is already in this or another semester!`
+                                                            );
+                                                            addCourse = false;
+                                                        }
+                                                    }
+                                                );
+                                            }
                                         );
-                                        const updatedSemesterCourses =
-                                            sem.courses.map(
-                                                (c: Course): Course =>
-                                                    c === course
-                                                        ? currentCourse
-                                                        : c
+                                        if (addCourse) {
+                                            setCurrentCourse({
+                                                ...currentCourse,
+                                                originalCourse: origCourse
+                                            });
+                                            setOrigCourse(
+                                                currentCourse.originalCourse
                                             );
-                                        updateSemesterAndPlan(
-                                            updatedSemesterCourses
-                                        );
-                                        setEditing(false);
+                                            const updatedSemesterCourses =
+                                                sem.courses.map(
+                                                    (c: Course): Course =>
+                                                        c === course
+                                                            ? currentCourse
+                                                            : c
+                                                );
+                                            updateSemesterAndPlan(
+                                                updatedSemesterCourses
+                                            );
+                                            setEditing(false);
+                                        }
                                     }
                                 }}
                             >
