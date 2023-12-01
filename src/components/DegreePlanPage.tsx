@@ -268,6 +268,16 @@ export function DegreePlanPage({
         year: number | null
     ): void => {
         if (
+            season === "Free Standing Courses" &&
+            thisPlan.semesters.find(
+                (sem: Semester): boolean => sem.season === season
+            )
+        ) {
+            alert(`${season} already exists!`);
+            return;
+        }
+
+        if (
             thisPlan.semesters.find(
                 (sem: Semester): boolean =>
                     sem.season === season && sem.year === year
