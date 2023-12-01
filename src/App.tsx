@@ -204,6 +204,11 @@ function App(): JSX.Element {
                             isMulticultural: false
                         }
                     ]
+                },
+                {
+                    season: "Freestanding",
+                    year: 0,
+                    courses: []
                 }
             ]
         }
@@ -224,6 +229,14 @@ function App(): JSX.Element {
     }
 
     function semesterNumber(degreePlan: DegreePlan): string {
+        if (
+            degreePlan.semesters.find(
+                (s: Semester) => s.season === "Freestanding"
+            )
+        )
+            return degreePlan.semesters.length - 1 == 1
+                ? "semester"
+                : "semesters";
         return degreePlan.semesters.length == 1 ? "semester" : "semesters";
     }
 
@@ -300,7 +313,12 @@ function App(): JSX.Element {
                                 <p>
                                     {`[${degreePlan.concentration}]`} <br></br>
                                     {`${
-                                        degreePlan.semesters.length
+                                        degreePlan.semesters.find(
+                                            (s: Semester) =>
+                                                s.season === "Freestanding"
+                                        )
+                                            ? degreePlan.semesters.length - 1 // don't count Freestanding as a sem
+                                            : degreePlan.semesters.length
                                     } ${semesterNumber(degreePlan)}`}
                                 </p>
                                 <Button

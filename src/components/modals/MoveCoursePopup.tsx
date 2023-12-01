@@ -10,20 +10,27 @@ import { Course } from "../../interfaces/course";
 export function MoveCoursePopup({
     show,
     degreePlan,
+    course,
+    fromSem,
     handleSubmit
 }: {
     show: boolean;
     degreePlan: DegreePlan;
+    course: Course;
+    fromSem: Semester;
     handleSubmit: (
         course: Course | null,
         fromSem: Semester | null,
         toSem: Semester | null
     ) => void;
 }) {
-    const updateSeason = (
+    const [semesterName, setSemesterName] = useState<string>(
+        degreePlan.semesters[0].season + " " + degreePlan.semesters[0].year
+    );
+    const updateSemesterName = (
         event: React.ChangeEvent<HTMLSelectElement>
     ): void => {
-        console.log("test");
+        setSemesterName(event.target.value);
     };
 
     return (
@@ -35,8 +42,8 @@ export function MoveCoursePopup({
                 <Form.Group controlId="newSem">
                     <Form.Label>Choose Semester</Form.Label>
                     <Form.Select
-                        value={degreePlan.semesters[0].season}
-                        onChange={updateSeason}
+                        value={semesterName}
+                        onChange={updateSemesterName}
                     >
                         {degreePlan.semesters.map((sem: Semester) => (
                             <option
@@ -52,7 +59,20 @@ export function MoveCoursePopup({
             <Modal.Footer>
                 <Button
                     variant="success"
-                    onClick={() => handleSubmit(null, null, null)}
+                    onClick={() => {
+                        // find the target semester
+                        const splitValue = semesterName.split(" "); // ["Fall", "2023"]
+                        const targetSem = degreePlan.semesters.find(
+                            (s: Semester) =>
+                                s.season === splitValue[0] &&
+                                s.year === Number.parseInt(splitValue[1])
+                        );
+                        if (targetSem) {
+                            // won't ever be null
+                            console.log("submitting.");
+                            handleSubmit(course, fromSem, targetSem);
+                        }
+                    }}
                 >
                     OK
                 </Button>

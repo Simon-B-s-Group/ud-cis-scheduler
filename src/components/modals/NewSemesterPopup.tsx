@@ -41,7 +41,7 @@ export function NewSemesterPopup({
                             "Winter",
                             "Spring",
                             "Summer",
-                            "Free Standing Courses"
+                            "Freestanding"
                         ].map(
                             // there are 4 options
                             (season: string) => (

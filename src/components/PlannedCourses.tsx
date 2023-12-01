@@ -89,7 +89,36 @@ export function PlannedCourses({
         setShowMoveCourse(false);
         if (!course || !fromSem || !toSem) return;
 
-        // TODO: actually handle moving the courses
+        console.log(course);
+        console.log(fromSem);
+        console.log(toSem);
+
+        // remove course from this semester
+        const updatedFromSemester: Semester = {
+            ...sem,
+            courses: sem.courses.filter(
+                (c: Course): boolean => c.code !== course.code
+            )
+        };
+        let updatedSemesters: Semester[] = degreePlan.semesters.map(
+            (s: Semester) => (s === sem ? updatedFromSemester : s)
+        );
+        setCurrentSemester(updatedFromSemester);
+
+        // and add it to the target one
+        const updatedToSemester: Semester = {
+            ...toSem,
+            courses: [...toSem.courses, course]
+        };
+        updatedSemesters = updatedSemesters.map((s: Semester) =>
+            s === toSem ? updatedToSemester : s
+        );
+
+        const updatedPlan: DegreePlan = {
+            ...degreePlan,
+            semesters: updatedSemesters
+        };
+        updatePlan(updatedPlan, false);
     };
 
     return (
@@ -178,7 +207,15 @@ export function PlannedCourses({
                         </Button>
                         <Button
                             className="positive"
-                            onClick={() => setShowMoveCourse(true)}
+                            onClick={() => {
+                                if (degreePlan.semesters.length > 1) {
+                                    setShowMoveCourse(true);
+                                } else {
+                                    alert(
+                                        "You need 2 or more semesters to move a course."
+                                    );
+                                }
+                            }}
                         >
                             Move Course
                         </Button>
@@ -265,6 +302,8 @@ export function PlannedCourses({
             <MoveCoursePopup
                 show={showMoveCourse}
                 degreePlan={degreePlan}
+                course={currentCourse}
+                fromSem={sem}
                 handleSubmit={handleMoveCourseSubmit}
             />
         </>
