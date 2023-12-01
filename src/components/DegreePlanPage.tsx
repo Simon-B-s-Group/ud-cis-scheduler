@@ -350,6 +350,8 @@ export function DegreePlanPage({
             value = 3;
         } else if (sem.season === "Winter") {
             value = 4;
+        } else if (sem.season === "Free Standing Courses") {
+            value = 9999999; // have this be very last regardless
         }
         return sem.year * 10 + value;
     };

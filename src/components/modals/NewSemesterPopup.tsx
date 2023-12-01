@@ -36,7 +36,13 @@ export function NewSemesterPopup({
                 <Form.Group controlId="newSem">
                     <Form.Label>Season</Form.Label>
                     <Form.Select value={season} onChange={updateSeason}>
-                        {["Fall", "Winter", "Spring", "Summer"].map(
+                        {[
+                            "Fall",
+                            "Winter",
+                            "Spring",
+                            "Summer",
+                            "Free Standing Courses"
+                        ].map(
                             // there are 4 options
                             (season: string) => (
                                 <option key={season} value={season}>
