@@ -208,13 +208,7 @@ export function PlannedCourses({
                         <Button
                             className="positive"
                             onClick={() => {
-                                if (degreePlan.semesters.length > 1) {
-                                    setShowMoveCourse(true);
-                                } else {
-                                    alert(
-                                        "You need 2 or more semesters to move a course."
-                                    );
-                                }
+                                setShowMoveCourse(true);
                             }}
                         >
                             Move Course
