@@ -110,7 +110,9 @@ export function SemesterView({
         <div>
             <span>
                 <strong>
-                    {sem.season} {sem.year} {" Courses:"}
+                    {sem.season === "Freestanding"
+                        ? "Freestanding"
+                        : `${sem.season} ${sem.year} ${" Courses:"}`}
                 </strong>
             </span>
             <br></br>

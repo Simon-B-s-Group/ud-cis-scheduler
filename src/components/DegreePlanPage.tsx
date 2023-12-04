@@ -268,6 +268,16 @@ export function DegreePlanPage({
         year: number | null
     ): void => {
         if (
+            season === "Freestanding" &&
+            thisPlan.semesters.find(
+                (sem: Semester): boolean => sem.season === season
+            )
+        ) {
+            alert(`${season} already exists!`);
+            return;
+        }
+
+        if (
             thisPlan.semesters.find(
                 (sem: Semester): boolean =>
                     sem.season === season && sem.year === year
@@ -348,8 +358,8 @@ export function DegreePlanPage({
             value = 2;
         } else if (sem.season === "Fall") {
             value = 3;
-        } else if (sem.season === "Winter") {
-            value = 4;
+        } else if (sem.season === "Freestanding") {
+            value = 9999999; // have this be very last regardless
         }
         return sem.year * 10 + value;
     };
@@ -407,7 +417,12 @@ export function DegreePlanPage({
                     );
                 })}
                 <Form.Group controlId="conc">
-                    <Form.Label>Select Your Concentration</Form.Label>
+                    <Form.Label>
+                        <h5>
+                            <u>Select Your Concentration</u>
+                        </h5>
+                    </Form.Label>
+                    <br />
                     <Form.Select
                         value={selectedConcentration}
                         onChange={updateSelectedConcentration}
