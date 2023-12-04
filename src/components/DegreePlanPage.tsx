@@ -358,8 +358,6 @@ export function DegreePlanPage({
             value = 2;
         } else if (sem.season === "Fall") {
             value = 3;
-        } else if (sem.season === "Winter") {
-            value = 4;
         } else if (sem.season === "Freestanding") {
             value = 9999999; // have this be very last regardless
         }

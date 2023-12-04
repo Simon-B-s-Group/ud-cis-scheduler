@@ -3,7 +3,7 @@
 
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import { Season, Semester } from "../../interfaces/semester";
+import { Semester } from "../../interfaces/semester";
 import { DegreePlan } from "../../interfaces/degreePlan";
 import { Course } from "../../interfaces/course";
 

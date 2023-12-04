@@ -426,4 +426,28 @@ describe("UD CIS Scheduler tests", () => {
             screen.queryByText(/CISC181: Introduction to Computer Science II/i)
         ).toBeNull(); // no addition
     });
+
+    test("Can't add more than one freestanding pool of courses", () => {
+        // TODO
+    });
+
+    test("Able to show prereqs for a degree plan", () => {
+        // TODO
+    });
+
+    test("Able to move a course to another semester. Can also close the move course modal without making any changes.", () => {
+        // TODO
+    });
+
+    test("Can't edit a course to have <1 credit, or if it is in another sem", () => {
+        // TODO
+    });
+
+    test("Custom courses must have at least 1 credit", () => {
+        // TODO
+    });
+
+    test("Can't have more than 21 credits in a semester, whether choosing a pre-defined or custom course", () => {
+        // TODO
+    });
 });
