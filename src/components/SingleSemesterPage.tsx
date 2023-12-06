@@ -358,6 +358,7 @@ export function SingleSemesterPage({
                         }
                         if (currentCustomCourse.credits < 1) {
                             alert("Courses must be one or more credits");
+                            addCourse = false;
                         }
                         if (addCourse) {
                             addCourseToSemester(currentCustomCourse);

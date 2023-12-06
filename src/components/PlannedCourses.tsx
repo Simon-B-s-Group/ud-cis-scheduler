@@ -7,6 +7,7 @@ import { Button, Form } from "react-bootstrap";
 import { Semester } from "../interfaces/semester";
 import { DegreePlan } from "../interfaces/degreePlan";
 import "../Control.css";
+import { MoveCoursePopup } from "./modals/MoveCoursePopup";
 
 /**
  * A single row of the courses table for the semester view
@@ -37,6 +38,7 @@ export function PlannedCourses({
     updatePlan: (newPlan: DegreePlan, exit: boolean) => void;
 }): JSX.Element {
     const [editing, setEditing] = useState<boolean>(false);
+    const [showMoveCourse, setShowMoveCourse] = useState<boolean>(false);
     const [currentCourse, setCurrentCourse] = useState<Course>(course);
     const [origCourse, setOrigCourse] = useState<Course | undefined>(
         course.originalCourse
@@ -79,140 +81,225 @@ export function PlannedCourses({
         updatePlan(updatedPlan, false);
     };
 
+    const handleMoveCourseSubmit = (
+        course: Course | null,
+        fromSem: Semester | null,
+        toSem: Semester | null
+    ) => {
+        setShowMoveCourse(false);
+        if (!course || !fromSem || !toSem) return;
+
+        console.log(course);
+        console.log(fromSem);
+        console.log(toSem);
+
+        // remove course from this semester
+        const updatedFromSemester: Semester = {
+            ...sem,
+            courses: sem.courses.filter(
+                (c: Course): boolean => c.code !== course.code
+            )
+        };
+        let updatedSemesters: Semester[] = degreePlan.semesters.map(
+            (s: Semester) => (s === sem ? updatedFromSemester : s)
+        );
+        setCurrentSemester(updatedFromSemester);
+
+        // and add it to the target one
+        const updatedToSemester: Semester = {
+            ...toSem,
+            courses: [...toSem.courses, course]
+        };
+        updatedSemesters = updatedSemesters.map((s: Semester) =>
+            s === toSem ? updatedToSemester : s
+        );
+
+        const updatedPlan: DegreePlan = {
+            ...degreePlan,
+            semesters: updatedSemesters
+        };
+        updatePlan(updatedPlan, false);
+    };
+
     return (
-        <tr>
-            <td>
-                <u>
-                    {currentCourse.code}: {currentCourse.name}
-                </u>
-                <br />
-                {showPrereqs ? (
-                    <em>
-                        <strong>Prereqs: </strong>
-                        {currentCourse.prereqs === ""
-                            ? "None"
-                            : currentCourse.prereqs}
-                        <br />
-                        <strong>Breadth Fulfilled: </strong>
-                        {currentCourse.breadthFulfilled ?? "None"}
-                    </em>
-                ) : (
-                    ""
-                )}
-            </td>
-            <td> {currentCourse.credits}</td>
-            {editMode ? (
+        <>
+            <tr>
                 <td>
-                    <Button
-                        className="positive"
-                        onClick={() => {
-                            setEditing(!editing);
-                            setOrigCourse({ ...currentCourse });
-                            setCurrentCourse({
-                                ...currentCourse,
-                                originalCourse: { ...currentCourse }
-                            });
-                        }}
-                    >
-                        Edit Course
-                    </Button>
-                    <Button
-                        className="negative"
-                        onClick={() => deleteCourse(course)}
-                    >
-                        Delete Course
-                    </Button>
-                    <Button
-                        className="negative"
-                        onClick={() => deleteAllCourses?.(sem)}
-                    >
-                        Delete All Courses
-                    </Button>
-                    <Button
-                        className="positive"
-                        onClick={() => {
-                            if (origCourse) {
-                                const updatedSemester: Semester = {
-                                    ...sem,
-                                    courses: sem.courses.map(
-                                        (c: Course): Course =>
-                                            c.code === currentCourse.code
-                                                ? origCourse
-                                                : c
-                                    )
-                                };
-                                setCurrentCourse(origCourse);
-                                setCurrentSemester(updatedSemester);
-                                const updatedSemesters: Semester[] =
-                                    degreePlan.semesters.map((s: Semester) =>
-                                        s === sem ? updatedSemester : s
-                                    );
-                                const updatedPlan: DegreePlan = {
-                                    ...degreePlan,
-                                    semesters: updatedSemesters
-                                };
-                                updatePlan(updatedPlan, false);
-                            }
-                        }}
-                    >
-                        Revert Changes
-                    </Button>
-                    {editing ? (
-                        <Form.Group controlId="editCourse">
-                            <Form.Label>Course Code</Form.Label>
-                            <Form.Control
-                                type="text"
-                                value={currentCourse.code}
-                                onChange={updateCode}
-                                className="gen_dp"
-                            ></Form.Control>
-                            <Form.Label>Course Name</Form.Label>
-                            <Form.Control
-                                type="text"
-                                value={currentCourse.name}
-                                onChange={updateName}
-                            ></Form.Control>
-                            <Form.Label>Course Credits</Form.Label>
-                            <Form.Control
-                                type="number"
-                                value={currentCourse.credits}
-                                onChange={updateCredits}
-                            ></Form.Control>
-                            <Button
-                                className="positive"
-                                onClick={() => {
-                                    if (currentCourse.credits < 1) {
-                                        alert(
-                                            "Courses must be one or more credits"
-                                        );
-                                    } else {
-                                        setCurrentCourse({
-                                            ...currentCourse,
-                                            originalCourse: origCourse
-                                        });
-                                        setOrigCourse(
-                                            currentCourse.originalCourse
-                                        );
-                                        const updatedSemesterCourses =
-                                            sem.courses.map(
-                                                (c: Course): Course =>
-                                                    c === course
-                                                        ? currentCourse
-                                                        : c
-                                            );
-                                        updateSemesterAndPlan(
-                                            updatedSemesterCourses
-                                        );
-                                        setEditing(false);
-                                    }
-                                }}
-                            >
-                                OK
-                            </Button>
-                        </Form.Group>
-                    ) : null}
+                    <u>
+                        {currentCourse.code}: {currentCourse.name}
+                    </u>
+                    <br />
+                    {showPrereqs ? (
+                        <em>
+                            <strong>Prereqs: </strong>
+                            {currentCourse.prereqs === ""
+                                ? "None"
+                                : currentCourse.prereqs}
+                            <br />
+                            <strong>Breadth Fulfilled: </strong>
+                            {currentCourse.breadthFulfilled ?? "None"}
+                            <br />
+                            {currentCourse.isMulticultural ? (
+                                <strong>Satisfies multicultural</strong>
+                            ) : null}
+                        </em>
+                    ) : (
+                        ""
+                    )}
                 </td>
-            ) : null}
-        </tr>
+                <td> {currentCourse.credits}</td>
+                {editMode ? (
+                    <td>
+                        <Button
+                            className="positive"
+                            onClick={() => {
+                                setEditing(!editing);
+                                setOrigCourse({ ...currentCourse });
+                                setCurrentCourse({
+                                    ...currentCourse,
+                                    originalCourse: { ...currentCourse }
+                                });
+                            }}
+                        >
+                            Edit Course
+                        </Button>
+                        <Button
+                            className="positive"
+                            onClick={() => {
+                                if (origCourse) {
+                                    const updatedSemester: Semester = {
+                                        ...sem,
+                                        courses: sem.courses.map(
+                                            (c: Course): Course =>
+                                                c.code === currentCourse.code
+                                                    ? origCourse
+                                                    : c
+                                        )
+                                    };
+                                    setCurrentCourse(origCourse);
+                                    setCurrentSemester(updatedSemester);
+                                    const updatedSemesters: Semester[] =
+                                        degreePlan.semesters.map(
+                                            (s: Semester) =>
+                                                s === sem ? updatedSemester : s
+                                        );
+                                    const updatedPlan: DegreePlan = {
+                                        ...degreePlan,
+                                        semesters: updatedSemesters
+                                    };
+                                    updatePlan(updatedPlan, false);
+                                }
+                            }}
+                        >
+                            Revert Changes
+                        </Button>
+                        <Button
+                            className="negative"
+                            onClick={() => deleteCourse(course)}
+                        >
+                            Delete Course
+                        </Button>
+                        <Button
+                            className="negative"
+                            onClick={() => deleteAllCourses?.(sem)}
+                        >
+                            Delete All Courses
+                        </Button>
+                        <Button
+                            className="positive"
+                            onClick={() => {
+                                setShowMoveCourse(true);
+                            }}
+                        >
+                            Move Course
+                        </Button>
+                        {editing ? (
+                            <Form.Group controlId="editCourse">
+                                <Form.Label>Course Code</Form.Label>
+                                <br />
+                                <Form.Control
+                                    type="text"
+                                    value={currentCourse.code}
+                                    onChange={updateCode}
+                                    className="gen_dp"
+                                ></Form.Control>
+                                <br />
+                                <Form.Label>Course Name</Form.Label>
+                                <Form.Control
+                                    type="text"
+                                    value={currentCourse.name}
+                                    onChange={updateName}
+                                ></Form.Control>
+                                <Form.Label>Course Credits</Form.Label>
+                                <Form.Control
+                                    type="number"
+                                    value={currentCourse.credits}
+                                    onChange={updateCredits}
+                                ></Form.Control>
+                                <Button
+                                    className="positive"
+                                    onClick={() => {
+                                        if (currentCourse.credits < 1) {
+                                            alert(
+                                                "Courses must be one or more credits"
+                                            );
+                                        } else {
+                                            let addCourse = true;
+                                            degreePlan.semesters.forEach(
+                                                (s: Semester) => {
+                                                    s.courses.forEach(
+                                                        (c: Course) => {
+                                                            if (
+                                                                c.code ===
+                                                                currentCourse.code
+                                                            ) {
+                                                                alert(
+                                                                    `${c.code} is already in this or another semester!`
+                                                                );
+                                                                addCourse =
+                                                                    false;
+                                                            }
+                                                        }
+                                                    );
+                                                }
+                                            );
+                                            if (addCourse) {
+                                                setCurrentCourse({
+                                                    ...currentCourse,
+                                                    originalCourse: origCourse
+                                                });
+                                                setOrigCourse(
+                                                    currentCourse.originalCourse
+                                                );
+                                                const updatedSemesterCourses =
+                                                    sem.courses.map(
+                                                        (c: Course): Course =>
+                                                            c === course
+                                                                ? currentCourse
+                                                                : c
+                                                    );
+                                                updateSemesterAndPlan(
+                                                    updatedSemesterCourses
+                                                );
+                                                setEditing(false);
+                                            }
+                                        }
+                                    }}
+                                >
+                                    OK
+                                </Button>
+                            </Form.Group>
+                        ) : null}
+                    </td>
+                ) : null}
+            </tr>
+            <MoveCoursePopup
+                show={showMoveCourse}
+                degreePlan={degreePlan}
+                course={currentCourse}
+                fromSem={sem}
+                handleSubmit={handleMoveCourseSubmit}
+            />
+        </>
     );
 }
