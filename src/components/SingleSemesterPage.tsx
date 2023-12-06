@@ -371,7 +371,7 @@ export function SingleSemesterPage({
                     className="positive"
                     disabled={!validCode}
                 >
-                    Add Course
+                    OK
                 </Button>
             </Form.Group>
             <p>
