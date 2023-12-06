@@ -513,35 +513,35 @@ Browserslist: caniuse-lite is outdated. Please run:
       at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
       at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
 
-PASS src/App.test.tsx (8.238 s)
+PASS src/App.test.tsx (8.193 s)
   UD CIS Scheduler tests
-    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (154 ms)
+    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (152 ms)
     ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (34 ms)
-    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (322 ms)
-    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (241 ms)
-    ✓ When we create a new semester with new season/year values, it should add with no classes. (345 ms)
-    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (189 ms)
-    ✓ Can't add a semester that already exists (238 ms)
-    ✓ You can delete a course from a semester (180 ms)
-    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (221 ms)
-    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (612 ms)
-    ✓ You can create a new plan with a custom name (58 ms)
-    ✓ You can delete an existing plan (26 ms)
-    ✓ You can edit a course's code, name, credits within a semester (291 ms)
-    ✓ Can delete all semesters in a plan (113 ms)
-    ✓ Can set a plan's concentration (154 ms)
-    ✓ Can delete all courses in a semester (133 ms)
-    ✓ For a course, we can edit it then revert to its original state (317 ms)
-    ✓ Can't add a custom course if it's in another semester already (195 ms)
-    ✓ Can't add more than one freestanding pool of courses (174 ms)
-    ✓ Able to show prereqs and breadth fulfillment for a degree plan (114 ms)
-    ✓ Able to move a course to another semester. (270 ms)
-    ✓ Can close the move course modal without making any changes (154 ms)
-    ✓ Can't edit a course to have <1 credit (330 ms)
+    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (318 ms)
+    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (237 ms)
+    ✓ When we create a new semester with new season/year values, it should add with no classes. (329 ms)
+    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (182 ms)
+    ✓ Can't add a semester that already exists (239 ms)
+    ✓ You can delete a course from a semester (167 ms)
+    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (225 ms)
+    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (667 ms)
+    ✓ You can create a new plan with a custom name (56 ms)
+    ✓ You can delete an existing plan (25 ms)
+    ✓ You can edit a course's code, name, credits within a semester (281 ms)
+    ✓ Can delete all semesters in a plan (114 ms)
+    ✓ Can set a plan's concentration (149 ms)
+    ✓ Can delete all courses in a semester (142 ms)
+    ✓ For a course, we can edit it then revert to its original state (308 ms)
+    ✓ Can't add a custom course if it's in another semester already (182 ms)
+    ✓ Can't add more than one freestanding pool of courses (176 ms)
+    ✓ Able to show prereqs and breadth fulfillment for a degree plan (113 ms)
+    ✓ Able to move a course to another semester. (267 ms)
+    ✓ Can close the move course modal without making any changes (153 ms)
+    ✓ Can't edit a course to have <1 credit (323 ms)
     ✓ Can't edit a course if it is in another sem (241 ms)
-    ✓ Custom courses must have at least 1 credit (421 ms)
-    ✓ Can't have more than 21 credits in a semester - choosing a custom course (401 ms)
-    ✓ Can't have more than 21 credits in a semester - choosing a pre-defined course (183 ms)
+    ✓ Custom courses must have at least 1 credit (442 ms)
+    ✓ Can't have more than 21 credits in a semester - choosing a custom course (405 ms)
+    ✓ Can't have more than 21 credits in a semester - choosing a pre-defined course (176 ms)
 
 -------------------------------|---------|----------|---------|---------|-------------------------------
 File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s             
@@ -571,5 +571,5 @@ All files                      |     100 |    90.81 |     100 |     100 |
 Test Suites: 1 passed, 1 total
 Tests:       27 passed, 27 total
 Snapshots:   0 total
-Time:        9.416 s
+Time:        9.406 s
 Ran all test suites.
