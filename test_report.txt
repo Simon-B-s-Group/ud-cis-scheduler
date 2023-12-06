@@ -197,57 +197,29 @@ Browserslist: caniuse-lite is outdated. Please run:
     Error: Not implemented: window.alert
         at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
         at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:226:41)
+        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:228:41)
         at Array.forEach (<anonymous>)
-        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:224:43)
+        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:226:43)
         at Array.forEach (<anonymous>)
-        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:223:50)
+        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:225:50)
         at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
         at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
         at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25) undefined
 
-      224 |                                 s.courses.forEach((c: Course) => {
-      225 |                                     if (c.code === currentSelectedCourse) {
-    > 226 |                                         alert(
+      226 |                                 s.courses.forEach((c: Course) => {
+      227 |                                     if (c.code === currentSelectedCourse) {
+    > 228 |                                         alert(
           |                                         ^
-      227 |                                             `${c.code} is already in this or another semester!`
-      228 |                                         );
-      229 |                                         addCourse = false;
+      229 |                                             `${c.code} is already in this or another semester!`
+      230 |                                         );
+      231 |                                         addCourse = false;
 
       at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
       at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
       at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at forEach (src/components/SingleSemesterPage.tsx:226:41)
+      at forEach (src/components/SingleSemesterPage.tsx:228:41)
           at Array.forEach (<anonymous>)
-      at src/components/SingleSemesterPage.tsx:224:43
-
-  console.error
-    Error: Not implemented: window.alert
-        at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
-        at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:336:37)
-        at Array.forEach (<anonymous>)
-        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:334:39)
-        at Array.forEach (<anonymous>)
-        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:333:46)
-        at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-        at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-        at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25) undefined
-
-      334 |                             s.courses.forEach((c: Course) => {
-      335 |                                 if (c.code === currentCustomCourse.code) {
-    > 336 |                                     alert(
-          |                                     ^
-      337 |                                         `${c.code} is already in this or another semester!`
-      338 |                                     );
-      339 |                                     addCourse = false;
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
-      at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at forEach (src/components/SingleSemesterPage.tsx:336:37)
-          at Array.forEach (<anonymous>)
-      at src/components/SingleSemesterPage.tsx:334:39
+      at src/components/SingleSemesterPage.tsx:226:43
 
   console.error
     Error: Not implemented: window.alert
@@ -276,74 +248,6 @@ Browserslist: caniuse-lite is outdated. Please run:
       at handleSubmit (src/components/DegreePlanPage.tsx:276:13)
       at onClick (src/components/modals/NewSemesterPopup.tsx:65:36)
       at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-
-  console.log
-    submitting.
-
-      at onClick (src/components/modals/MoveCoursePopup.tsx:72:37)
-
-  console.log
-    {
-      code: 'EGGG101',
-      name: 'Introduction to Engineering',
-      credits: 2,
-      prereqs: '',
-      isMulticultural: false
-    }
-
-      at handleSubmit (src/components/PlannedCourses.tsx:92:17)
-
-  console.log
-    {
-      season: 'Fall',
-      year: 2023,
-      courses: [
-        {
-          code: 'CISC108',
-          name: 'Introduction to Computer Science I',
-          credits: 3,
-          prereqs: '',
-          isMulticultural: false
-        },
-        {
-          code: 'EGGG101',
-          name: 'Introduction to Engineering',
-          credits: 2,
-          prereqs: '',
-          isMulticultural: false
-        },
-        {
-          code: 'ENGL110',
-          name: 'First-Year Writing',
-          credits: 3,
-          prereqs: '',
-          isMulticultural: false
-        },
-        {
-          code: 'MATH241',
-          name: 'Analytic Geometry and Calculus A',
-          credits: 4,
-          prereqs: 'MATH117 or acceptable score on the Math Placement Exam in accordance with current standards determined by the Department of Mathematical Sciences. See https://www.mathsci.udel.edu/courses-placement/ud-math-placement for more information.',
-          isMulticultural: false,
-          breadthFulfilled: 'Math'
-        },
-        {
-          code: 'HIST106',
-          name: 'U.S. History Since 1865',
-          credits: 3,
-          prereqs: '',
-          isMulticultural: false,
-          breadthFulfilled: 'History'
-        }
-      ]
-    }
-
-      at handleSubmit (src/components/PlannedCourses.tsx:93:17)
-
-  console.log
-    { season: 'Freestanding', year: 0, courses: [] }
-
-      at handleSubmit (src/components/PlannedCourses.tsx:94:17)
 
   console.error
     Error: Not implemented: window.alert
@@ -405,91 +309,35 @@ Browserslist: caniuse-lite is outdated. Please run:
     Error: Not implemented: window.alert
         at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
         at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:355:29)
-        at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-        at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-        at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-        at invokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-        at HTMLUnknownElementImpl._dispatch (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-        at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-        at HTMLUnknownElement.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34) undefined
-
-      353 |                         }
-      354 |                         if (currentCustomCourse.credits < 1) {
-    > 355 |                             alert("Courses must be one or more credits");
-          |                             ^
-      356 |                             addCourse = false;
-      357 |                         }
-      358 |                         if (addCourse) {
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
-      at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at onClick (src/components/SingleSemesterPage.tsx:355:29)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-
-  console.error
-    Error: Not implemented: window.alert
-        at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
-        at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:349:29)
-        at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-        at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-        at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
-        at invokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:274:3)
-        at HTMLUnknownElementImpl._dispatch (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:221:9)
-        at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
-        at HTMLUnknownElement.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34) undefined
-
-      347 |                         );
-      348 |                         if (currentCredits + currentCustomCourse.credits > 21) {
-    > 349 |                             alert(
-          |                             ^
-      350 |                                 "You cannot have more that 21 credits in a semester"
-      351 |                             );
-      352 |                             addCourse = false;
-
-      at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
-      at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
-      at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at onClick (src/components/SingleSemesterPage.tsx:349:29)
-      at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
-      at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
-
-  console.error
-    Error: Not implemented: window.alert
-        at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
-        at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:226:41)
+        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:228:41)
         at Array.forEach (<anonymous>)
-        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:224:43)
+        at forEach (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:226:43)
         at Array.forEach (<anonymous>)
-        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:223:50)
+        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:225:50)
         at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
         at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
         at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25) undefined
 
-      224 |                                 s.courses.forEach((c: Course) => {
-      225 |                                     if (c.code === currentSelectedCourse) {
-    > 226 |                                         alert(
+      226 |                                 s.courses.forEach((c: Course) => {
+      227 |                                     if (c.code === currentSelectedCourse) {
+    > 228 |                                         alert(
           |                                         ^
-      227 |                                             `${c.code} is already in this or another semester!`
-      228 |                                         );
-      229 |                                         addCourse = false;
+      229 |                                             `${c.code} is already in this or another semester!`
+      230 |                                         );
+      231 |                                         addCourse = false;
 
       at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
       at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
       at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at forEach (src/components/SingleSemesterPage.tsx:226:41)
+      at forEach (src/components/SingleSemesterPage.tsx:228:41)
           at Array.forEach (<anonymous>)
-      at src/components/SingleSemesterPage.tsx:224:43
+      at src/components/SingleSemesterPage.tsx:226:43
 
   console.error
     Error: Not implemented: window.alert
         at module.exports (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/not-implemented.js:9:17)
         at alert (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:239:33)
+        at onClick (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/src/components/SingleSemesterPage.tsx:241:33)
         at HTMLUnknownElement.callCallback (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/react-dom/cjs/react-dom.development.js:3945:14)
         at HTMLUnknownElement.callTheUserObjectsOperation (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
         at innerInvokeEventListeners (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:338:25)
@@ -498,65 +346,170 @@ Browserslist: caniuse-lite is outdated. Please run:
         at HTMLUnknownElementImpl.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/events/EventTarget-impl.js:94:17)
         at HTMLUnknownElement.dispatchEvent (/home/runner/work/ud-cis-scheduler/ud-cis-scheduler/node_modules/jsdom/lib/jsdom/living/generated/EventTarget.js:231:34) undefined
 
-      237 |                             );
-      238 |                             if (currentCredits + foundCourse.credits > 21) {
-    > 239 |                                 alert(
+      239 |                             );
+      240 |                             if (currentCredits + foundCourse.credits > 21) {
+    > 241 |                                 alert(
           |                                 ^
-      240 |                                     "You cannot have more that 21 credits in a semester"
-      241 |                                 );
-      242 |                                 addCourse = false;
+      242 |                                     "You cannot have more that 21 credits in a semester"
+      243 |                                 );
+      244 |                                 addCourse = false;
 
       at VirtualConsole.<anonymous> (node_modules/jsdom/lib/jsdom/virtual-console.js:29:45)
       at module.exports (node_modules/jsdom/lib/jsdom/browser/not-implemented.js:12:26)
       at alert (node_modules/jsdom/lib/jsdom/browser/Window.js:866:7)
-      at onClick (src/components/SingleSemesterPage.tsx:239:33)
+      at onClick (src/components/SingleSemesterPage.tsx:241:33)
       at HTMLUnknownElement.callCallback (node_modules/react-dom/cjs/react-dom.development.js:3945:14)
       at HTMLUnknownElement.callTheUserObjectsOperation (node_modules/jsdom/lib/jsdom/living/generated/EventListener.js:26:30)
 
-PASS src/App.test.tsx (8.193 s)
+FAIL src/App.test.tsx (8.116 s)
   UD CIS Scheduler tests
-    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (152 ms)
-    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (34 ms)
-    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (318 ms)
-    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (237 ms)
-    ✓ When we create a new semester with new season/year values, it should add with no classes. (329 ms)
-    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (182 ms)
-    ✓ Can't add a semester that already exists (239 ms)
-    ✓ You can delete a course from a semester (167 ms)
-    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (225 ms)
-    ✓ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (667 ms)
-    ✓ You can create a new plan with a custom name (56 ms)
-    ✓ You can delete an existing plan (25 ms)
-    ✓ You can edit a course's code, name, credits within a semester (281 ms)
-    ✓ Can delete all semesters in a plan (114 ms)
-    ✓ Can set a plan's concentration (149 ms)
+    ✓ A popup appears on load, which shows info about the program, and you can close it. You can also re-open it to see the same message. (153 ms)
+    ✓ There is a sample plan on the screen, named Sample Degree Plan, and it has 4 semesters. (32 ms)
+    ✓ When we go to the sample plan, the page should have the same name as the title, and 4 semesters. (325 ms)
+    ✓ Deleting the F23 semester, we should be left with three semesters, S24, F24, S25. We can also go back to the homepage, where it says 3 semesters are left. (242 ms)
+    ✓ When we create a new semester with new season/year values, it should add with no classes. (344 ms)
+    ✓ If I open up the new semester popup and click off or press Escape, it should close the modal without submitting anything. (190 ms)
+    ✓ Can't add a semester that already exists (237 ms)
+    ✓ You can delete a course from a semester (186 ms)
+    ✓ You can add a course from the default dropdown to a semester. You also cannot add the same course twice (224 ms)
+    ✕ You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice (504 ms)
+    ✓ You can create a new plan with a custom name (62 ms)
+    ✓ You can delete an existing plan (23 ms)
+    ✓ You can edit a course's code, name, credits within a semester (302 ms)
+    ✓ Can delete all semesters in a plan (109 ms)
+    ✓ Can set a plan's concentration (142 ms)
     ✓ Can delete all courses in a semester (142 ms)
-    ✓ For a course, we can edit it then revert to its original state (308 ms)
-    ✓ Can't add a custom course if it's in another semester already (182 ms)
-    ✓ Can't add more than one freestanding pool of courses (176 ms)
-    ✓ Able to show prereqs and breadth fulfillment for a degree plan (113 ms)
-    ✓ Able to move a course to another semester. (267 ms)
-    ✓ Can close the move course modal without making any changes (153 ms)
-    ✓ Can't edit a course to have <1 credit (323 ms)
-    ✓ Can't edit a course if it is in another sem (241 ms)
-    ✓ Custom courses must have at least 1 credit (442 ms)
-    ✓ Can't have more than 21 credits in a semester - choosing a custom course (405 ms)
-    ✓ Can't have more than 21 credits in a semester - choosing a pre-defined course (176 ms)
+    ✓ For a course, we can edit it then revert to its original state (322 ms)
+    ✕ Can't add a custom course if it's in another semester already (182 ms)
+    ✓ Can't add more than one freestanding pool of courses (186 ms)
+    ✓ Able to show prereqs and breadth fulfillment for a degree plan (124 ms)
+    ✕ Able to move a course to another semester. (162 ms)
+    ✓ Can close the move course modal without making any changes (157 ms)
+    ✓ Can't edit a course to have <1 credit (353 ms)
+    ✓ Can't edit a course if it is in another sem (246 ms)
+    ✕ Custom courses must have at least 1 credit (416 ms)
+    ✕ Can't have more than 21 credits in a semester - choosing a custom course (412 ms)
+    ✓ Can't have more than 21 credits in a semester - choosing a pre-defined course (183 ms)
+
+  ● UD CIS Scheduler tests › You can add a custom course to a semester, and leave the semester edit page. You also cannot add the same course twice
+
+    TypeError: Cannot read properties of undefined (reading 'defaultView')
+
+      233 |
+      234 |         const okButton = screen.getAllByText("OK")[1]; // the second OK button submits a custom course
+    > 235 |         userEvent.click(okButton);
+          |                   ^
+      236 |
+      237 |         expect(screen.queryByText(/CISC487: Research/i)).toBeInTheDocument();
+      238 |         expect(screen.getAllByText(/CISC487: Research/i).length).toEqual(1);
+
+      at getWindowFromNode (node_modules/@testing-library/dom/dist/helpers.js:39:12)
+      at hasPointerEvents (node_modules/@testing-library/user-event/dist/utils/misc/hasPointerEvents.js:11:49)
+      at Object.click (node_modules/@testing-library/user-event/dist/click.js:116:63)
+      at Object.<anonymous> (src/App.test.tsx:235:19)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  ● UD CIS Scheduler tests › Can't add a custom course if it's in another semester already
+
+    TypeError: Cannot read properties of undefined (reading 'defaultView')
+
+      421 |
+      422 |         const okButton = screen.getAllByText("OK")[1]; // the second OK button submits a custom course
+    > 423 |         userEvent.click(okButton);
+          |                   ^
+      424 |
+      425 |         expect(
+      426 |             screen.queryByText(/CISC181: Introduction to Computer Science II/i)
+
+      at getWindowFromNode (node_modules/@testing-library/dom/dist/helpers.js:39:12)
+      at hasPointerEvents (node_modules/@testing-library/user-event/dist/utils/misc/hasPointerEvents.js:11:49)
+      at Object.click (node_modules/@testing-library/user-event/dist/click.js:116:63)
+      at Object.<anonymous> (src/App.test.tsx:423:19)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  ● UD CIS Scheduler tests › Able to move a course to another semester.
+
+    TypeError: Cannot read properties of undefined (reading 'defaultView')
+
+      488 |
+      489 |         const submitButton = screen.getAllByText("OK")[2];
+    > 490 |         userEvent.click(submitButton);
+          |                   ^
+      491 |
+      492 |         expect(
+      493 |             screen.queryByText(/EGGG101: Introduction to Engineering/i)
+
+      at getWindowFromNode (node_modules/@testing-library/dom/dist/helpers.js:39:12)
+      at hasPointerEvents (node_modules/@testing-library/user-event/dist/utils/misc/hasPointerEvents.js:11:49)
+      at Object.click (node_modules/@testing-library/user-event/dist/click.js:116:63)
+      at Object.<anonymous> (src/App.test.tsx:490:19)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  ● UD CIS Scheduler tests › Custom courses must have at least 1 credit
+
+    TypeError: Cannot read properties of undefined (reading 'defaultView')
+
+      635 |
+      636 |         const okButton = screen.getAllByText("OK")[1]; // the second OK button submits a custom course
+    > 637 |         userEvent.click(okButton);
+          |                   ^
+      638 |
+      639 |         expect(screen.queryByText(/CISC487: Research/i)).toBeNull();
+      640 |     });
+
+      at getWindowFromNode (node_modules/@testing-library/dom/dist/helpers.js:39:12)
+      at hasPointerEvents (node_modules/@testing-library/user-event/dist/utils/misc/hasPointerEvents.js:11:49)
+      at Object.click (node_modules/@testing-library/user-event/dist/click.js:116:63)
+      at Object.<anonymous> (src/App.test.tsx:637:19)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+
+  ● UD CIS Scheduler tests › Can't have more than 21 credits in a semester - choosing a custom course
+
+    TypeError: Cannot read properties of undefined (reading 'defaultView')
+
+      669 |
+      670 |         const okButton = screen.getAllByText("OK")[1]; // the second OK button submits a custom course
+    > 671 |         userEvent.click(okButton);
+          |                   ^
+      672 |
+      673 |         expect(screen.queryByText(/CISC487: Research/i)).toBeNull();
+      674 |     });
+
+      at getWindowFromNode (node_modules/@testing-library/dom/dist/helpers.js:39:12)
+      at hasPointerEvents (node_modules/@testing-library/user-event/dist/utils/misc/hasPointerEvents.js:11:49)
+      at Object.click (node_modules/@testing-library/user-event/dist/click.js:116:63)
+      at Object.<anonymous> (src/App.test.tsx:671:19)
+      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
+      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
+      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
+      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
 -------------------------------|---------|----------|---------|---------|-------------------------------
 File                           | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s             
 -------------------------------|---------|----------|---------|---------|-------------------------------
-All files                      |     100 |    90.81 |     100 |     100 |                               
+All files                      |   88.39 |    80.74 |   91.07 |   88.25 |                               
  src                           |     100 |    83.33 |     100 |     100 |                               
   App.tsx                      |     100 |    83.33 |     100 |     100 | 237-254                       
- src/components                |     100 |    92.02 |     100 |     100 |                               
+ src/components                |   88.25 |    82.42 |   90.47 |   88.17 |                               
   DegreePlanPage.tsx           |     100 |    88.09 |     100 |     100 | 65-80,125,151,192,225,340,361 
-  PlannedCourses.tsx           |     100 |    97.29 |     100 |     100 | 169                           
+  PlannedCourses.tsx           |      80 |    78.37 |   85.71 |   79.68 | 92-121                        
   SemesterView.tsx             |     100 |      100 |     100 |     100 |                               
-  SingleSemesterPage.tsx       |     100 |     92.3 |     100 |     100 | 119,219                       
- src/components/modals         |     100 |       75 |     100 |     100 |                               
+  SingleSemesterPage.tsx       |   71.01 |    60.71 |   78.26 |   71.01 | 172,335-372                   
+ src/components/modals         |   73.91 |        0 |   84.61 |   73.91 |                               
   IntroPopup.tsx               |     100 |      100 |     100 |     100 |                               
-  MoveCoursePopup.tsx          |     100 |       75 |     100 |     100 | 70                            
+  MoveCoursePopup.tsx          |      50 |        0 |   66.66 |      50 | 64-73                         
   NewSemesterPopup.tsx         |     100 |      100 |     100 |     100 |                               
  src/data                      |     100 |      100 |     100 |     100 |                               
   concentrations.ts            |     100 |      100 |     100 |     100 |                               
@@ -568,8 +521,8 @@ All files                      |     100 |    90.81 |     100 |     100 |
   degreeRequirements.ts        |       0 |        0 |       0 |       0 |                               
   semester.ts                  |       0 |        0 |       0 |       0 |                               
 -------------------------------|---------|----------|---------|---------|-------------------------------
-Test Suites: 1 passed, 1 total
-Tests:       27 passed, 27 total
+Test Suites: 1 failed, 1 total
+Tests:       5 failed, 22 passed, 27 total
 Snapshots:   0 total
-Time:        9.406 s
+Time:        9.338 s
 Ran all test suites.
