@@ -130,8 +130,6 @@ export function SingleSemesterPage({
         });
     };
     const [validCode, setValidCode] = useState<boolean>(true); // must be 6-7 characters, with first 3-4 chars = letters, last 3 = numbers
-    // A state tracker to track when the "Add Course" button is disabled.
-    const [isClicked, setIsClicked] = useState<boolean>(false);
 
     /**
      * Adds a new course to the semester and updates the plan containing it accordingly.
@@ -331,8 +329,6 @@ export function SingleSemesterPage({
                 <Button
                     variant="success"
                     onClick={() => {
-                        // changing state of isClicked
-                        setIsClicked(true);
                         // see if this course is in another or this semester
                         let addCourse = true;
                         degreePlan.semesters.forEach((s: Semester) => {
@@ -372,10 +368,10 @@ export function SingleSemesterPage({
                             setValidCode(false);
                         }
                     }}
-                    className={`${isClicked ? "disabled" : "enabled"}`}
+                    className="positive"
                     disabled={!validCode}
                 >
-                    Add Course
+                    OK
                 </Button>
             </Form.Group>
             <p>
