@@ -66,3 +66,31 @@
     border-color: #0033ff;
     font-weight: bolder;
 }
+
+.enabled {
+    padding: 10px 20px;
+    border: 2px solid #1bc61bb9;
+    background-color: #1bc61bb9;
+    color: #000000b9;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+}
+
+.disabled {
+    padding: 10px 20px;
+    border: 2px solid #c61b1bb9;
+    background-color: #c61b1bb9;
+    color: #000000b9;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 50px;
+}
